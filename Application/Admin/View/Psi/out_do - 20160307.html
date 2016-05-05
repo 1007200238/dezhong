@@ -1,0 +1,285 @@
+<extend name="Public/base" />
+
+<block name="body">
+<style>
+	.columns-mod { width:460px; margin-top:20px; }
+	.columns-mod th { width:auto; }
+	.sys-info th, .sys-info td { padding:6px 0; line-height:18px; height:18px;}
+	.fb .fl { margin-left:30px; }
+	.fb span, .cf span { font-weight:bold; }
+	.fb p { line-height:38px; }
+</style>
+
+
+<form action="{:U('Psi/out_do')}" method="POST" id="list" class="form-horizontal">
+	<!-- 标题栏 -->
+	<div class="main-title">
+		<h2>创建出库单</h2>
+	</div>
+	<div class="cf">
+		<div class="fl">
+            <span>出库单号：</span>
+            <input name="no" type="text" class="text large" placeholder="请填写出库单号" value="{:C('SITE_OUT_NO')}"/>&nbsp;&nbsp;&nbsp;
+            <button class="btn confirm" href="javascript:void(0);" id="submit" type="submit" target-form="form-horizontal">提交出库</button>
+        </div>
+        <div class="fr">
+        	<span>业务员：</span>
+			<input name="info1" type="text" class="text input-small" value="{:C('SITE_OUT_INFO1')}"/>&nbsp;&nbsp;&nbsp;
+			<span>发货日期：</span>
+			<input name="date" type="text" class="text time" placeholder="请选择时间"/>&nbsp;&nbsp;&nbsp;
+			<span>单位：元&nbsp;&nbsp;&nbsp;</span>
+        </div>
+    </div>
+	    <!-- 数据列表 -->
+	    <div class="data-table table-striped">
+		<table class="">
+	    <thead>
+	        <tr>
+				<th width="14%">产品编码</th>
+				<th width="5%">OE码</th>
+				<th width="13%">产品名称</th>
+				<th>适用车型</th>
+				<th width="">库位号</th>
+				<th width="">库存</th>
+				<th width="">订购数量</th>
+				<th width="">单位</th>
+				<th width="">单价</th>
+				<th width="">合计</th>
+				<th width="10%">出货</th>
+				<th width="10%">箱号</th>
+			</tr>
+	    </thead>
+	    <tbody>	
+			<notempty name="_list">
+			<volist name="_list.goods" id="vo" key="i">
+				<notempty name="vo.code">
+				<tr>
+		            <td><a href="{:U('Psi/stock_info')}&id={$vo.id}">{$vo.code}</a></td>
+		            <td>{$vo.OE}</td>
+					<td>{$vo.name}</td>
+					<td>{$vo.standard}</td>
+					<td>{$vo.store_no}</td>
+					<td>{$vo.last}</td>
+					<td>{$vo.num}</td>
+					<td>{$vo.unit}</td>
+					<td>{$vo.sale_price}</td>
+					<td>{$vo.total_price}</td>
+					<td><input name="info[{$i}][num]" id="num_{$vo.OE}" type="text" class="text input-small" placeholder="本期出货" /></td>
+					<td><input name="info[{$i}][box_no]" type="text" class="text input-small" placeholder="填写箱号" /></td>
+					<input type="hidden" name="info[{$i}][sid]" value="{$vo.id}" /> 
+					<input type="hidden" name="info[{$i}][ware]" value="{$vo.last}" /> 
+					<input type="hidden" name="info[{$i}][num_i]" value="{$vo.num}" />
+					<input type="hidden" name="info[{$i}][code]" value="{$vo.code}" />
+					<!-- 扫描枪用意 -->
+					<input type="hidden" id="{$vo.OE}" value="0" />
+					<input type="hidden" id="limit_{$vo.OE}" value="{$vo.num}" />
+				</tr>
+				<?php $sum += $vo['num']; ?>
+				<?php $total += $vo['total_price']; ?>
+				</notempty>
+			</volist>
+			<tr>
+				<td colspan="6" style="font-weight:bold; text-align:center"> 合 计 </td>
+				<td>{$sum}</td>
+				<td>——</td>
+				<td>——</td>
+				<td>{$total}</td>
+				<td colspan="2">——</td>
+			</tr>
+			    <input type="hidden" name="customer" value="{$_list.uid}">
+				<input type="hidden" name="from_no" value="{$_list.order_id}" /> 
+				<input type="hidden" name="from_id" value="{$_list.id}" />
+				<input type="hidden" name="nums" value="0">
+			<else/>
+			<td colspan="9" class="text-center"> aOh! 暂时还没有内容! </td>
+			</notempty>
+		</tbody>
+	    </table>
+		</div>
+	    <div class="page">
+	        {$_page}
+	    </div>
+		<div class="fb">
+			<p>
+				<span>开票：</span>
+				<input name="info2" type="text" class="text input-small" value="{:C('SITE_OUT_INFO2')}" />&nbsp;&nbsp;&nbsp;
+				<span>主管：</span>
+				<input name="info3" type="text" class="text input-small" value="{:C('SITE_OUT_INFO3')}" />&nbsp;&nbsp;&nbsp;
+				<span>会计：</span>
+				<input name="info4" type="text" class="text input-small" value="{:C('SITE_OUT_INFO4')}" />&nbsp;&nbsp;&nbsp;
+				<span>审核：</span>
+				<input name="info5" type="text" class="text input-small" value="{:C('SITE_OUT_INFO5')}" />&nbsp;&nbsp;&nbsp;
+				<span>仓库人：</span>
+				<input name="info6" type="text" class="text input-small" value="{:C('SITE_OUT_INFO6')}" />&nbsp;&nbsp;&nbsp;
+				<span>物流：</span>
+				<input name="info7" type="text" class="text" value="{:C('SITE_OUT_INFO7')}" />&nbsp;&nbsp;&nbsp;
+			</p>
+			<p>
+				<span>出库备注：</span>
+				<input name="note" type="text" class="text input-large" />&nbsp;&nbsp;&nbsp;
+				<span>订单编号：</span>
+				{$_list.order_id}&nbsp;&nbsp;&nbsp;
+				<span>扫描位置：</span>
+				<input type="text" id="draw" class="text input" />
+			</p>
+			<div class="data-table table-striped" style="width:500px;">
+				<table class="">
+				    <thead>
+				        <tr>
+				        	<th>Id</th>
+							<th width="">包装品名称</th>
+							<th width="">成本价格</th>
+							<th width="">库存量</th>
+							<th width="">出货数</th>
+						</tr>
+				    </thead>
+				    <tbody>
+						<volist name="_ex_list" id="vo" key="i">
+							<tr>
+								<td>{$vo.id}</td>
+					            <td><a href="">{$vo.name}</a></td>
+					            <td>{$vo.price}</td>
+								<td>{$vo.num}</td>
+								<td><input type="text" class="text input-small" name="exstock[{$vo.id}]" value="0" /></td>
+							</tr>
+						</volist>
+					</tbody>
+			    </table>
+			</div>
+
+			<div class="fl">
+				<div class="columns-mod">
+			        <div class="hd cf">
+			            <h5>供方</h5>
+			            <div class="title-opt"></div>
+			        </div>
+       				<div class="bd" style="height:auto;"><div class="sys-info">
+            			<table><tbody>
+			                <tr>
+			                    <th>购货单位</th>
+			                    <td>{$_list.company}</td>
+			                </tr>
+			                <tr>
+			                    <th>联系人</th>
+			                    <td>{$_list.name}</td>
+			                </tr>
+			                <tr>
+			                    <th>电话</th>
+			                    <td>{$_list.tel}</td>
+			                </tr>
+			                <tr>
+			                    <th>地址</th>
+			                    <td>{$_list.address}</td>
+			                </tr>	
+            			</tbody></table>
+        			</div></div>
+    			</div>				
+			</div>
+			<div class="fl">
+				<div class="columns-mod">
+			        <div class="hd cf">
+			            <h5>需方</h5>
+			            <div class="title-opt"></div>
+			        </div>
+       				<div class="bd" style="height:auto;"><div class="sys-info">
+            			<table><tbody>
+			                <tr>
+			                    <th>单位名称</th>
+			                    <td><?php echo C('COMPANY_NAME') ?></td>
+			                </tr>
+			                <tr>
+			                    <th>单位地址</th>
+			                    <td><?php echo C('COMPANY_ADDRESS') ?></td>
+			                </tr>
+			                <tr>
+			                    <th>公司电话</th>
+			                    <td><?php echo C('COMPANY_PHONE') ?></td>
+			                </tr>
+			                <tr>
+			                    <th>公司传真</th>
+			                    <td><?php echo C('COMPANY_FAX') ?></td>
+			                </tr>	
+            			</tbody></table>
+        			</div></div>
+    			</div>	
+			</div>
+			<div style="clear:both"></div>
+
+
+		</div>
+
+	</form>
+</block>
+
+<block name="script">
+	<script type="text/javascript">
+		$(function(){
+		    $('.num').change(function() {
+		    	if ( $(this).val() < 0 ) { 
+					alert('数目不能小于等于零。'); 
+					$(this).val(0); 
+					return false; 
+				};
+		    	var sum = 0;
+		    	var i = 1;
+		    	$('.num').each(function() {
+		    		var last = $('#num_'+i).val();
+		    		if (parseInt($(this).val()) > parseInt(last)) { 
+		    			alert('数目不能大于合同剩余量。'); 
+		    			$(this).val(0); 
+		    		};
+		    		sum += parseInt($(this).val());	
+		    		i++;	    		
+		    	});
+		    	$('#sum_do').html(sum);
+		    });
+		});
+	</script>
+
+	<link href="__STATIC__/datetimepicker/css/datetimepicker.css" rel="stylesheet" type="text/css">
+    <php>if(C('COLOR_STYLE')=='blue_color') echo '<link href="__STATIC__/datetimepicker/css/datetimepicker_blue.css" rel="stylesheet" type="text/css">';</php>
+    <link href="__STATIC__/datetimepicker/css/dropdown.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="__STATIC__/datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="__STATIC__/datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+    <script type="text/javascript">
+    $(function(){
+    	$('#draw').focus();
+
+        $('.time').datetimepicker({
+            format: 'yyyy-mm-dd',
+            language:"zh-CN",
+            minView:2,
+            autoclose:true
+        });
+        showTab();
+
+        $('#draw').bind('keypress',function(){      	
+        	var oe  = $(this).val();
+        	var num = parseInt($('#'+oe).val());
+        	num += 1;
+        	var limit = $('#limit_'+oe).val();
+        	if (num > limit) { 
+        		alert('出货量已经超出订购数量。');
+        		return false; 
+        	}
+        	$('#'+oe).attr('value',num);
+        	$('#num_'+oe).attr('value',num);
+        	return false;
+        });
+
+        $('#apply').click(function() {
+            $('#list').submit();
+        });  
+
+    });
+    </script>
+
+	<script type="text/javascript">
+	    //导航高亮
+	    highlight_subnav('{:U('Psi/out_order')}');
+	</script>
+
+</block>
+
+
+

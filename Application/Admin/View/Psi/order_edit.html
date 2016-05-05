@@ -1,0 +1,187 @@
+<extend name="Public/base" />
+
+<block name="body">
+<style>
+	.columns-mod { width:460px; }
+	.columns-mod th { width:auto; }
+	.sys-info th, .sys-info td { padding:6px 0; line-height:18px; height:18px;}
+	.fb .fl { margin-left:30px; }
+	span { text-align:center; font-weight:bold; }
+</style>
+
+	<!-- 标题栏 -->
+	<div class="main-title"> <h2>订购单编辑</h2></div>
+	<form action="{:U('Psi/order_edit')}" method="POST" class="form-horizontal">
+	<div class="cf">
+		<div class="fl">
+			<button class="btn confirm ajax-post" href="javascript:void(0);" id="submit" type="submit" target-form="form-horizontal">编辑计划单</button>
+			<span>订单编号：</span>
+            {$info.order_id}&nbsp;&nbsp;&nbsp;
+            <span>订单状态：</span>
+			{$info.status|get_status_type=###,"order"}&nbsp;&nbsp;&nbsp;
+        </div>
+        <div class="fr">
+            <span>创建日期：</span>
+            {$info.date|date='Y-m-d H:i',###}&nbsp;&nbsp;&nbsp;
+        </div>
+    </div>
+	    <!-- 数据列表 -->
+    <div class="data-table table-striped">
+		<table class="">
+	    <thead>
+	        <tr>
+	        	<th class="" width="5%">序号</th>
+	        	<th class="">产品名称</th>
+				<th class="">产品编码</th>
+				<th class="">OE号</th>				
+				<th class="">适用车型</th>
+				<th class="">单价</th>
+				<th class="">库存</th>
+				<th class="">订购量</th>
+				<th class="">金额(元)</th>
+			</tr>
+	    </thead>
+	    <tbody>
+			<notempty name="info.goods">
+			<volist name="info.goods" id="vo" key="i">
+				<notempty name="vo.code">
+				<tr>
+					<td>{$i}</td>
+					<td>{$vo.name}</td>
+		            <td>{$vo.code}</td>
+		            <td>{$vo.OE}</td>
+					<td>{$vo.standard}</td>
+					<td>{$vo.sale_price_off}</td>
+					<td>{$vo.last}</td>
+					<td><input type="text" style="width:65px" name="goods[{$vo.id}]" value="{$vo.num}" id="num_{$i}" class="num" onchange="getval({$i},1);"></td>
+					<td id="total_{$i}"><?php echo $vo['sale_price_off']*$vo['num']; ?></td>
+					<input type="hidden" id="price_{$i}" value="{$vo.sale_price_off}" />
+					<?php $sum += $vo['sale_price_off']*$vo['num']; ?>
+				</tr>
+				</notempty>
+			</volist>
+			<tr>
+				<td colspan="5" class="text-center"><span> 合  计 </span></td>
+				<td> —— </td>
+				<td> —— </td>
+				<td> —— </td>
+				<td id="all_price">{$sum}</td>
+			</tr>
+			<tr>
+				<td colspan="2" class="text-center"><span> 合同备注 </span></td>
+				<td colspan="7"><input type="text" name="note" class="text input-large" value="{$info.note}"></td>
+			</tr>
+			<else/>
+			<td colspan="9" class="text-center"> aOh! 暂时还没有内容! </td>
+			</notempty>
+			<input type="hidden" name="id" value="{:I('get.id')}" />
+		</tbody>
+	    </table>
+		</div>
+	    <div class="page">
+	        {$_page}
+	    </div>
+		<div class="fb">
+			<div class="fl">
+				<div class="columns-mod">
+			        <div class="hd cf">
+			            <h5>客户</h5>
+			            <div class="title-opt"></div>
+			        </div>
+       				<div class="bd" style="height:auto;"><div class="sys-info">
+            			<table><tbody>
+            				<tr>
+			                    <th>订购账号</th>
+			                    <td>{$info.username}</td>
+			                </tr>
+			                <tr>
+			                    <th>客户名称</th>
+			                    <td><input type="text" class="text input" name="company" value="{$info.company}"></td>
+			                </tr> 
+			                <tr>
+			                    <th>联系人</th>
+			                    <td><input type="text" class="text input" name="name"  value="{$info.name}"></td>
+			                </tr>
+			                <tr>
+			                    <th>联系电话</th>
+			                    <td><input type="text" class="text input" name="tel"  value="{$info.tel}"></td>
+			                </tr>
+			                <tr>
+			                    <th>收货地址</th>
+			                    <td><input type="text" class="text input" name="address"  value="{$info.address}"></td>
+			                </tr>	
+            			</tbody></table>
+        			</div></div>
+    			</div>				
+			</div>
+			<div class="fl">
+				<div class="columns-mod">
+			        <div class="hd cf">
+			            <h5>商户</h5>
+			            <div class="title-opt"></div>
+			        </div>
+       				<div class="bd" style="height:auto;"><div class="sys-info">
+            			<table><tbody>
+			                <tr>
+			                    <th>单位名称（章）</th>
+			                    <td><?php echo C('COMPANY_NAME') ?></td>
+			                </tr>
+			                <tr>
+			                    <th>单位地址</th>
+			                    <td><?php echo C('COMPANY_ADDRESS') ?></td>
+			                </tr>
+			                <tr>
+			                    <th>法定代表人</th>
+			                    <td><?php echo C('COMPANY_PERSON') ?></td>
+			                </tr>
+			                <tr>
+			                    <th>委托代理人</th>
+			                    <td><?php echo C('COMPANY_CONSIGNER') ?></td>
+			                </tr>
+			                <tr>
+			                    <th>公司电话</th>
+			                    <td><?php echo C('COMPANY_PHONE') ?></td>
+			                </tr>
+			                <tr>
+			                    <th>公司传真</th>
+			                    <td><?php echo C('COMPANY_FAX') ?></td>
+			                </tr>	
+            			</tbody></table>
+        			</div></div>
+    			</div>	
+			</div>
+			<div style="clear:both"></div>
+		</div>
+	</form>
+</block>
+
+
+<block name="script">
+	<script type="text/javascript">
+		function getval(i,type){
+			if (type == 1) {
+			   	var n = $('#num_'+i).val();
+			   	if ( n <= 0 ) {
+					alert('数目不能小于等于零。');
+					$('#num_'+i).val(1);
+					return false;
+			   	};
+				var p = $('#price_'+i).val();
+				var t = n * p;
+				$('#total_'+i).html(t);
+			};
+			var total = 0;
+			for (var i = $(".num").length; i > 0; i--) {
+				total += parseInt($('#total_'+ i ).text());
+			};
+			$('#all_price').html(total);
+		}
+
+	    //导航高亮
+	    highlight_subnav('{:U('Psi/order')}');
+	</script>
+</block>
+
+
+
+

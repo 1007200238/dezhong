@@ -1,0 +1,124 @@
+<extend name="Public/base" />
+
+<block name="body">
+	<!-- 标题栏 -->
+	<div class="main-title">
+		<h2>确认订单</h2>
+	</div>
+	<div class="cf">
+		<div class="fl">
+            <a class="btn" href="{:U('Psi/stock')}">继续添加</a>
+            <button class="btn ajax-post confirm" url="" target-form="ids">删 除</button>
+        </div>
+    </div>
+    <!-- 数据列表 -->
+    <div class="data-table table-striped">
+	<table class="">
+    <thead>
+        <tr>
+		<th class="row-selected row-selected"><input class="check-all" type="checkbox"/></th>
+		<th class="" width="20%">产品编号</th>
+		<th class="" width="20%">产品名称</th>
+		<th class="" width="15%">价 格（元）</th>
+		<th class="" width="15%">数 量</th>
+		<th class="" width="15%">总 价（元）</th>
+		<th class="">操 作</th>
+		</tr>
+    </thead>
+    <tbody>
+    	<form action="{:U()}" method="post" class="form-horizontal">
+		<notempty name="_list">
+		<volist name="_list" id="vo" key="i">
+		<tr>
+            <td><input class="ids" type="checkbox" name="id[]" value="{$vo.id}" /></td>
+			<td>{$vo.code}</td>
+			<td>{$vo.name}</td>
+			<td>{$vo.sale_price_off}</td>
+			<td><input id="num_{$i}" name="goods[{$vo.id}]" type="number" value="1" class="num" style="width:50px" onchange="getval({$i},1);"></td>
+			<td><span id="total_{$i}">{$vo.sale_price_off}</span></td>
+			<td><a class="confirm ajax-get" href="{:U('Psi/cart')}&id={$vo.id}">删除</a></td>
+			<input type="hidden" id="price_{$i}" value="{$vo.sale_price_off}" />
+			<?php $sum += 1; ?>
+			<?php $total += $vo['sale_price_off']; ?>
+		</tr>
+		</volist>
+		<tr>
+			<td colspan="4" style="text-align:center; font-weight:bold;"> 合  计 </td>
+			<td><span id="all_num">{$sum}</span></td>
+			<td><span id="all_price">{$total}</span></td>
+			<td> —— </td>
+		</tr>
+		<else/>
+		<td colspan="9" class="text-center"> aOh! 暂时还没有内容! </td>
+		</notempty>
+	</tbody>
+    </table>
+	</div>
+    <div class="page">
+        {$_page}
+    </div>
+	<style>
+		.order_info { margin:10px 0 10px 0; width:500px; }
+		.order_info tr td { line-height:36px; }
+		#order_company,#order_name,#order_tel,#order_add,#order_note { height:28px; }
+		#order_add,#order_note { width:400px;}
+	</style>
+
+    <div class="sure_area">
+    	<p>友情提示：页面显示价格仅作参考，实际以线下交易价格为准。</p>
+    	<div style="margin-top:20px">
+    		<table class="order_info">
+    			<tr>
+    				<td width="20%">购货单位</td><td><input type="text" class="text" name="company" placeholder="请输入公司名称" id="order_company" value="{$_auth.company}" ></td>
+    			</tr>
+    			<tr>
+    				<td width="20%">联系人</td><td><input type="text" class="text" name="name" placeholder="请输入联系人姓名" id="order_name" value="{$_auth.truename}" ></td>
+    			</tr>
+    			<tr>
+    				<td>联系人电话</td><td><input type="text" name="tel" class="text" placeholder="请输入联系人电话" id="order_tel" value="{$_auth.mobile}"></td>
+    			</tr>
+    			<tr>
+    				<td>收货地址</td><td><input type="text" name="address" class="text" placeholder="请输入收货详细地址以及邮编" id="order_add" value="{$_auth.address}"></td>
+    			</tr>
+    			<tr>
+    				<td>备注</td><td><input type="text" name="note" class="text" placeholder="请输入简短的订单备注" id="order_note"></td>
+    			</tr>
+    		</table>
+    		<button class="btn ajax-post" id="submit" type="submit" target-form="form-horizontal">提交订单</button>
+    	</div>
+    </div>
+    </form>
+</block>
+
+<block name="script">
+	<script src="__STATIC__/thinkbox/jquery.thinkbox.js"></script>
+
+	<script type="text/javascript">
+	
+	function getval(i,type){
+		if (type == 1) {
+			var n = $('#num_'+i).val();
+			if ( n <= 0 ) { 
+				alert('数目不能小于等于零。'); 
+				$('#num_'+i).val(1); 
+				return false; 
+			};
+			var p = $('#price_'+i).val();
+			var t = n * p;
+			$('#total_'+i).html(t);
+		};
+		var sum = 0;
+		var total = 0;
+		for (var i = $(".num").length; i > 0; i--) {
+			sum   += parseInt($('#num_'+ i ).val());
+			total += parseInt($('#total_'+ i ).text());
+		};
+		$('#all_num').html(sum);
+		$('#all_price').html(total);
+	}
+
+
+    //导航高亮
+    highlight_subnav('{:U('User/index')}');
+	</script>
+</block>

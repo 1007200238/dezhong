@@ -1,0 +1,101 @@
+<extend name="Public/base"/>
+
+<block name="body">
+    <style>
+        .controls tr td { text-align:center; }
+
+    </style>
+    <div class="main-title">
+        <h2>添加流程</h2>
+    </div>
+    <form action="{:U()}" method="post" class="form-horizontal">
+        <div class="form-item">
+            <label class="item-label">流程追踪<span class="check-tips"></span></label>
+            <div class="controls">
+                <table>
+                    <notempty name="_list">
+                        <tr>   
+                            <th width="20%">时间日期</th>
+                            <th width="15%">状态</th>
+                            <th width="15%">操作人员</th>
+                            <th width="50%">操作事项</th>
+                        </tr>
+                    <volist name="_list" id="vo"> 
+                        
+                        <tr>
+                            <td>{$vo.date}</td>
+                            <td>{$vo.status|get_status_type=###,"order"}</td>
+                            <td>{$vo.username}</td>
+                            <td>{$vo.process}</td>
+                        </tr>
+                    </volist>
+                    <else/>
+                        <td colspan="3" class="text-center"> aOh! 暂时还没有内容! </td>
+                    </notempty>
+                </table>
+            </div>
+        </div>         
+    
+        <div class="form-item">
+            <label class="item-label">订单状态<span class="check-tips"></span></label>
+            <div class="controls">
+                <select name="status" id="status">
+                    <option value="">选择状态</option>
+                    <volist name="_status.list" id="va" key="k">
+                        <option value="{$k}" <?php if($k==$_status['now']){ ?>selected<?php } ?> >{$va}</option>
+                    </volist>   
+                </select>
+            </div>
+        </div>        
+        <div class="form-item">
+            <label class="item-label">时间节点</label>
+            <input type="text" id="time-start" name="date" class="text input-2x" value="" placeholder="留空则以当前时间为准" style="width:200px" />
+        </div>
+        <div class="form-item">  
+            <label class="item-label">流程内容<span class="check-tips">（例：产品已经发货）</span></label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="process" value="">
+            </div>
+        </div>
+        <input type="hidden" name="oid" value="{$_id}">
+        <div class="form-item">
+            <button class="btn submit-btn ajax-post" id="submit" type="submit" target-form="form-horizontal">确 定</button>
+            <button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
+            <input type="submit">
+        </div>
+    </form>
+</block>
+
+<block name="script">
+<link href="__STATIC__/datetimepicker/css/datetimepicker.css" rel="stylesheet" type="text/css">
+<php>if(C('COLOR_STYLE')=='blue_color') echo '<link href="__STATIC__/datetimepicker/css/datetimepicker_blue.css" rel="stylesheet" type="text/css">';</php>
+<link href="__STATIC__/datetimepicker/css/dropdown.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="__STATIC__/datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script type="text/javascript" src="__STATIC__/datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+<script type="text/javascript">
+$(function(){
+
+    $('#time-start').datetimepicker({
+        format: 'yyyy-mm-dd',
+        language:"zh-CN",
+        minView:2,
+        autoclose:true
+    });
+
+    $('#datetimepicker').datetimepicker({
+       format: 'yyyy-mm-dd',
+        language:"zh-CN",
+        minView:2,
+        autoclose:true,
+        pickerPosition:'bottom-left'
+    })
+    
+})
+</script>
+
+    <script type="text/javascript">
+        //导航高亮
+        highlight_subnav('{:U('Psi/order')}');
+    </script>
+
+</block>

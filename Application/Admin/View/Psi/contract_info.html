@@ -1,0 +1,184 @@
+<extend name="Public/base" />
+
+<block name="body">
+<style>
+	.columns-mod { width:460px; }
+	.columns-mod th { width:auto; }
+	.sys-info th, .sys-info td { padding:6px 0; line-height:18px; height:18px;}
+	.fb .fl { margin-left:30px; }
+
+</style>
+
+	<!-- 标题栏 -->
+	<div class="main-title"> <h2>采购合同单详情</h2></div>
+	<div class="cf">
+		<div class="fl">
+			<a class="btn" href="{:U('Psi/contract_info')}&id={:I('get.id')}&print=1" target="_blank" >打印单据</a>
+			<a href="{:U('Psi/contract_info')}&id={:I('get.id')}&export=1" class="btn">导出Excel</a>
+			<span style="font-weight:bold;">合同编号：</span>
+            {$_list.no}&nbsp;&nbsp;&nbsp;
+            <span style="font-weight:bold;">合同状态：</span>
+			{$_list.status|get_status_type=###,"contract"}&nbsp;&nbsp;&nbsp;
+        </div>
+        <div class="fr">
+            <span style="font-weight:bold;">采购日期：</span>
+            {$_list.pch_date|date='Y-m-d H:i',###}&nbsp;&nbsp;&nbsp;
+            <span style="font-weight:bold;">交货日期：</span>
+            {$_list.dev_date|date='Y-m-d H:i',###}&nbsp;&nbsp;&nbsp;
+        </div>
+    </div>
+	    <!-- 数据列表 -->
+    <div class="data-table table-striped">
+		<table class="">
+	    <thead>
+	        <tr>
+	        	<th class="">产品名称</th>
+				<th class="">产品编码</th>
+				<th class="">OE号</th>
+				<th class="">供应商产品编号</th>
+				
+				<th class="">适用车型</th>
+				<th class="">含税单价</th>
+				<th class="">不含税单价</th>
+				<th class="">数量</th>
+				<th class="">金额(含税)</th>
+				<th class="">金额(不含税)</th>
+			</tr>
+	    </thead>
+	    <tbody>
+			<notempty name="_list">
+			<volist name="_list.info" id="vo" key="i">
+				<notempty name="vo.code">
+				<tr>
+					<td><a href="{:U('Psi/stock_info')}&id={$vo.id}">{$vo.name}</a></td>
+		            <td>{$vo.code}</td>
+		            <td>{$vo.OE}</td>
+					<td>{$vo.supplier_no}</td>
+					<td>{$vo.standard}</td>
+					<td>{$vo.purch_price}</td>
+					<td>{$vo.purch_price_off}</td>
+					<td>{$vo.num}</td>
+					<td><?php echo $t2 = $vo['num']*$vo['purch_price']; ?></td>
+					<td>{$vo.total}</td>
+				</tr>
+				</notempty>
+				<?php $total2 += $t2; ?>
+			</volist>
+			<tr>
+				<td colspan="5" style="text-align:center; font-weight:bold;"> 合  计 </td>
+				<td> —— </td>
+				<td> —— </td>
+				<td>{$_list.num}</td>
+				<td>{$total2}</td>
+				<td>{$_list.total}</td>
+			</tr>
+			<tr>
+				<td style="text-align:center; font-weight:bold;"> 合同备注 </td>
+				<td colspan="9">{$_list.note}</td>
+			</tr>
+			<else/>
+			<td colspan="9" class="text-center"> aOh! 暂时还没有内容! </td>
+			</notempty>
+		</tbody>
+	    </table>
+		</div>
+	    <div class="page">
+	        {$_page}
+	    </div>
+		<div class="fb">
+			<div class="fl">
+				<div class="columns-mod">
+			        <div class="hd cf">
+			            <h5>供方</h5>
+			            <div class="title-opt"></div>
+			        </div>
+       				<div class="bd" style="height:auto;"><div class="sys-info">
+            			<table><tbody>
+			                <tr>
+			                    <th>单位名称（章）</th>
+			                    <td>{$_list.supplier.company}</td>
+			                </tr>
+			                <tr>
+			                    <th>单位地址</th>
+			                    <td>{$_list.supplier.address}</td>
+			                </tr>
+			                <tr>
+			                    <th>法定代表人</th>
+			                    <td>{$_list.supplier.name}</td>
+			                </tr>
+			                <tr>
+			                    <th>委托代理人</th>
+			                    <td>{$_list.supplier.consigner}</td>
+			                </tr>
+			                <tr>
+			                    <th>电话</th>
+			                    <td>{$_list.supplier.mobile}</td>
+			                </tr>
+			                <tr>
+			                    <th>传真</th>
+			                    <td>{$_list.supplier.fax}</td>
+			                </tr>
+			                <tr>
+			                    <th>开户银行</th>
+			                    <td>{$_list.supplier.bank}</td>
+			                </tr>
+			                <tr>
+			                    <th>账号</th>
+			                    <td>{$_list.supplier.account}</td>
+			                </tr>	
+            			</tbody></table>
+        			</div></div>
+    			</div>				
+			</div>
+			<div class="fl">
+				<div class="columns-mod">
+			        <div class="hd cf">
+			            <h5>需方</h5>
+			            <div class="title-opt"></div>
+			        </div>
+       				<div class="bd" style="height:auto;"><div class="sys-info">
+            			<table><tbody>
+			                <tr>
+			                    <th>单位名称（章）</th>
+			                    <td><?php echo C('COMPANY_NAME') ?></td>
+			                </tr>
+			                <tr>
+			                    <th>单位地址</th>
+			                    <td><?php echo C('COMPANY_ADDRESS') ?></td>
+			                </tr>
+			                <tr>
+			                    <th>法定代表人</th>
+			                    <td><?php echo C('COMPANY_PERSON') ?></td>
+			                </tr>
+			                <tr>
+			                    <th>委托代理人</th>
+			                    <td><?php echo C('COMPANY_CONSIGNER') ?></td>
+			                </tr>
+			                <tr>
+			                    <th>公司电话</th>
+			                    <td><?php echo C('COMPANY_PHONE') ?></td>
+			                </tr>
+			                <tr>
+			                    <th>公司传真</th>
+			                    <td><?php echo C('COMPANY_FAX') ?></td>
+			                </tr>	
+            			</tbody></table>
+        			</div></div>
+    			</div>	
+			</div>
+			<div style="clear:both"></div>
+		</div>
+
+</block>
+
+
+<block name="script">
+	<script type="text/javascript">
+	    //导航高亮
+	    highlight_subnav('{:U('Psi/contract_list')}');
+	</script>
+</block>
+
+
+
+

@@ -1,0 +1,186 @@
+<extend name="Public/base" />
+
+<block name="body">
+<style>
+	.columns-mod { width:460px; }
+	.columns-mod th { width:auto; }
+	.sys-info th, .sys-info td { padding:6px 0; line-height:18px; height:18px;}
+	.fb .fl { margin-left:30px; }
+	span { text-align:center; font-weight:bold; }
+</style>
+
+	<!-- 标题栏 -->
+	<div class="main-title"> <h2>订购单详情</h2></div>
+	<div class="cf">
+		<div class="fl">
+			<a class="btn" href="{:U('Psi/order_info')}&id={:I('get.id')}&print=1" target="_blank" >打印单据</a>
+			<span>订单编号：</span>
+            {$info.order_id}&nbsp;&nbsp;&nbsp;
+            <span>订单状态：</span>
+			{$info.status|get_status_type=###,"order"}&nbsp;&nbsp;&nbsp;
+        </div>
+        <div class="fr">
+            <span>创建日期：</span>
+            {$info.date|date='Y-m-d H:i',###}&nbsp;&nbsp;&nbsp;
+        </div>
+    </div>
+	    <!-- 数据列表 -->
+    <div class="data-table table-striped">
+		<table class="">
+	    <thead>
+	        <tr>
+	        	<th class="" width="5%">序号</th>
+	        	<th class="">产品名称</th>
+				<th class="">产品编码</th>
+				<th class="">OE号</th>	
+				<th class="">库位号</th>			
+				<th class="">适用车型</th>
+				<th class="">单价</th>
+				<th class="">库存</th>
+				<th class="">订购量</th>
+				<th class="">金额（元）</th>
+			</tr>
+	    </thead>
+	    <tbody>
+			<notempty name="info.goods">
+			<volist name="info.goods" id="vo" key="i">
+				<notempty name="vo.code">
+				<tr>
+					<td>{$i}</td>
+					<td>{$vo.name}</td>
+		            <td>{$vo.code}</td>
+		            <td>{$vo.OE}</td>
+		            <td>{$vo.store_no}</td>
+					<td>{$vo.standard}</td>
+					<td>{$vo.sale_price_off}</td>
+					<td>{$vo.last}</td>
+					<td>{$vo.num}</td>
+					<td><?php echo $vo['sale_price_off']*$vo['num']; ?></td>
+					<?php $sum += $vo['sale_price_off']*$vo['num']; ?>
+				</tr>
+				</notempty>
+			</volist>
+			<tr>
+				<td colspan="5" class="text-center"><span> 合  计 </span></td>
+				<td> —— </td>
+				<td> —— </td>
+				<td> —— </td>
+				<td> —— </td>
+				<td>{$sum}</td>
+			</tr>
+			<tr>
+				<td colspan="2" class="text-center"><span>流程追踪</span></td>
+				<td colspan="7">
+					<notempty name="info.process">
+					<volist name="info.process" id="va">
+						<div style="line-height:32px">
+							<div style="float:left; margin-right:12px">{$va.date}</div>
+							<div style="float:left; margin-right:12px">{$va.status|get_status_type=###,"order"}</div>
+							<div style="float:left; margin-right:12px">{$va.username}</div>
+							<div style="float:left">{$va.process}</div>
+							<div style="clear:both"></div>
+						</div>
+					</volist>
+					<else/>
+					 暂时还没有流程信息! 
+					</notempty>	
+				</td>
+
+			</tr>
+			<tr>
+				<td colspan="2" class="text-center"><span> 合同备注 </span></td>
+				<td colspan="7">{$info.note}</td>
+			</tr>
+			<else/>
+			<td colspan="9" class="text-center"> aOh! 暂时还没有内容! </td>
+			</notempty>
+		</tbody>
+	    </table>
+		</div>
+	    <div class="page">
+	        {$_page}
+	    </div>
+		<div class="fb">
+			<div class="fl">
+				<div class="columns-mod">
+			        <div class="hd cf">
+			            <h5>客户信息</h5>
+			            <div class="title-opt"></div>
+			        </div>
+       				<div class="bd" style="height:auto;"><div class="sys-info">
+            			<table><tbody>
+			                <tr>
+			                    <th>客户名称</th>
+			                    <td>{$info.company}</td>
+			                </tr>
+			                <tr>
+			                    <th>订购账号</th>
+			                    <td>{$info.username}</td>
+			                </tr>
+			                <tr>
+			                    <th>联系人</th>
+			                    <td>{$info.name}</td>
+			                </tr>
+			                <tr>
+			                    <th>联系电话</th>
+			                    <td>{$info.tel}</td>
+			                </tr>
+			                <tr>
+			                    <th>收货地址</th>
+			                    <td>{$info.address}</td>
+			                </tr>	
+            			</tbody></table>
+        			</div></div>
+    			</div>				
+			</div>
+			<div class="fl">
+				<div class="columns-mod">
+			        <div class="hd cf">
+			            <h5>商户信息</h5>
+			            <div class="title-opt"></div>
+			        </div>
+       				<div class="bd" style="height:auto;"><div class="sys-info">
+            			<table><tbody>
+			                <tr>
+			                    <th>单位名称（章）</th>
+			                    <td><?php echo C('COMPANY_NAME') ?></td>
+			                </tr>
+			                <tr>
+			                    <th>单位地址</th>
+			                    <td><?php echo C('COMPANY_ADDRESS') ?></td>
+			                </tr>
+			                <tr>
+			                    <th>法定代表人</th>
+			                    <td><?php echo C('COMPANY_PERSON') ?></td>
+			                </tr>
+			                <tr>
+			                    <th>委托代理人</th>
+			                    <td><?php echo C('COMPANY_CONSIGNER') ?></td>
+			                </tr>
+			                <tr>
+			                    <th>公司电话</th>
+			                    <td><?php echo C('COMPANY_PHONE') ?></td>
+			                </tr>
+			                <tr>
+			                    <th>公司传真</th>
+			                    <td><?php echo C('COMPANY_FAX') ?></td>
+			                </tr>	
+            			</tbody></table>
+        			</div></div>
+    			</div>	
+			</div>
+			<div style="clear:both"></div>
+		</div>
+</block>
+
+
+<block name="script">
+	<script type="text/javascript">
+	    //导航高亮
+	    highlight_subnav('{:U('Psi/order')}');
+	</script>
+</block>
+
+
+
+

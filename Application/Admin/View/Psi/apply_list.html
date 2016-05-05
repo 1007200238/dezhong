@@ -1,0 +1,70 @@
+<extend name="Public/base" />
+
+<block name="body">
+<form action="{:U('Psi/apply_del')}" method="POST" id="list" class="form-horizontal">
+	<!-- 标题栏 -->
+	<div class="main-title">
+		<h2>采购计划单列表</h2>
+	</div>
+	<div class="cf">
+		<div class="fl">
+            <button class="btn confirm ajax-post" url="{:U('Psi/apply_del')}" target-form="ids">批量删除</button>
+        </div>
+    </div>
+	    <!-- 数据列表 -->
+	    <div class="data-table table-striped">
+		<table class="">
+	    <thead>
+	        <tr>
+				<th class="row-selected row-selected"><input class="check-all" type="checkbox"/></th>
+				<th class="">计划单编号</th>
+				<th class="">申购部门</th>
+				<th class="">申购（人）</th>
+				<th class="">采购（人）</th>
+				<th class="">审核</th>
+				<th class="">申请时间</th>
+				<th class="">操作</th>
+			</tr>
+	    </thead>
+	    <tbody>
+			<notempty name="_list">
+			<volist name="_list" id="vo" key="i">
+			<tr>
+	            <td><input class="ids" type="checkbox" name="id[]" value="{$vo.id}" /></td>
+	            <td><a href="{:U('Psi/apply_info')}&id={$vo.id}">{$vo.no}</a></td>
+				<td>{$vo.department}</td>
+				<td>{$vo.dpt_man}<empty name="vo.dpt_man">暂无</empty></td>
+				<td>{$vo.pch_man}<empty name="vo.pch_man">暂无</empty></td>
+				<td>{$vo.ver_man}<empty name="vo.ver_man">暂无</empty></td>
+				<td>{$vo.date|date="Y-m-d H:i",###}</td>
+				<td>
+					<a href="{:U('Psi/apply_info')}&id={$vo.id}">详情</a> | 
+					<a href="{:U('Psi/apply_edit')}&id={$vo.id}">编辑</a>
+					<?php if($vo['status']==1) { ?> | 
+						<a href="{:U('Psi/apply_del')}&id={$vo.id}" class="confirm ajax-get">删除</a> | 
+						<a href="{:U('Psi/contract')}&id={$vo.id}">创建合同</a> 
+					<?php } ?>
+				</td>
+			</tr>
+			</volist>
+			<else/>
+			<td colspan="9" class="text-center"> aOh! 暂时还没有内容! </td>
+			</notempty>
+		</tbody>
+	    </table>
+		</div>
+	    <div class="page">
+	        {$_page}
+	    </div>
+    	<div class="fb">
+			<span style="color:#aaa">友情提示：采购申请单在生成采购合同之后，请勿在尝试编辑修改单据数据！</span>
+		</div> 
+	</form>    
+</block>
+
+<block name="script">
+
+</block>
+
+
+

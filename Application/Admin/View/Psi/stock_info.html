@@ -1,0 +1,127 @@
+<extend name="Public/base"/>
+
+<block name="body">
+    <style>
+        .img_box { width:260px; height:230px; float:left; margin-right:3px; border:1px solid #999;}
+
+    </style>
+
+
+    <div class="main-title">
+        <h2>订单详细</h2>
+    </div>
+
+    <div class="columns-mod">
+        <div class="hd cf">
+            <h5>产品编码：{$info.code}</h5>
+            <div class="title-opt"></div>
+        </div>
+        <div class="bd" style="height:auto;"><div class="sys-info">
+            <table><tbody>
+                <tr>
+                    <th>产品编码</th>
+                    <td>{$info.code}</td>
+                </tr>
+                <tr>
+                    <th>产品名称</th>
+                    <td>{$info.name}</td>
+                </tr>
+                <tr>
+                    <th>OE码</th>
+                    <td>{$info.OE}</td>
+                </tr>
+                <tr>
+                    <th>单位</th>
+                    <td>{$info.unit}</td>
+                </tr>
+                <tr>
+                    <th>产品规格<span class="check-tips">（适用）</span></th>
+                    <td>{$info.standard}</td>
+                </tr>
+                <tr>
+                    <th>产品分类</th>
+                    <td>{$info.category}</td>
+                </tr>
+            <?php if (session('user_auth.group_id') != C('JOIN_GROUP')){ ?>
+                <tr>
+                    <th>库位号</th>
+                    <td>{$info.store_no}</td>
+                </tr>
+                <tr>
+                    <th>供应商</th>
+                    <td>{$info.supplier}</td>
+                </tr>
+                <tr>
+                    <th>供应商产品编码</th>
+                    <td>{$info.supplier_no}</td>
+                </tr>
+                <tr>
+                    <th>进货价格（含税 元）</th>
+                    <td>{$info.purch_price}</td>
+                </tr>
+                <tr>
+                    <th>进货价格（不含税 元）</th>
+                    <td>{$info.purch_price_off}</td>
+                </tr>
+            <?php } ?>
+                <tr>
+                    <th>销售价格（含税 元）</th>
+                    <td>{$info.sale_price}</td>
+                </tr>
+                <tr>
+                    <th>销售价格（不含税 元）</th>
+                    <td>{$info.sale_price_off}</td>
+                </tr>
+                <tr>
+                    <th>质保时间</th>
+                    <td>{$info.warranty}</td>
+                </tr>
+            <?php if (session('user_auth.group_id') != C('JOIN_GROUP')){ ?>
+                <tr>
+                    <th>彩袋尺寸</th>
+                    <td>{$info.bag_size}</td>
+                </tr>
+                <tr>
+                    <th>彩盒尺寸</th>
+                    <td>{$info.box_size}</td>
+                </tr>
+                <tr>
+                    <th>彩袋价格</th>
+                    <td>{$info.bag_price}</td>
+                </tr>
+                <tr>
+                    <th>彩盒价格</th>
+                    <td>{$info.box_price}</td>
+                </tr> 
+            <?php } ?>      
+                <tr>
+                    <th>产品图片</th>
+                    <td>
+                        <volist name="info.thumb" id="vo" key="j">
+                            <div class="img_box">
+                                <a href="{$vo}" target="_blank"><img width="100%" height="100%" src="{$vo}"></a>
+                            </div>           
+                        </volist>     
+                    </td>
+                </tr>
+                <tr>
+                    <th>备注1</th>
+                    <td>{$info.note}</td>
+                </tr>
+                <tr>
+                    <th>备注2</th>
+                    <td>{$info.note_2}</td>
+                </tr>
+            </tbody></table>
+        </div></div>
+        <button style="margin:5px 0 20px 20px;" class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
+    </div>
+
+</block>
+
+<block name="script">
+    <script type="text/javascript">
+        //导航高亮
+        highlight_subnav('{:U('Psi/stock')}');
+    </script>
+</block>

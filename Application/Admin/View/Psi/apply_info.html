@@ -1,0 +1,76 @@
+<extend name="Public/base" />
+
+<block name="body">
+	<!-- 标题栏 -->
+	<div class="main-title"> <h2>采购计划单详情</h2></div>
+	<div class="cf">
+		<div class="fl">
+			<a class="btn" href="{:U('Psi/apply_info')}&id={:I('get.id')}&print=1" target="_blank" >打印单据</a>
+			<span style="font-weight:bold;">申购部门：</span>
+            {$_list.department}&nbsp;&nbsp;&nbsp;
+            <span style="font-weight:bold;">申购单编号：</span>
+            {$_list.no}&nbsp;&nbsp;&nbsp;
+        </div>
+    </div>
+	    <!-- 数据列表 -->
+	    <div class="data-table table-striped">
+		<table class="">
+	    <thead>
+	        <tr>
+				<th class="">序号</th>
+				<th class="">OE号</th>
+				<th class="">配件编码</th>
+				<th class="">产品名称</th>
+				<th class="">申购数量</th>
+				<th class="">单位</th>
+				<th class="">到库时间</th>
+				<th class="">备注</th>
+			</tr>
+	    </thead>
+	    <tbody>
+			<notempty name="_list">
+			<volist name="_list.info" id="vo" key="i">
+				<notempty name="vo.code">
+				<tr>
+		            <td>{$i}</td>
+		            <td>{$vo.OE}</td>
+					<td><a href="{:U('Psi/stock_info')}&id={$vo.id}">{$vo.code}</a></td>
+					<td>{$vo.name}</td>
+					<td>{$vo.num}</td>
+					<td>{$vo.unit}</td>
+					<td>{$vo.date|date='Y-m-d H:i',###}</td>
+					<td>{$vo.note}</td>
+				</tr>
+				</notempty>
+			</volist>
+			<else/>
+			<td colspan="9" class="text-center"> aOh! 暂时还没有内容! </td>
+			</notempty>
+		</tbody>
+	    </table>
+		</div>
+	    <div class="page">
+	        {$_page}
+	    </div>
+		<div class="fb">
+			<span style="font-weight:bold;">申购部门（人）：</span>
+			{$_list.dpt_man}&nbsp;&nbsp;&nbsp;
+			<span style="font-weight:bold;">采购部门（人）：</span>
+			{$_list.pch_man}&nbsp;&nbsp;&nbsp;
+			<span style="font-weight:bold;">审核：</span>
+			{$_list.ver_man}&nbsp;&nbsp;&nbsp;
+			<span style="font-weight:bold;">申请时间：</span>
+			{$_list.date|date='Y-m-d H:i',###}
+		</div>
+</block>
+
+<block name="script">
+	<script type="text/javascript">
+	    //导航高亮
+	    highlight_subnav('{:U('Psi/apply_list')}');
+	</script>
+</block>
+
+
+
+

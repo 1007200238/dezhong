@@ -1,0 +1,71 @@
+<extend name="Public/base"/>
+
+<block name="body">
+    <div class="main-title">
+        <h2>供应商详细资料</h2>
+    </div>
+
+    <div class="columns-mod">
+        <div class="hd cf">
+            <h5>供应商编码：{$info.code}</h5>
+            <div class="title-opt"></div>
+        </div>
+        <div class="bd" style="height:auto;"><div class="sys-info">
+            <table><tbody>
+                <tr>
+                    <th>供应商编码</th>
+                    <td>{$info.no}</td>
+                </tr>
+                <tr>
+                    <th>供应商名称</th>
+                    <td>{$info.name}</td>
+                </tr>
+                <tr>
+                    <th>单位地址</th>
+                    <td>{$info.address}</td>
+                </tr>
+                <tr>
+                    <th>法定代表人</th>
+                    <td>{$info.name}</td>
+                </tr>
+                <tr>
+                    <th>委托代表人</th>
+                    <td>{$info.consigner}&nbsp;&nbsp;&nbsp;&nbsp;{$info.consigner_mobile}</td>
+                </tr>
+                <tr>
+                    <th>联系电话</th>
+                    <td>{$info.mobile}</td>
+                </tr>
+                <tr>
+                    <th>单位传真</th>
+                    <td>{$info.fax}</td>
+                </tr>
+                <tr>
+                    <th>开户银行</th>
+                    <td>{$info.bank}</td>
+                </tr>
+                <tr>
+                    <th>开户人</th>
+                    <td>{$info.account_user}</td>
+                </tr>
+                <tr>
+                    <th>银行账户</th>
+                    <td>{$info.account}</td>
+                </tr>
+                <tr>
+                    <th>备注</th>
+                    <td>{$info.note}</td>
+                </tr>
+            </tbody></table>
+        </div></div>
+        <button style="margin:5px 0 20px 20px;" class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
+    </div>
+
+</block>
+
+<block name="script">
+    <script type="text/javascript">
+        //导航高亮
+        highlight_subnav('{:U('Psi/supplier')}');
+    </script>
+</block>

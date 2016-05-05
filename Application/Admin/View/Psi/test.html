@@ -1,0 +1,131 @@
+<extend name="Public/base"/>
+
+<block name="body">
+	<style>
+		.uploadify-queue-item { position: inherit; }
+		.thumb_queue { width:120px; height:100px; float:left; margin: 0px 3px; border:1px solid #999;}
+		.thumb_del { position: relative; bottom:100%; left:75%; }
+
+	</style>
+
+
+	<script type="text/javascript" src="__STATIC__/uploadify/jquery.uploadify.min.js"></script>
+    <div class="main-title">
+        <h2>修改产品</h2>
+    </div>
+    <form action="{:U()}" method="post" class="form-horizontal">
+
+        <div class="controls">
+        	<div id="imgs">
+
+        	</div>
+        	<div style="clear:both"></div>
+			<label class="item-label">上传图片</label>
+			<input id="file_upload" name="file_upload" type="file" multiple="true" value="" />
+        	<p><a href="javascript:$('#file_upload').uploadify('upload','*')">上传</a></p> 
+		</div>
+		<script type="text/javascript">
+			var img = '';
+	        var con = '';
+	        var i   = '';
+			$('#file_upload').uploadify({
+				    'queueSizeLimit' : 3,
+		        	'swf'      : '__PUBLIC__/static/uploadify/uploadify.swf',
+		        	'uploader' : '{:U("Psi/upload")}',   //上传的方法
+		        	'buttonText' : '图片上传',
+		        	'auto'       : false,
+		        	'preventCaching' : true,
+		        	'onSelectError' : function() {
+            			alert('The file ' + file.name + ' returned an error and was not added to the queue.');
+        			},
+		        	'onUploadError' : function(file, errorCode, errorMsg, errorString) {
+            			alert('The file ' + file.name + ' could not be uploaded: ' + errorString);
+        			},
+		        	'onUploadSuccess' : function(file, data, response) {
+		        	 //把所有上传的图片都放入DIV中
+		        	 	i++;
+		        	 	img = "<div id='thumb_"+i+"' class='thumb_queue'><img width='100%' height='100%' src='__PUBLIC__/Uploads/"+data+"'><a href='javascript:void(0);' onclick='del_thumb("+i+"); return false;' class='thumb_del'>删除</a><input type='hidden' name='thumb[]' value='Public/Uploads/"+data+"'><input type='hidden' value='"+data+"' id='con_"+i+"'/></div>";
+		        	 	$('#imgs').append(img);			        
+	        		}
+	    	});
+			function del_thumb(j) {
+				var con = $('#con_'+j).val();
+				$.post('/index.php?s=/Admin/Psi/thumb_del.html',{file_name: con}, function(datas){
+					return false;
+				});
+				$('#thumb_'+j).html('');
+				$('#thumb_'+j).attr('class','');
+			}
+		</script>
+
+        <div class="form-item">
+            <button class="btn submit-btn" id="submit" type="submit" target-form="form-horizontal">确 定</button>
+            <button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
+        </div>
+    </form>
+</block>
+
+<block name="script">
+    <script type="text/javascript">
+        //导航高亮
+        highlight_subnav('{:U('Psi/stock')}');
+    </script>
+</block>
+
+
+
+
+
+
+
+
+
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <title>Index</title>
+        <link rel="stylesheet" href="__PUBLIC__/static/uploadify/uploadify.css">
+        <script src='__PUBLIC__/static/jquery-2.0.3.min.js'></script>
+        <script src='__PUBLIC__/static/uploadify/jquery.uploadify.min.js'></script>
+    </head>
+    <body>
+      	<form action="{:U()}" method="post" class="form-horizontal">
+      		<div id="imgs">
+      			
+      		</div>
+        	<input id="file_upload" name="file_upload" type="file" multiple="true" value="" />
+        	<p>  
+        		<a href="javascript:$('#file_upload').uploadify('upload','*')">上传</a> 
+    		</p> 
+        	<button class="btn submit-btn" id="submit" type="submit" target-form="form-horizontal">确 定</button>
+      	</form>    
+    </body>
+    <script>
+        var img = '';
+        var con = '';
+        var i   = '';
+		$('#file_upload').uploadify({
+	        	'swf'      : '__PUBLIC__/static/uploadify/uploadify.swf',
+	        	'uploader' : '{:U("Psi/upload")}',   //上传的方法
+	        	'buttonText' : '图片上传',
+	        	'auto'       : false,
+	        	'preventCaching' : true,
+	        	'onUploadSuccess' : function(file, data, response) {
+	        	 //把所有上传的图片都放入DIV中
+	        	 	i++;
+	        	 	img += "<div id='thumb_"+i+"' class='thumb_queue'><img width='200px' src='__PUBLIC__/Uploads/"+data+"'><a href='javascript:void(0);' onclick='del_thumb("+i+"); return false;'>del</a><input type='hidden' name='thumb[]' value='__PUBLIC__/Uploads/"+data+"'><input type='hidden' value='"+data+"' id='con_"+i+"'/></div>";
+	        	 	$('#imgs').html(img);
+		        
+        		}
+
+    	});
+
+		function del_thumb(j) {
+			var con = $('#con_'+j).val();
+			$.post('/index.php?s=/Admin/Psi/thumb_del.html',{file_name: con}, function(datas){
+				return false;
+			});
+			$('#thumb_'+j).html('');
+		}
+    </script>
+</html>

@@ -1,0 +1,253 @@
+<extend name="Public/base"/>
+
+<block name="body">
+    <style>
+        .uploadify-queue-item { position: inherit; }
+        .thumb_queue { width:120px; height:100px; float:left; margin: 3px 3px 3px 0px; border:1px solid #999;}
+        .thumb_del { position: relative; bottom:100%; left:75%; }
+    </style>
+    <script type="text/javascript" src="__STATIC__/uploadify/jquery.uploadify.min.js"></script>
+    <div class="main-title">
+        <h2>修改产品</h2>
+    </div>
+    <form action="{:U()}" method="post" class="form-horizontal">
+        <div class="form-item">
+            <label class="item-label">产品编码<span class="check-tips">（请按15位标准格式填写，例：AMD-DPJ-JZH-L01）</span></label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="code" value="{$info.code}">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">产品名称<span class="check-tips"></span></label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="name" value="{$info.name}">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">库位号<span class="check-tips"></span></label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="store_no" value="{$info.store_no}">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">单位<span class="check-tips"></span></label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="unit" value="{$info.unit}">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">产品规格<span class="check-tips">（勾选适用车型）</span></label>
+            <div class="controls">
+				<volist name="cat_car" id="vo">
+                    <?php if (in_array($vo['title'], $info['car'])) { ?>
+                        <label class="checkbox inline">
+                            <input type="checkbox" id="inlineCheckbox{$vo.id}" name="car[]" value="{$vo.id}" checked>{$vo.title}
+                        </label>  
+                    <?php } else { ?>
+                        <label class="checkbox inline">
+                            <input type="checkbox" id="inlineCheckbox{$vo.id}" name="car[]" value="{$vo.id}">{$vo.title}
+                        </label>
+                    <?php } ?>
+				</volist>
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">产品分类<span class="check-tips">（请选择产品分类）</span></label>
+            <div class="controls">
+                <select name="category">
+            		<option value="">选择分类</option>
+ 					<volist name="cat_pro" id="vo">
+                        <?php if ($vo['title'] == $info['category']) { ?>
+                                <option value="{$vo.id}" selected>{$vo.title}</option>   
+                        <?php } else { ?>
+						        <option value="{$vo.id}">{$vo.title}</option>
+                        <?php } ?>
+ 					</volist>
+            	</select>
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">供应商<span class="check-tips"></span></label>
+            <div class="controls">
+                <select name="supplier">
+                    <option value="">选择供应商</option>
+                    <volist name="sup_list" id="vo">
+                        <?php if ($vo['company'] == $info['supplier']) { ?>
+                                <option value="{$vo.id}" selected>{$vo.company}</option>  
+                        <?php } else { ?>
+                                <option value="{$vo.id}">{$vo.company}</option>
+                        <?php } ?>                        
+                        
+                    </volist>
+                </select>
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">供应商产品编号<span class="check-tips"></span></label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="supplier_no" value="{$info.supplier_no}">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">进货价<span class="check-tips">(含税 元)</span></label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="purch_price" value="{$info.purch_price}">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">进货价<span class="check-tips">(不含税 元)</span></label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="purch_price_off" value="{$info.purch_price_off}">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">销售价<span class="check-tips">(含税 元)</span></label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="sale_price" value="{$info.sale_price}">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">销售价<span class="check-tips">(不含税 元)</span></label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="sale_price_off" value="{$info.sale_price_off}">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">质保时间<span class="check-tips"></span></label>
+            <div class="controls">
+            	<select name="warranty">
+            		<option value="无质保" <?php if($info['warranty'] == "无质量") { echo "selected"; } ?>>无质保</option>
+            		<option value="半年" <?php if($info['warranty'] == "半年") { echo "selected"; } ?>>半年</option>
+            		<option value="一年" <?php if($info['warranty'] == "一年") { echo "selected"; } ?>>一年</option>
+            		<option value="一年半" <?php if($info['warranty'] == "一年半") { echo "selected"; } ?>>一年半</option>
+            		<option value="两年" <?php if($info['warranty'] == "两年") { echo "selected"; } ?>>两年</option>
+            		<option value="两年半" <?php if($info['warranty'] == "两年半") { echo "selected"; } ?>>两年半</option>
+            	</select>
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">彩袋尺寸<span class="check-tips"></span></label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="bag_size" value="{$info.bag_size}">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">彩盒尺寸<span class="check-tips"></span></label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="box_size" value="{$info.box_size}">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">彩袋价格<span class="check-tips">（元）</span></label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="bag_price" value="{$info.bag_price}">
+            </div>
+        </div>
+
+        <div class="form-item">
+            <label class="item-label">彩盒价格<span class="check-tips">（元）</span></label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="box_price" value="{$info.box_price}">
+            </div>
+        </div>
+
+        <div class="form-item">
+            <label class="item-label">OE码<span class="check-tips">（选填）</span></label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="OE" value="{$info.OE}">
+            </div>
+        </div>
+
+        <div class="form-item">
+            <label class="item-label">产品属性<span class="check-tips"></span></label>
+            <div class="controls">
+                <input type="checkbox" name="status[]" value="1" <?php if(in_array('1',$info['status'])){ echo "checked"; } ?> >&nbsp;普通商品&nbsp;&nbsp;
+                <input type="checkbox" name="status[]" value="2" <?php if(in_array('2',$info['status'])){ echo "checked"; } ?> >&nbsp;新品上市&nbsp;&nbsp;
+                <input type="checkbox" name="status[]" value="3" <?php if(in_array('3',$info['status'])){ echo "checked"; } ?> >&nbsp;促销产品&nbsp;&nbsp;
+            </div>
+        </div>
+
+        <div class="form-item">
+            <label class="item-label">产品图片<span class="check-tips">（请勿上传三张以上图片）</span></label>
+            <div class="controls">
+                <div id="imgs">
+                    <volist name="info.thumb" id="vo" key="j">
+                        <div id="pic_{$j}" class="thumb_queue">
+                            <img width="100%" height="100%" src="{$vo}">
+                            <a href="javascript:void(0);" onclick="remove_thumb({$j}); return false;" class="thumb_del">删除</a>
+                            <input type="hidden" name="thumb[]" value="{$vo}" id="p_{$j}">
+                        </div> 
+                    </volist>           
+
+                </div>
+                <div style="clear:both"></div>
+                <!-- <a href="javascript:$('#file_upload').uploadify('upload','*')" class="btn" style="background-color:#CC3900">上传</a> -->
+                <input id="file_upload" name="file_upload" type="file" multiple="true" value="" />
+                
+            </div>
+        </div>
+        <script type="text/javascript">
+            var img = '';
+            var con = '';
+            var i   = '';
+            $('#file_upload').uploadify({
+                    'queueSizeLimit' : 3,
+                    'swf'      : '__PUBLIC__/static/uploadify/uploadify.swf',
+                    'uploader' : '{:U("Psi/upload")}',   //上传的方法
+                    'buttonText' : '图片上传',
+                    'auto'       : true,
+                    'preventCaching' : true,
+                    'onUploadSuccess' : function(file, data, response) {
+                     //把所有上传的图片都放入DIV中
+                        i++;
+                        img = "<div id='thumb_"+i+"' class='thumb_queue'><img width='100%' height='100%' src='__PUBLIC__/Uploads/"+data+"'><a href='javascript:void(0);' onclick='del_thumb("+i+"); return false;' class='thumb_del'>删除</a><input type='hidden' name='thumb[]' value='Public/Uploads/"+data+"'><input type='hidden' value='"+data+"' id='con_"+i+"'/></div>";
+                        $('#imgs').append(img);                 
+                    }
+            });
+            function del_thumb(j) {
+                var con = $('#con_'+j).val();
+                $.post('/index.php?s=/Admin/Psi/thumb_del.html',{file_name: con}, function(datas){
+                    return false;
+                });
+                $('#thumb_'+j).html('');
+                $('#thumb_'+j).attr('class','');
+            }
+
+            function remove_thumb(j) {
+                if (!confirm("删除后将无法恢复，确认删除么？")) { return false; };
+                var p = $('#p_'+j).val();
+                $.post('/index.php?s=/Admin/Psi/thumb_remove.html',{file_name: p}, function(datas){
+                    return false;
+                });
+                $('#pic_'+j).html('');
+                $('#pic_'+j).attr('class','');
+            }
+
+        </script>
+
+        <div class="form-item">
+            <label class="item-label">备注1<span class="check-tips">（50字以内，选填）</span></label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="note" value="{$info.note}">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">备注2<span class="check-tips">（50字以内，选填）</span></label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="note_2" value="{$info.note_2}">
+            </div>
+        </div>
+        <div class="form-item">
+            <button class="btn submit-btn ajax-post" id="submit" type="submit" target-form="form-horizontal">确 定</button>
+            <button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
+        </div>
+        <input type="hidden" name="id" value="{$info.id}">
+    </form>
+</block>
+
+<block name="script">
+    <script type="text/javascript">
+        //导航高亮
+        highlight_subnav('{:U('Psi/stock')}');
+    </script>
+</block>

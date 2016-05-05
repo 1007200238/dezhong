@@ -1,0 +1,219 @@
+<extend name="Public/base" />
+<block name="body">
+
+	<!-- 新加样式 -->
+	<style>
+		.drop-down { width:100px !important; }
+		.sort-txt { width:60px !important;}
+		.change { height:30px !important;}
+		.fl { margin-right:10px;}
+		.fl2 { height:35px; line-height:45px; }
+		.asc,.desc { color:#fff; text-decoration: none; }
+		a.asc:hover,a.desc:hover { color:#fff; text-decoration: none;}
+	</style>
+
+	<!-- 标题栏 -->
+	<div class="main-title">
+		<h2>采购申请</h2>
+	</div>
+	<div class="cf">
+		<div class="fl">
+            <a class="btn" href="javascript:void(0);" id="apply">提交申请</a>
+            <!-- <if condition="(I('warning') eq '') OR (I('warning') eq 0) ">
+				<a class="btn" href="javascript:void(0);" id="warning" onclick="gourl('warning','1')">报警一览</a>
+			<else/>
+				<a class="btn" href="javascript:void(0);" id="warning" onclick="gourl('warning','0')">返回库存</a>
+			</if> -->
+        </div> 
+		<!-- 高级搜索 -->
+		<div class="search-form fr cf">
+			<div class="fl">
+				<div class="controls">
+                    <select name="supplier" class="change" id="s1" onchange="gourl('s1');">
+                        <option value="0">选择供应商</option>
+	                    <volist name="_supplier" id="vo">
+	                        <option value="{$vo.id}" <?php if(I('s1')==$vo['id']){ ?> selected <?php } ?> >{$vo.company}</option>
+	                    </volist>
+                    </select>                    
+                </div>
+			</div>
+			<div class="fl">
+				<div class="controls">
+                    <select name="supplier" class="change" id="s2" onchange="gourl('s2');">
+                        <option value="0">选择供应商</option>
+	                    <volist name="_supplier" id="vo">
+	                        <option value="{$vo.id}" <?php if(I('s2')==$vo['id']){ ?> selected <?php } ?> >{$vo.company}</option>
+	                    </volist>
+                    </select>                    
+                </div>
+			</div>
+			<div class="fl">
+				<div class="controls">
+                    <select name="supplier" class="change" id="s3" onchange="gourl('s3');">
+                        <option value="0">选择供应商</option>
+	                    <volist name="_supplier" id="vo">
+	                        <option value="{$vo.id}" <?php if(I('s3')==$vo['id']){ ?> selected <?php } ?> >{$vo.company}</option>
+	                    </volist>
+                    </select>                    
+                </div>
+			</div>
+<!-- 			<div class="fl">
+				<div class="controls">
+                    <select name="supplier" class="change" id="s4" onchange="gourl('s4');">
+                        <option value="0">选择供应商</option>
+	                    <volist name="_supplier" id="vo">
+	                        <option value="{$vo.id}" <?php if(I('s4')==$vo['id']){ ?> selected <?php } ?> >{$vo.company}</option>
+	                    </volist>
+                    </select>                    
+                </div>
+			</div> -->
+		</div>
+    </div>
+    <div class="fl2">
+		  数据区间选择：&nbsp;
+		  <?php for($i=1;$i<13;$i++){ ?>
+			<input type="checkbox" name="mon" value="{$i}" >&nbsp;{$i}月&nbsp;&nbsp;
+		  <?php } ?>
+		  <button  onclick="verify();">查询</button>&nbsp;&nbsp;
+		  <span><?php if(I('get.mon')) { echo "( ".I('get.mon')."月数据 )"; }else{ echo "( 当月数据 )"; } ?></span>
+    </div>
+
+        	
+	<form action="" method="POST" id="list">
+	    <!-- 数据列表 -->
+	    <div class="data-table table-striped">
+		<table class="">
+	    <thead>
+	        <tr>
+		        <th>序号</th>
+		        <th class=""><a href="#" class="asc" onclick="dosort($(this),'category');">产品分类</a></th>
+		        <th class="">产品编号</th>	
+		        <th class="">OE</th>
+		        <th class=""><a href="#" class="asc" onclick="dosort($(this),'supplier');">供应商</a></th>
+		        <th class="">库位</th>
+		        <th class="">产品名称</th>
+		        <th class="">适用车型</th>
+		        <th class=""><a href="#" class="asc" onclick="dosort($(this),'num');">库存</a></th>
+		        <th class="">区间</th>
+		        <th class="">平均</th>
+				<th class="row-selected row-selected"><input class="check-all" type="checkbox"/></th>
+				<th class="">最小</th>
+				<th class="">最大</th>	
+				<th class="">操作</th>
+			</tr>
+	    </thead>
+	    <tbody style="font-size:13px">
+			<notempty name="_list">
+			<volist name="_list" id="vo" key="i">
+				<?php if (I('get.warning')==1) {
+						if($vo['num']>$vo['min_num']&&($vo['num']<$vo['max_num']||$vo['max_num']==0)){
+							continue;
+						}
+				} ?>
+			<tr>
+				<td>{$i}</td>
+				<td>{$vo.category}</td>
+				<td>{$vo.code}</td>
+				<td>{$vo.OE}</td>
+				<td><a href="{:U('Psi/apply')}&s1={$vo.supplierid}">{$vo.supplier}</a></td>
+				<td>{$vo.store_no}</td>
+				<td><a href="{:U('Psi/stock_info')}&id={$vo.id}">{$vo.name}</a></td>
+				<td>{$vo.standard}</td>
+				<td>{$vo.num}</td>
+				<td>{$vo.chartsAll}</td>
+				<td>{$vo.chartsAvg}</td>
+	            <td><input class="ids" type="checkbox" name="id[]" value="{$vo.id}" /></td>			
+				<td>{$vo.min_num}</td>
+				<td>{$vo.max_num}</td>
+				<td><a href="{:U('Psi/stock_info')}&id={$vo.id}" target="blank">详细</a></td>
+			</tr>
+			</volist>
+			<else/>
+			<td colspan="9" class="text-center"> aOh! 暂时还没有内容! </td>
+			</notempty>
+		</tbody>
+	    </table>
+		</div>
+	    <div class="page">
+	        {$_page}
+	    </div>
+ 		<div class="fb">
+			<span style="color:#999">友情提示：如果没有选择筛选时间，则列表中的区间量和平均量取当年当月。</span>
+		</div>
+	</form>    
+</block>
+
+<block name="script">
+	<script src="__STATIC__/thinkbox/jquery.thinkbox.js"></script>
+
+	<script type="text/javascript">
+	    //导航高亮
+	    highlight_subnav('{:U('Psi/apply')}');
+	</script>
+
+	<script type="text/javascript">
+
+	//分类筛选
+    function gourl(i,j){
+    	var c = $("#"+i).val();  //参数值
+    	if (j) { var c = j; };
+    	replaceParamVal(i,c);
+    }
+
+    //排序
+	function dosort(ob,f){	
+		if (getQueryString('orderby') == 'asc' && getQueryString('field') == f) { replaceParamVal('orderby','desc'); };
+		if (getQueryString('orderby') == 'desc' && getQueryString('field') == f) { replaceParamVal('orderby','asc'); };
+		if (getQueryString('field') != f) {
+			var d = ob.attr('class');  //排序方式
+			replaceParamVal('orderby|field',d+"|"+f);
+		}
+	}
+
+	//获取url特定参数值
+	function getQueryString(name) {
+		var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+		var r = window.location.search.substr(1).match(reg);
+		if (r != null) return unescape(r[2]); return null;
+	}
+   
+	function replaceParamVal(strArr,reArr) {
+		var nUrl = this.location.href.toString(); //获取当前url 
+		var strArr = strArr.split("|"); //将传入的参数集合转成数组
+		var reArr = reArr.split("|"); //将传入的参数对应值集合转成数组
+		for(var i=0;i<strArr.length;i++){
+			if (getQueryString(strArr[i]) == null) { 
+				nUrl += '&'+strArr[i]+'='+reArr[i];
+				continue;
+			};
+			var re = eval('/('+ strArr[i] +'=)([^&]*)/gi'); //获取传入参数的当前值
+			var nUrl = nUrl.replace(re,strArr[i]+'='+reArr[i]); //替换为传入的对应值
+		}
+		this.location = nUrl; //刷新页面
+	}
+
+	function verify(n) {
+        var ids = '';
+        $('input:checkbox[name=mon]:checked').each(function(i){
+            if(0==i){
+                ids = $(this).val();
+            }else{
+                ids += (","+$(this).val());
+            }
+        });
+        replaceParamVal('mon',ids);
+    }
+
+
+	$(document).ready(function(){
+		$("#apply").click(function() {
+			$("#list").submit();
+		});
+	});
+
+
+
+	</script>
+</block>
+
+

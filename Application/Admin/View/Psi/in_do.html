@@ -1,0 +1,133 @@
+<extend name="Public/base" />
+
+<block name="body">
+<form action="{:U('Psi/in_do')}" method="POST" id="list" class="form-horizontal">
+	<!-- 标题栏 -->
+	<div class="main-title">
+		<h2>创建入库单</h2>
+	</div>
+	<div class="cf">
+		<div class="fl">
+            <span style="font-weight:bold;">入库单号：</span>
+            <input name="no" type="text" class="text large" placeholder="请填写入库单号" value="{:C('SITE_IN_NO')}"/>&nbsp;&nbsp;&nbsp;
+            <button class="btn confirm ajax-post" href="javascript:void(0);" id="submit" type="submit" target-form="form-horizontal">提交入库</button>
+        </div>
+    </div>
+	    <!-- 数据列表 -->
+	    <div class="data-table table-striped">
+		<table class="">
+	    <thead>
+	        <tr>
+	        	<th>Id</th>
+				<th width="20%">产品编码</th>
+				<th width="20%">产品名称</th>
+				<th width="">OE号</th>
+				<th width="">单位</th>
+				<th width="10%">合同数量</th>
+				<th width="10%">实际在库数</th>
+				<th width="10%">合同剩余数</th>
+				<th width="10%">本期入库数</th>
+			</tr>
+	    </thead>
+	    <tbody>
+			<notempty name="_list">
+			<volist name="_list.info" id="vo" key="i">
+				<notempty name="vo.code">
+				<tr>
+					<td>{$vo.id}</td>
+		            <td><a href="{:U('Psi/stock_info')}&id={$vo.sid}">{$vo.code}</a></td>
+		            <td>{$vo.name}</td>
+					<td>{$vo.OE}</td>
+					<td>{$vo.unit}</td>
+					<td>{$vo.num}</td>
+					<td>{$vo.in_num}</td>
+					<td><span style="color:red"><?php echo $last = $vo['num'] - $vo['in_num']; ?></span></td>
+					<td><input type="number" style="width:60px;" name="info[{$i}][num]" value="0" class="num"></td>
+					<input type="hidden" name="info[{$i}][sid]" value="{$vo.sid}" />
+					<input type="hidden" name="info[{$i}][code]" value="{$vo.code}" />
+					<input type="hidden" value="{$last}" id="num_{$i}" />
+				</tr>
+				<?php $sum += $vo['num']; ?>
+				<?php $sum_in += $vo['in_num']; ?>
+				<?php $sum_last += ($vo['num'] - $vo['in_num']); ?>
+				</notempty>
+			</volist>
+			<tr>
+				<td colspan="5" style="font-weight:bold; text-align:center"> 合 计 </td>
+				<td>{$sum}</td>
+				<td>{$sum_in}</td>
+				<td><span style="color:red">{$sum_last}</span></td>
+				<td><span id="sum_do">0</span></td>
+			</tr>
+			<input type="hidden" name="supplier" value="{$_list.supplier.id}" />
+			<input type="hidden" name="from_no" value="{$_list.no}" /> 
+			<input type="hidden" name="from_id" value="{$_list.id}" />
+
+			<else/>
+			<td colspan="9" class="text-center"> aOh! 暂时还没有内容! </td>
+			</notempty>
+		</tbody>
+	    </table>
+		</div>
+	    <div class="page">
+	        {$_page}
+	    </div>
+		<div class="fb">
+			<span style="font-weight:bold;">入库备注：</span>
+			<input name="note" type="text" class="text input-large" value="{:C('SITE_IN_NOTE')}">&nbsp;&nbsp;&nbsp;
+			<span style="font-weight:bold;">采购单号：</span>
+			{$_list.no}&nbsp;&nbsp;&nbsp;
+			<span style="font-weight:bold;">入库时间：</span>
+			<?php echo date('Y-m-d',time()); ?>
+		</div>
+	</form>
+</block>
+
+<block name="script">
+<script>
+document.onkeydown = function()
+{
+	var oEvent = window.event;
+	if (oEvent.keyCode == 65 && oEvent.ctrlKey) {
+		$.post("{:U()}", {dos: '123'}, function(data) {
+			/*optional stuff to do after success */
+			alert(data);
+		});
+	}
+}
+</script>
+
+
+	<script type="text/javascript">
+		$(function(){
+		    $('.num').change(function() {
+		    	if ( $(this).val() < 0 ) { 
+					alert('数目不能小于等于零。'); 
+					$(this).val(0); 
+					return false; 
+				};
+		    	var sum = 0;
+		    	var i = 1;
+		    	$('.num').each(function() {
+		    		var last = $('#num_'+i).val();
+		    		if (parseInt($(this).val()) > parseInt(last)) { 
+		    			alert('数目不能大于合同剩余量。'); 
+		    			$(this).val(0); 
+		    		};
+		    		sum += parseInt($(this).val());	
+		    		i++;	    		
+		    	});
+		    	$('#sum_do').html(sum);
+		    });
+		});
+	</script>
+
+	<script type="text/javascript">
+	    //导航高亮
+	    highlight_subnav('{:U('Psi/in_apply')}');
+	</script>
+
+</block>
+
+
+

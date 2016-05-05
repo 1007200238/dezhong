@@ -1,0 +1,99 @@
+<extend name="Public/base" />
+
+<block name="body">
+	<!-- 标题栏 -->
+	<div class="main-title">
+		<h2>库存退货</h2>
+	</div>
+	<div class="cf">
+		<div class="search-form">
+			<div class="sleft">
+				<form action="{:U()}" method="post" class="form-horizontal">
+					<input type="text" name="code" class="search-input" value="" placeholder="请输入退货商品的编号代码">
+					<button class="btn ajax-post" id="submit" type="submit" target-form="form-horizontal" style="background-color: rgb(56, 56, 56); margin: 1px 1px 0 0; color:#F6F6F6">添加进退货列表</button>
+				</form>
+			</div>
+		</div>
+		<div class="search-form fr cf" style="float:left">
+			<div class="sleft">
+				<a class="btn" href="{:U('Psi/free_do')}">提交退货单</a>
+			</div>
+		</div>
+    </div>
+    <!-- 数据列表 -->
+    <div class="data-table table-striped">
+	<table class="">
+    <thead>
+        <tr>
+			<th class="row-selected row-selected"><input class="check-all" type="checkbox"/></th>
+        	<th>Id</th>
+			<th width="15%">产品编码</th>
+			<th width="15%">产品名称</th>
+			<th width="">OE号</th>
+			<th width="">单位</th>
+			<th width="">适用车型</th>
+			<th width="">库位号</th>
+			<th width="" width="">采购单价</th>
+			<th width="">库存数量</th>
+			<th width="">操作</th>	
+		</tr>
+    </thead>
+    <tbody>
+		<notempty name="_list">
+		<volist name="_list" id="vo" key="i">
+			<tr>
+	            <td><input class="ids" type="checkbox" name="id[]" value="{$vo.id}" /></td>
+	            <td>{$vo.id}</td>
+				<td><a href="{:U('Psi/stock_info')}&id={$vo.id}">{$vo.code}</a></td>
+				<td>{$vo.name}</td>
+				<td>{$vo.OE}</td>
+				<td>{$vo.unit}</td>
+				<td>{$vo.standard}</td>
+				<td>{$vo.store_no}</td>
+				<td>{$vo.purch_price}</td>
+				<td>{$vo.ware_num}</td>
+				<td><a href="{:U('Psi/free_return')}&sid={$vo.id}" class="ajax-get">清除</a></td>
+			</tr>
+		</volist>
+		<else/>
+			<td colspan="9" class="text-center"> aOh! 暂时还没有内容! </td>
+		</notempty>
+	</tbody>
+    </table>
+	</div>
+    <div class="page">
+        {$_page}
+    </div>
+    <div class="fb">
+		<span style="color:red">友情提示：该退货方式为自由退货，一张退货单对应一个供应商，请选择同一供应商的产品。</span>
+	</div> 
+</block>
+
+<block name="script">
+	<script src="__STATIC__/thinkbox/jquery.thinkbox.js"></script>
+
+	<script type="text/javascript">
+	//搜索功能
+	$("#search").click(function(){
+		var url = $(this).attr('url');
+        var query  = $('.search-form').find('input').serialize();
+        query = query.replace(/(&|^)(\w*?\d*?\-*?_*?)*?=?((?=&)|(?=$))/g,'');
+        query = query.replace(/^&/g,'');
+        if( url.indexOf('?')>0 ){
+            url += '&' + query;
+        }else{
+            url += '?' + query;
+        }
+		window.location.href = url;
+	});
+	//回车搜索
+	$(".search-input").keyup(function(e){
+		if(e.keyCode === 13){
+			$("#search").click();
+			return false;
+		}
+	});
+    //导航高亮
+    highlight_subnav('{:U('User/index')}');
+	</script>
+</block>

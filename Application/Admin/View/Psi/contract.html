@@ -1,0 +1,125 @@
+<extend name="Public/base" />
+
+<block name="body">
+<form action="{:U('Psi/contract')}" method="POST" id="list" class="form-horizontal">
+	<!-- 标题栏 -->
+	<div class="main-title">
+		<h2>创建采购合同单</h2>
+	</div>
+	<div class="cf">
+		<div class="fl">
+            <span style="font-weight:bold;">交货日期：</span>
+            <input name="dev_date" type="text" class="text time" placeholder="请选择时间"/>&nbsp;&nbsp;&nbsp;
+            <button class="btn confirm ajax-post" href="javascript:void(0);" id="submit" type="submit" target-form="form-horizontal">创建合同单</button>
+        </div>
+    </div>
+	    <!-- 数据列表 -->
+	    <div class="data-table table-striped">
+		<table class="">
+	    <thead>
+	        <tr>
+				<th class="">产品编码</th>
+				<th class="">产品名称</th>
+				<th class="">供应商产品编码</th>
+				<th class="">OE号</th>
+				<th class="">适用车型</th>
+				<th class="">含税单价</th>
+				<th class="">不含税单价</th>
+				<th class="">数量</th>
+				<th class="">金额（元）</th>
+			</tr>
+	    </thead>
+	    <tbody>
+			<notempty name="_list">
+			<volist name="_list.info" id="vo" key="i">
+				<notempty name="vo.code">
+				<tr>
+		            <td>{$vo.code}</td>
+		            <td>{$vo.name}</td>
+					<td>{$vo.supplier_no}</td>
+					<td>{$vo.OE}</td>
+					<td>{$vo.standard}</td>
+					<td>{$vo.purch_price}</td>
+					<td>{$vo.purch_price_off}</td>
+					<td><input type="number" style="width:60px;" name="list[{$vo.supplier}][{$i}][num]" value="{$vo.num}" id="num_{$i}" onchange="getval({$i},1);" class="num"></td>
+					<td><input type="number" style="width:60px;" name="list[{$vo.supplier}][{$i}][total]" value="<?php echo $vo['num']*$vo['purch_price_off']; ?>" id="total_{$i}" onchange="getval({$i},2);"></td>
+					<input type="hidden" id="price_{$i}" value="{$vo.purch_price_off}" />
+					<input type="hidden" name="list[{$vo.supplier}][{$i}][sid]" value="{$vo.id}" />
+				</tr>
+				<?php $sum += $vo['num']; ?>
+				<?php $total += $vo['num']*$vo['purch_price_off']; ?>
+				</notempty>
+			</volist>
+			<tr>
+				<td colspan="7" style="font-weight:bold; text-align:center"> 合 计 </td>
+				<td><input name="num" id="num" type="number" style="width:60px;" value="{$sum}"></td>
+				<td><input name="total" id="total" type="number" style="width:60px;" value="{$total}"></td>
+			</tr>
+			<input type="hidden" name="apply" value="{$_list.id}" />
+			<else/>
+			<td colspan="9" class="text-center"> aOh! 暂时还没有内容! </td>
+			</notempty>
+		</tbody>
+	    </table>
+		</div>
+	    <div class="page">
+	        {$_page}
+	    </div>
+		<div class="fb">
+			<span style="font-weight:bold;">合同备注：</span>
+			<input name="note" type="text" class="text input-large" value="{:C('SITE_CONTRACT_NOTE')}">&nbsp;&nbsp;&nbsp;
+			<span style="font-weight:bold;">签订时间：</span>
+			<?php echo date('Y-m-d',time()); ?>
+		</div>
+	</form>
+</block>
+
+<block name="script">
+	<link href="__STATIC__/datetimepicker/css/datetimepicker.css" rel="stylesheet" type="text/css">
+	<php>if(C('COLOR_STYLE')=='blue_color') echo '<link href="__STATIC__/datetimepicker/css/datetimepicker_blue.css" rel="stylesheet" type="text/css">';</php>
+	<link href="__STATIC__/datetimepicker/css/dropdown.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src="__STATIC__/datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+	<script type="text/javascript" src="__STATIC__/datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+	<script type="text/javascript">
+		$(function(){
+		    $('.time').datetimepicker({
+		        format: 'yyyy-mm-dd hh:ii',
+		        language:"zh-CN",
+		        minView:2,
+		        autoclose:true
+		    });
+		    showTab();
+		});
+
+		function getval(i,type){
+			if (type == 1) {
+				var n = $('#num_'+i).val();
+				if ( n <= 0 ) { 
+					alert('数目不能小于等于零。'); 
+					$('#num_'+i).val(1); 
+					return false; 
+				};
+				var p = $('#price_'+i).val();
+				var t = n * p;
+				$('#total_'+i).val(t);
+			};
+			var sum = 0;
+			var total = 0;
+			for (var i = $(".num").length; i > 0; i--) {
+				sum += parseInt($('#num_'+ i ).val());
+				total += parseInt($('#total_'+ i ).val());
+			};
+			$('#num').val(sum);
+			$('#total').val(total);
+		}
+	</script>
+
+	<script type="text/javascript">
+	    //导航高亮
+	    highlight_subnav('{:U('Psi/apply_list')}');
+	</script>
+
+</block>
+
+
+

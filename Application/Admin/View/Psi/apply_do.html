@@ -1,0 +1,102 @@
+<extend name="Public/base" />
+
+<block name="body">
+	<style>
+		.time { width:120px; }
+	</style>
+<form action="{:U('Psi/apply_do')}" method="POST" id="list" class="form-horizontal">
+	<!-- 标题栏 -->
+	<div class="main-title">
+		<h2>采购申请</h2>
+	</div>
+	<div class="cf">
+		<div class="fl">
+			<span style="font-weight:bold;">申购部门：</span>
+            <input name="department" type="text" class="text input-small" value="{:C('SITE_APPLY_DEP')}">&nbsp;&nbsp;&nbsp;
+            <span style="font-weight:bold;">申购单编号：</span>
+            <input name="no" type="text" class="text" value="{:C('SITE_APPLY_NO')}">&nbsp;&nbsp;&nbsp;
+            <button class="btn confirm ajax-post" href="javascript:void(0);" id="submit" type="submit" target-form="form-horizontal">创建计划单</button>
+        </div>
+    </div>	
+
+	    <!-- 数据列表 -->
+	    <div class="data-table table-striped">
+		<table class="">
+	    <thead>
+	        <tr>
+				<th class="">序号</th>
+				<th class="">OE号</th>
+				<th class="">配件编码</th>
+				<th class="">产品名称</th>
+				<th class="">库存</th>
+				<th class="">最小量</th>
+				<th class="">最大量</th>
+				<th class="">申购数量</th>
+				<th class="">单位</th>
+				<th class="">到库时间</th>
+				<th class="">备注</th>
+			</tr>
+	    </thead>
+	    <tbody>
+			<notempty name="_list">
+			<volist name="_list" id="vo" key="i">
+			<tr>
+	            <td>{$i}</td>
+	            <td>{$vo.OE}</td>
+				<td>{$vo.code}</td>
+				<td><a href="{:U('Psi/stock_info')}&id={$vo.id}">{$vo.name}</a></td>
+				<td>{$vo.num}</td>
+				<td>{$vo.min_num}</td>
+				<td>{$vo.max_num}</td>
+				<td><input name="list[{$i}][num]" type="number" value="{:C('SITE_APPLY_NUM')}" style="width:50px;"></td>
+				<td>{$vo.unit}</td>
+				<td><input name="list[{$i}][date]" type="text" name="{$field.name}" class="text time" placeholder="请选择时间" /></td>
+				<td><input type="text" name="list[{$i}][note]"  class="text" placeholder="商品备注"/></td>
+				<input type="hidden" name="list[{$i}][sid]" value="{$vo.id}" />
+			</tr>
+			</volist>
+			<else/>
+			<td colspan="9" class="text-center"> aOh! 暂时还没有内容! </td>
+			</notempty>
+		</tbody>
+	    </table>
+		</div>
+	    <div class="page">
+	        {$_page}
+	    </div>
+	    <div class="fb">
+			<span style="font-weight:bold;">申购部门（人）：</span>
+			<input name="dpt_man" type="text" class="text input-small" value="{:C('SITE_APPLY_NAME1')}">&nbsp;&nbsp;&nbsp;
+			<span style="font-weight:bold;">采购部门（人）：</span>
+			<input name="pch_man" type="text" class="text input-small" value="{:C('SITE_APPLY_NAME2')}">&nbsp;&nbsp;&nbsp;
+			<span style="font-weight:bold;">审核：</span>
+			<input name="ver_man" type="text" class="text input-small" value="{:C('SITE_APPLY_NAME3')}">&nbsp;&nbsp;&nbsp;
+		</div>	    
+	</form>    
+</block>
+
+<block name="script">
+<link href="__STATIC__/datetimepicker/css/datetimepicker.css" rel="stylesheet" type="text/css">
+<php>if(C('COLOR_STYLE')=='blue_color') echo '<link href="__STATIC__/datetimepicker/css/datetimepicker_blue.css" rel="stylesheet" type="text/css">';</php>
+<link href="__STATIC__/datetimepicker/css/dropdown.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="__STATIC__/datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script type="text/javascript" src="__STATIC__/datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+<script type="text/javascript">
+$(function(){
+    $('.time').datetimepicker({
+        format: 'yyyy-mm-dd hh:ii',
+        language:"zh-CN",
+        minView:2,
+        autoclose:true
+    });
+    showTab();
+
+    $('#apply').click(function() {
+    	$('#list').submit();
+    });	
+});
+</script>
+</block>
+
+
+

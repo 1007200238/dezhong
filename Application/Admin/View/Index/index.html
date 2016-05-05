@@ -1,0 +1,42 @@
+<extend name="Public/base"/>
+
+<block name="sidebar"></block>
+
+<block name="style">
+    <style>
+        body{padding: 0}
+        .index-content { width:100%; text-align: center; padding-top:260px; }
+        .index-content span { font-size:40px; }
+    </style>
+</block>
+
+<block name="body">
+    <!-- 主体 -->
+    <div id="indexMain" class="index-main">
+       <!-- 插件块 -->
+       <?php if (session('user_auth.group_id') != C('JOIN_GROUP')){ ?>
+       <div class="container-span">{:hook('AdminIndex')}</div>
+       <?php } else { ?>
+        <div class="index-content">
+            <span>你好 <?php echo session('user_auth.username'); ?> ,欢迎使用德众进销存管理系统 !</span>
+        </div>
+       <?php } ?>
+    </div>
+</block>
+
+<block name="script">
+<script type="text/javascript">
+    /* 插件块关闭操作 */
+    $(".title-opt .wm-slide").each(function(){
+        $(this).click(function(){
+            $(this).closest(".columns-mod").find(".bd").toggle();
+            $(this).find("i").toggleClass("mod-up");
+        });
+    })
+    $(function(){
+        // $('#main').attr({'id': 'indexMain','class': 'index-main'});
+        $('.copyright').html('<div class="copyright"> ©2015 <a href="http://www.jssdw.com/" target="_blank">jssdw.com</a> 江苏仕德伟科技有限公司 技术支持</div>');
+        $('.sidebar').remove();
+    })
+</script>
+</block>

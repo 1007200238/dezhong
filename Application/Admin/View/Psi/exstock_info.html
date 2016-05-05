@@ -1,0 +1,55 @@
+<extend name="Public/base"/>
+
+<block name="body">
+    <div class="main-title">
+        <h2>包装品详细</h2>
+    </div>
+
+    <div class="columns-mod">
+        <div class="hd cf">
+            <h5>包装品名称：{$info.name}</h5>
+            <div class="title-opt"></div>
+        </div>
+        <div class="bd" style="height:auto;"><div class="sys-info">
+            <table><tbody>
+                <tr>
+                    <th>产品id</th>
+                    <td>{$info.id}</td>
+                </tr>
+                <tr>
+                    <th>产品名称</th>
+                    <td>{$info.name}</td>
+                </tr>
+                <tr>
+                    <th>是否固定</th>
+                    <td>{$info.type|get_status_type=###,'exstock'}</td>
+                </tr>
+                <tr>
+                    <th>现有库存</th>
+                    <td>{$info.num}</td>
+                </tr>
+                <tr>
+                    <th>成本价格</th>
+                    <td>{$info.price}</td>
+                </tr>
+                <tr>
+                    <th>入库时间</th>
+                    <td>{$info.date}</td>
+                </tr>
+                <tr>
+                    <th>包装品备注</th>
+                    <td>{$info.note}</td>
+                </tr>
+            </tbody></table>
+        </div></div>
+        <button style="margin:5px 0 20px 20px;" class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
+    </div>
+
+</block>
+
+<block name="script">
+    <script type="text/javascript">
+        //导航高亮
+        highlight_subnav('{:U('Psi/exstock')}');
+    </script>
+</block>

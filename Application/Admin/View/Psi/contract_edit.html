@@ -1,0 +1,37 @@
+<extend name="Public/base"/>
+
+<block name="body">
+    <div class="main-title">
+        <h2>更改合同单状态</h2>
+    </div>
+    <form action="{:U()}" method="post" class="form-horizontal">
+        <div class="form-item">
+            <label class="item-label">状态更改<span class="check-tips"></span></label>
+            <div class="controls">
+                <input type="radio" value="1" name="status" <?php if($_info['status'] == '1'){ ?> checked <?php } ?> > 尚未到货 &nbsp;
+                <input type="radio" value="2" name="status" <?php if($_info['status'] == '2'){ ?> checked <?php } ?> > 部分到货 &nbsp;
+                <input type="radio" value="3" name="status" <?php if($_info['status'] == '3'){ ?> checked <?php } ?> > 全部到货 &nbsp;
+                <input type="radio" value="4" name="status" <?php if($_info['status'] == '4'){ ?> checked <?php } ?> > 已经结束 &nbsp;
+                <input type="radio" value="5" name="status" <?php if($_info['status'] == '5'){ ?> checked <?php } ?> > 退货中 &nbsp;
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">备注<span class="check-tips">（50字以内，选填）</span></label>
+            <div class="controls">
+                <textarea rows="5" class="textarea input-large" name="note">{$_info.note}</textarea>
+            </div>
+            <input type="hidden" name="id" value="{$_info.id}">
+        </div>
+        <div class="form-item">
+            <button class="btn submit-btn ajax-post" id="submit" type="submit" target-form="form-horizontal">确 定</button>
+            <button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
+        </div>
+    </form>
+</block>
+
+<block name="script">
+    <script type="text/javascript">
+        //导航高亮
+        highlight_subnav('{:U('Psi/contract_list')}');
+    </script>
+</block>

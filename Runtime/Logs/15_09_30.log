@@ -1,0 +1,235 @@
+[ 2015-09-30T09:27:19+08:00 ] 218.91.152.220 /index.php?s=/Admin/Public/login.html
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.015625s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015625s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-09-30T09:27:28+08:00 ] 218.91.152.220 /index.php?s=/Admin/Public/login.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\wwwroot\liuc\ThinkPHP\Common\functions.php 第 1092 行.
+SQL: SHOW COLUMNS FROM `app_ucenter_member` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `app_ucenter_member` WHERE ( `username` = 'admin' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: UPDATE `app_ucenter_member` SET `last_login_time`=1443576448,`last_login_ip`='3663435996' WHERE ( `id` = 1 ) [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_member` [ RunTime:0.000000s ]
+SQL: SELECT `uid`,`nickname`,`sex`,`birthday`,`qq`,`score`,`login`,`reg_ip`,`reg_time`,`last_login_ip`,`last_login_time`,`status`,`truename`,`company`,`tel`,`address` FROM `app_member` WHERE ( `uid` = 1 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_action` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `app_action` WHERE ( `name` = 'user_login' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: UPDATE `app_member` SET `login`=`login`+1,`last_login_time`=1443576448,`last_login_ip`='3663435996' WHERE ( `uid` = 1 ) [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_auth_group` [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_auth_group_access` [ RunTime:0.000000s ]
+SQL: SELECT `uid`,`group_id`,`title`,`description`,`rules` FROM app_auth_group_access a INNER JOIN app_auth_group g on a.group_id=g.id  WHERE ( a.uid='1' and g.status='1' )  [ RunTime:0.000000s ]
+NOTIC: [8] Undefined offset: 0 D:\wwwroot\liuc\Application\Admin\Model\MemberModel.class.php 第 81 行.
+
+[ 2015-09-30T09:27:28+08:00 ] 218.91.152.220 /index.php?s=/Admin/Index/index.html
+SQL: SHOW COLUMNS FROM `app_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `app_menu` WHERE ( `pid` = 0 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT `id` FROM `app_menu` WHERE ( url like '%Index/index%' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_menu` [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title` FROM `app_menu` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT DISTINCT  `group` FROM `app_menu` WHERE ( pid = 1 )  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`url` FROM `app_menu` WHERE ( `pid` = 1 ) AND ( `hide` = 0 )  [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ AdminIndex ] --START--
+SQL: SHOW COLUMNS FROM `app_addons` [ RunTime:0.015625s ]
+SQL: SELECT `config` FROM `app_addons` WHERE ( `name` = 'SiteStat' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_member` [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `app_member` LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_action_log` [ RunTime:0.015625s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `app_action_log` LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_document` [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `app_document` LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_category` [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `app_category` LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_model` [ RunTime:0.015625s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `app_model` LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_stock` [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `app_stock` LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_order` [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `app_order` LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_apply` [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `app_apply` LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_auth_group_access` [ RunTime:0.015625s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `app_auth_group_access` LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_warehouse` [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `app_warehouse` WHERE (  (`num` < min_num OR (num > max_num AND max_num != 0))  ) LIMIT 1   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:-0.078125s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.000000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run SiteStat [ RunTime:0.078125s ]
+SQL: SELECT `config` FROM `app_addons` WHERE ( `name` = 'SystemInfo' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:-0.140625s ]
+SQL: select version() as v; [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.000000s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.062500s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.062500s ]
+INFO: Run SystemInfo [ RunTime:0.062500s ]
+INFO: [ AdminIndex ] --END-- [ RunTime:0.140625s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.000000s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.062500s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.062500s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-09-30T09:29:28+08:00 ] 218.91.152.220 /index.php?s=/Admin/Psi/apply.html
+SQL: SHOW COLUMNS FROM `app_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `app_menu` WHERE ( `pid` = 0 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT `id` FROM `app_menu` WHERE ( url like '%Psi/apply%' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_menu` [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title` FROM `app_menu` WHERE ( id=152 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title` FROM `app_menu` WHERE ( id=148 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT DISTINCT  `group` FROM `app_menu` WHERE ( pid = 148 )  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`url` FROM `app_menu` WHERE ( `pid` = 148 ) AND ( `hide` = 0 )  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `app_menu` WHERE ( `group` = '采购管理' ) AND ( `pid` = 148 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `app_menu` WHERE ( `group` = '账务管理' ) AND ( `pid` = 148 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_stock` [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_supplier` [ RunTime:0.000000s ]
+SQL: SELECT `id`,`company` FROM `app_supplier` WHERE ( `status` = 1 )  [ RunTime:0.000000s ]
+NOTIC: [2] Missing argument 1 for I(), called in D:\wwwroot\liuc\Application\Admin\Controller\PsiController.class.php on line 48 and defined D:\wwwroot\liuc\ThinkPHP\Common\functions.php 第 220 行.
+NOTIC: [8] Undefined variable: name D:\wwwroot\liuc\ThinkPHP\Common\functions.php 第 221 行.
+SQL: SHOW COLUMNS FROM `app_category` [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `app_stock` WHERE ( `status` = 1 ) AND ( `supplier` IN ('') ) ORDER BY id DESC LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `id`,`code`,`name`,`category`,`supplier`,`standard`,`OE` FROM `app_stock` WHERE ( `status` = 1 ) AND ( `supplier` IN ('') ) ORDER BY id DESC LIMIT 0,20   [ RunTime:0.000000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 55 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.031250s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.031250s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-09-30T09:29:29+08:00 ] 218.91.152.220 /index.php?s=/Admin/Psi/apply_list.html
+SQL: SHOW COLUMNS FROM `app_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `app_menu` WHERE ( `pid` = 0 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT `id` FROM `app_menu` WHERE ( url like '%Psi/apply_list%' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_menu` [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title` FROM `app_menu` WHERE ( id=152 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title` FROM `app_menu` WHERE ( id=148 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT DISTINCT  `group` FROM `app_menu` WHERE ( pid = 148 )  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`url` FROM `app_menu` WHERE ( `pid` = 148 ) AND ( `hide` = 0 )  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `app_menu` WHERE ( `group` = '采购管理' ) AND ( `pid` = 148 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `app_menu` WHERE ( `group` = '账务管理' ) AND ( `pid` = 148 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_apply` [ RunTime:0.015625s ]
+SQL: SHOW COLUMNS FROM `app_apply` [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `app_apply` WHERE ( `status` >= 0 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `id`,`department`,`no`,`dpt_man`,`pch_man`,`ver_man`,`status`,`date` FROM `app_apply` WHERE ( `status` >= 0 ) ORDER BY id desc LIMIT 0,30   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.031250s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.031250s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-09-30T09:29:30+08:00 ] 218.91.152.220 /index.php?s=/Admin/Psi/apply.html
+SQL: SHOW COLUMNS FROM `app_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `app_menu` WHERE ( `pid` = 0 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT `id` FROM `app_menu` WHERE ( url like '%Psi/apply%' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_menu` [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title` FROM `app_menu` WHERE ( id=152 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title` FROM `app_menu` WHERE ( id=148 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT DISTINCT  `group` FROM `app_menu` WHERE ( pid = 148 )  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`url` FROM `app_menu` WHERE ( `pid` = 148 ) AND ( `hide` = 0 )  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `app_menu` WHERE ( `group` = '采购管理' ) AND ( `pid` = 148 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `app_menu` WHERE ( `group` = '账务管理' ) AND ( `pid` = 148 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_stock` [ RunTime:0.015625s ]
+SQL: SHOW COLUMNS FROM `app_supplier` [ RunTime:0.000000s ]
+SQL: SELECT `id`,`company` FROM `app_supplier` WHERE ( `status` = 1 )  [ RunTime:0.000000s ]
+NOTIC: [2] Missing argument 1 for I(), called in D:\wwwroot\liuc\Application\Admin\Controller\PsiController.class.php on line 48 and defined D:\wwwroot\liuc\ThinkPHP\Common\functions.php 第 220 行.
+NOTIC: [8] Undefined variable: name D:\wwwroot\liuc\ThinkPHP\Common\functions.php 第 221 行.
+SQL: SHOW COLUMNS FROM `app_category` [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `app_stock` WHERE ( `status` = 1 ) AND ( `supplier` IN ('') ) ORDER BY id DESC LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `id`,`code`,`name`,`category`,`supplier`,`standard`,`OE` FROM `app_stock` WHERE ( `status` = 1 ) AND ( `supplier` IN ('') ) ORDER BY id DESC LIMIT 0,20   [ RunTime:0.000000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 55 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.031250s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.031250s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-09-30T11:08:52+08:00 ] 218.91.152.220 /index.php?s=/Admin/Public/login.html
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.015625s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015625s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-09-30T15:02:04+08:00 ] 218.91.152.220 /index.php?s=/Admin/Public/login.html
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.015625s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015625s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-09-30T15:13:19+08:00 ] 218.91.152.220 /index.php?s=/Admin/Public/login.html
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.015625s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015625s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+

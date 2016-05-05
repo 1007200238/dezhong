@@ -1,0 +1,80 @@
+<extend name="Public/base" />
+
+<block name="body">
+	<!-- 标题栏 -->
+	<div class="main-title">
+		<h2>包装品操作记录</h2>
+	</div>
+	<div class="cf">
+    </div>
+    <!-- 数据列表 -->
+    <div class="data-table table-striped">
+	<table class="">
+    <thead>
+        <tr>
+			<th class="row-selected row-selected"><input class="check-all" type="checkbox"/></th>
+			<th class="">Id</th>
+			<th class="">包装品名称</th>
+			<th class="">类别</th>
+			<th class="">数目</th>
+			<th class="">操作</th>
+			<th class="">关联单据id</th>
+			<th class="">日期</th>
+		</tr>
+    </thead>
+    <tbody>
+		<notempty name="_list">
+		<volist name="_list" id="vo">
+		<tr>
+            <td><input class="ids" type="checkbox" name="id[]" value="{$vo.id}" /></td>
+            <td>{$vo.id}</td>
+			<td><a href="#">{$vo.name}</a></td>
+			<td>{$vo.type|get_status_type=###,"exstock_record"}</td>
+			<td>{$vo.num}</td>
+			<td>{$vo.user|get_username}</td>
+			<td><?php if($vo['from_no']) { ?>{$vo.from_no}<?php } else { echo "无关联"; } ?></td>
+			<td>{$vo.date|date='Y-m-d',###}</td>	
+		</tr>
+		</volist>
+		<else/>
+			<td colspan="9" class="text-center"> aOh! 暂时还没有内容! </td>
+		</notempty>
+	</tbody>
+    </table>
+	</div>
+    <div class="page">
+        {$_page}
+    </div>
+    <div class="fb">
+		<span style="color:#999">友情提示：这里展示的是所有包装品出入库单条记录。</span>
+	</div> 
+</block>
+
+<block name="script">
+	<script src="__STATIC__/thinkbox/jquery.thinkbox.js"></script>
+
+	<script type="text/javascript">
+	//搜索功能
+	$("#search").click(function(){
+		var url = $(this).attr('url');
+        var query  = $('.search-form').find('input').serialize();
+        query = query.replace(/(&|^)(\w*?\d*?\-*?_*?)*?=?((?=&)|(?=$))/g,'');
+        query = query.replace(/^&/g,'');
+        if( url.indexOf('?')>0 ){
+            url += '&' + query;
+        }else{
+            url += '?' + query;
+        }
+		window.location.href = url;
+	});
+	//回车搜索
+	$(".search-input").keyup(function(e){
+		if(e.keyCode === 13){
+			$("#search").click();
+			return false;
+		}
+	});
+    //导航高亮
+    highlight_subnav('{:U('User/index')}');
+	</script>
+</block>

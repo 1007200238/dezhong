@@ -1,0 +1,36 @@
+body { font-family:'微软雅黑'; margin:0px; padding:0px; }
+
+.main { width: 850px; }
+
+.title, .sub-title { text-align:center; letter-spacing:3px; }
+.title { font-size:30px; margin:20px 0px 5px 0px; }
+.sub-title { font-size:21px; margin:0px 0px 10px 0px; }
+
+.left-1 { float:left; width:300px; margin:0px 0px 10px 10px; }
+.left-2 { float:right; width:300px; margin:0px 10px 10px 0px; text-align: right;  }
+.left-3 { float:right; width:400px; margin:0px 10px 10px 0px; text-align: right; }
+
+.left-4, .left-5 { float:left; font-size:12px; margin:0px 20px 10px 10px;}
+.left-4 p, .left-5 p { margin:3px 0px;}
+
+.left-logo { float:left; padding-top:10px; }
+.left-logo img { width:150px; height:100px; }
+
+.left-6 { float:left; width:400px; margin:0px 0px 10px 10px; }
+.left-7 { float:left; width:450px; margin:0px 0px 10px 10px; }
+
+.data-area { margin:5px; }
+.tb { width:100%; border-collapse: collapse; border: none; }
+
+.tb td {  border:1px solid #000; text-align: center;}
+thead td { height:40px; }
+tbody td { font-size:12px; line-height:24px;}
+
+.note { height:50px; }
+.exstock p { margin:3px 0; }
+
+.foot { margin:10px 10px 10px 10px; }
+.foot-top { width:100%; text-align: right;}
+
+
+.clear { clear:both; }

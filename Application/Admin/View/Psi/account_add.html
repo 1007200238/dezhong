@@ -1,0 +1,87 @@
+<extend name="Public/base"/>
+
+<block name="body">
+    <div class="main-title">
+        <h2>添加明细</h2>
+    </div>
+    <form action="{:U()}" method="post" class="form-horizontal">
+        <div class="form-item">
+            <label class="item-label">选择供应商<span class="check-tips"></span></label>
+            <div class="controls">
+                <select name="supplier_id">
+                    <option value="">选择供应商</option>
+                    <volist name="sup_list" id="vo">
+                        <option value="{$vo.id}">{$vo.company}</option>
+                    </volist>
+                </select>
+            </div>
+        </div>        
+        <div class="form-item">
+            <label class="item-label">明细日期<span class="check-tips">（15字以内）</span></label>
+            <div class="controls">
+                <input name="date" type="text" class="text time" placeholder="请选择时间"/>
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">摘要<span class="check-tips">（50字以内）</span></label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="intro" value="">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">借方<span class="check-tips">付款</span></label>
+            <div class="controls">
+                <input type="text" class="text" name="debit" value="">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">贷方<span class="check-tips">收货</span></label>
+            <div class="controls">
+                <input type="text" class="text" name="credit" value="">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">余额<span class="check-tips"></span></label>
+            <div class="controls">
+                <input type="text" class="text" name="balance" placeholder="留空则自动测算">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">备注<span class="check-tips">（50字以内）</span></label>
+            <div class="controls">
+                <textarea rows="5" class="textarea input-large" name="note" value=""></textarea>
+            </div>
+        </div>
+        <div class="form-item">
+            <button class="btn submit-btn ajax-post" id="submit" type="submit" target-form="form-horizontal">确 定</button>
+            <button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
+        </div>
+    </form>
+</block>
+
+<block name="script">
+    <link href="__STATIC__/datetimepicker/css/datetimepicker.css" rel="stylesheet" type="text/css">
+    <php>if(C('COLOR_STYLE')=='blue_color') echo '<link href="__STATIC__/datetimepicker/css/datetimepicker_blue.css" rel="stylesheet" type="text/css">';</php>
+    <link href="__STATIC__/datetimepicker/css/dropdown.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="__STATIC__/datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="__STATIC__/datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+    <script type="text/javascript">
+    $(function(){
+        $('.time').datetimepicker({
+            format: 'yyyy-mm-dd',
+            language:"zh-CN",
+            minView:2,
+            autoclose:true
+        });
+        showTab();
+
+        $('#apply').click(function() {
+            $('#list').submit();
+        }); 
+    });
+    </script>
+    <script type="text/javascript">
+        //导航高亮
+        highlight_subnav('{:U('Psi/account_add')}');
+    </script>
+</block>

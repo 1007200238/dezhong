@@ -1,0 +1,93 @@
+<extend name="Public/base" />
+
+<block name="body">
+<style>
+	.columns-mod { width:460px; }
+	.columns-mod th { width:auto; }
+	.sys-info th, .sys-info td { padding:6px 0; line-height:18px; height:18px;}
+	.fb .fl { margin-left:30px; }
+
+</style>
+
+	<!-- 标题栏 -->
+	<div class="main-title"> <h2>出库单详情</h2></div>
+	<div class="cf">
+		<div class="fl">
+			<span style="font-weight:bold;">出库单编号：</span>
+            {$_list.no}&nbsp;&nbsp;&nbsp;
+        </div>
+        <div class="fr">
+            <span style="font-weight:bold;">出货日期：</span>
+            {$_list.date|date='Y-m-d H:i',###}&nbsp;&nbsp;&nbsp;
+            <span style="font-weight:bold;">操作时间：</span>
+            {$_list.time|date='Y-m-d H:i',###}&nbsp;&nbsp;&nbsp;
+            <span style="font-weight:bold;">操作员：</span>
+            {$_list.user|get_username}&nbsp;&nbsp;&nbsp;
+        </div>
+    </div>
+	    <!-- 数据列表 -->
+    <div class="data-table table-striped">
+		<table class="">
+	    <thead>
+	        <tr>
+	        	<th class="row-selected row-selected"><input class="check-all" type="checkbox"/></th>
+				<th class="">Id</th>
+				<th class="">产品编码</th>
+				<th class="">产品名称</th>
+				<th class="">适用车型</th>
+				<th class="">单位</th>
+				<th class="">销售价</th>
+				<th class="">销售价(非税)</th>
+				<th class="">本期出库数</th>
+			</tr>
+	    </thead>
+	    <tbody>
+			<notempty name="_list">
+			<volist name="_list.info" id="vo" key="i">
+				<notempty name="vo.code">
+				<tr>
+					<td><input class="ids" type="checkbox" name="id[]" value="{$vo.id}" /></td>
+					<td>{$vo.id}</td>
+		            <td><a href="{:U('Psi/stock_info')}&id={$vo.id}">{$vo.code}</a></td>
+		            <td>{$vo.name}</td>
+					<td>{$vo.standard}</td>
+					<td>{$vo.unit}</td>
+					<td>{$vo.sale_price}</td>
+					<td>{$vo.sale_price_off}</td>
+					<td>{$vo.num}</td>
+				</tr>
+				</notempty>
+				<?php $sum += $vo['num']; ?>
+			</volist>
+			<tr>
+				<td colspan="6" style="text-align:center; font-weight:bold;"> 合  计 </td>
+				<td> —— </td>
+				<td> —— </td>
+				<td>{$sum}</td>
+			</tr>
+			<tr>
+				<td colspan="3" style="text-align:center; font-weight:bold;"> 单据备注 </td>
+				<td colspan="6">{$_list.note}<empty name="_list.note">暂无</empty></td>
+			</tr>
+			<else/>
+			<td colspan="9" class="text-center"> aOh! 暂时还没有内容! </td>
+			</notempty>
+		</tbody>
+	    </table>
+		</div>
+	    <div class="page">
+	        {$_page}
+	    </div>   
+</block>
+
+
+<block name="script">
+	<script type="text/javascript">
+	    //导航高亮
+	    highlight_subnav('{:U('Psi/out_list')}');
+	</script>
+</block>
+
+
+
+

@@ -1,0 +1,1491 @@
+[ 2015-11-02T17:08:22+08:00 ] 218.91.152.220 /index.php?s=/Admin/Psi/data_1.html&category=41
+SQL: SHOW COLUMNS FROM `app_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `app_menu` WHERE ( `pid` = 0 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT `id` FROM `app_menu` WHERE ( url like '%Psi/data_1' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_menu` [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title` FROM `app_menu` WHERE ( id=201 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title` FROM `app_menu` WHERE ( id=199 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT DISTINCT  `group` FROM `app_menu` WHERE ( pid = 199 )  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`url` FROM `app_menu` WHERE ( `pid` = 199 ) AND ( `hide` = 0 )  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `app_menu` WHERE ( `group` = '分析管理' ) AND ( `pid` = 199 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `app_menu` WHERE ( `group` = '数据管理' ) AND ( `pid` = 199 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_category` [ RunTime:0.000000s ]
+SQL: SELECT `id`,`name`,`title`,`pid`,`sort`,`list_row`,`meta_title`,`keywords`,`description`,`template_index`,`template_lists`,`template_detail`,`template_edit`,`model`,`type`,`link_id`,`allow_publish`,`display`,`reply`,`check`,`reply_model`,`extend`,`create_time`,`update_time`,`status`,`icon` FROM `app_category` WHERE ( `id` = 39 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `id`,`title`,`pid` FROM `app_category` WHERE ( `status` > -1 ) ORDER BY sort  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_supplier` [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: where D:\wwwroot\liuc\Application\Admin\Controller\PsiController.class.php 第 2119 行.
+SQL: SELECT `id`,`company` FROM `app_supplier`  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_stock` [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_record` [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) as num FROM `app_record` INNER JOIN app_stock ON app_record.code = app_stock.code  WHERE ( app_record.supplier LIKE ('%%') AND app_record.category  =  41 AND app_record.type  =  2 AND app_record.warehouse  =  1 ) GROUP BY app_record.code  [ RunTime:0.000000s ]
+SQL: SELECT *,SUM(app_record.num) as num,SUM(app_record.num)*app_record.price as total FROM `app_record` INNER JOIN app_stock ON app_record.code = app_stock.code  WHERE ( app_record.supplier LIKE ('%%') AND app_record.category  =  41 AND app_record.type  =  2 AND app_record.warehouse  =  1 ) GROUP BY app_record.code ORDER BY app_record.id asc LIMIT 0,30   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 41 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 49 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 48 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 41 ) LIMIT 1   [ RunTime:0.015625s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 53 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 54 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 55 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 41 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 50 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 52 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 53 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 41 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 55 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 41 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 48 ) LIMIT 1   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: type D:\wwwroot\liuc\Runtime\Cache\Admin\1fbb68d183e3507f5c62616751ab5e5f.php 第 128 行.
+SQL: SHOW COLUMNS FROM `app_supplier` [ RunTime:0.000000s ]
+SQL: SELECT `company` FROM `app_supplier` WHERE ( `id` = 5 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `company` FROM `app_supplier` WHERE ( `id` = 6 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `company` FROM `app_supplier` WHERE ( `id` = 4 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `company` FROM `app_supplier` WHERE ( `id` = 5 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `company` FROM `app_supplier` WHERE ( `id` = 5 ) LIMIT 1   [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.031250s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.031250s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.015625s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.015625s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-11-02T17:08:24+08:00 ] 218.91.152.220 /index.php?s=/Admin/Psi/data_1.html&category=40
+SQL: SHOW COLUMNS FROM `app_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `app_menu` WHERE ( `pid` = 0 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT `id` FROM `app_menu` WHERE ( url like '%Psi/data_1' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_menu` [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title` FROM `app_menu` WHERE ( id=201 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title` FROM `app_menu` WHERE ( id=199 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT DISTINCT  `group` FROM `app_menu` WHERE ( pid = 199 )  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`url` FROM `app_menu` WHERE ( `pid` = 199 ) AND ( `hide` = 0 )  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `app_menu` WHERE ( `group` = '分析管理' ) AND ( `pid` = 199 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `app_menu` WHERE ( `group` = '数据管理' ) AND ( `pid` = 199 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_category` [ RunTime:0.000000s ]
+SQL: SELECT `id`,`name`,`title`,`pid`,`sort`,`list_row`,`meta_title`,`keywords`,`description`,`template_index`,`template_lists`,`template_detail`,`template_edit`,`model`,`type`,`link_id`,`allow_publish`,`display`,`reply`,`check`,`reply_model`,`extend`,`create_time`,`update_time`,`status`,`icon` FROM `app_category` WHERE ( `id` = 39 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `id`,`title`,`pid` FROM `app_category` WHERE ( `status` > -1 ) ORDER BY sort  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_supplier` [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: where D:\wwwroot\liuc\Application\Admin\Controller\PsiController.class.php 第 2119 行.
+SQL: SELECT `id`,`company` FROM `app_supplier`  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_stock` [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_record` [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) as num FROM `app_record` INNER JOIN app_stock ON app_record.code = app_stock.code  WHERE ( app_record.supplier LIKE ('%%') AND app_record.category  =  40 AND app_record.type  =  2 AND app_record.warehouse  =  1 ) GROUP BY app_record.code  [ RunTime:0.000000s ]
+SQL: SELECT *,SUM(app_record.num) as num,SUM(app_record.num)*app_record.price as total FROM `app_record` INNER JOIN app_stock ON app_record.code = app_stock.code  WHERE ( app_record.supplier LIKE ('%%') AND app_record.category  =  40 AND app_record.type  =  2 AND app_record.warehouse  =  1 ) GROUP BY app_record.code ORDER BY app_record.id asc LIMIT 0,30   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 40 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 50 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 51 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 52 ) LIMIT 1   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: type D:\wwwroot\liuc\Runtime\Cache\Admin\1fbb68d183e3507f5c62616751ab5e5f.php 第 128 行.
+SQL: SHOW COLUMNS FROM `app_supplier` [ RunTime:0.015625s ]
+SQL: SELECT `company` FROM `app_supplier` WHERE ( `id` = 7 ) LIMIT 1   [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.046875s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.046875s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-11-02T17:08:26+08:00 ] 218.91.152.220 /index.php?s=/Admin/Psi/data_1.html&category=40&supplier=4
+SQL: SHOW COLUMNS FROM `app_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `app_menu` WHERE ( `pid` = 0 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT `id` FROM `app_menu` WHERE ( url like '%Psi/data_1' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_menu` [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title` FROM `app_menu` WHERE ( id=201 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title` FROM `app_menu` WHERE ( id=199 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT DISTINCT  `group` FROM `app_menu` WHERE ( pid = 199 )  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`url` FROM `app_menu` WHERE ( `pid` = 199 ) AND ( `hide` = 0 )  [ RunTime:0.015625s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `app_menu` WHERE ( `group` = '分析管理' ) AND ( `pid` = 199 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `app_menu` WHERE ( `group` = '数据管理' ) AND ( `pid` = 199 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_category` [ RunTime:0.000000s ]
+SQL: SELECT `id`,`name`,`title`,`pid`,`sort`,`list_row`,`meta_title`,`keywords`,`description`,`template_index`,`template_lists`,`template_detail`,`template_edit`,`model`,`type`,`link_id`,`allow_publish`,`display`,`reply`,`check`,`reply_model`,`extend`,`create_time`,`update_time`,`status`,`icon` FROM `app_category` WHERE ( `id` = 39 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `id`,`title`,`pid` FROM `app_category` WHERE ( `status` > -1 ) ORDER BY sort  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_supplier` [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: where D:\wwwroot\liuc\Application\Admin\Controller\PsiController.class.php 第 2119 行.
+SQL: SELECT `id`,`company` FROM `app_supplier`  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_stock` [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_record` [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) as num FROM `app_record` INNER JOIN app_stock ON app_record.code = app_stock.code  WHERE ( app_record.supplier  =  4 AND app_record.category  =  40 AND app_record.type  =  2 AND app_record.warehouse  =  1 ) GROUP BY app_record.code  [ RunTime:0.000000s ]
+SQL: SELECT *,SUM(app_record.num) as num,SUM(app_record.num)*app_record.price as total FROM `app_record` INNER JOIN app_stock ON app_record.code = app_stock.code  WHERE ( app_record.supplier  =  4 AND app_record.category  =  40 AND app_record.type  =  2 AND app_record.warehouse  =  1 ) GROUP BY app_record.code ORDER BY app_record.id asc LIMIT 0,30   [ RunTime:0.000000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 155 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: type D:\wwwroot\liuc\Runtime\Cache\Admin\1fbb68d183e3507f5c62616751ab5e5f.php 第 128 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.031250s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.031250s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-11-02T17:08:30+08:00 ] 218.91.152.220 /index.php?s=/Admin/Psi/data_1.html
+SQL: SHOW COLUMNS FROM `app_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `app_menu` WHERE ( `pid` = 0 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT `id` FROM `app_menu` WHERE ( url like '%Psi/data_1' ) LIMIT 1   [ RunTime:0.015625s ]
+SQL: SHOW COLUMNS FROM `app_menu` [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title` FROM `app_menu` WHERE ( id=201 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title` FROM `app_menu` WHERE ( id=199 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT DISTINCT  `group` FROM `app_menu` WHERE ( pid = 199 )  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`url` FROM `app_menu` WHERE ( `pid` = 199 ) AND ( `hide` = 0 )  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `app_menu` WHERE ( `group` = '分析管理' ) AND ( `pid` = 199 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `app_menu` WHERE ( `group` = '数据管理' ) AND ( `pid` = 199 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_category` [ RunTime:0.000000s ]
+SQL: SELECT `id`,`name`,`title`,`pid`,`sort`,`list_row`,`meta_title`,`keywords`,`description`,`template_index`,`template_lists`,`template_detail`,`template_edit`,`model`,`type`,`link_id`,`allow_publish`,`display`,`reply`,`check`,`reply_model`,`extend`,`create_time`,`update_time`,`status`,`icon` FROM `app_category` WHERE ( `id` = 39 ) LIMIT 1   [ RunTime:0.015625s ]
+SQL: SELECT `id`,`title`,`pid` FROM `app_category` WHERE ( `status` > -1 ) ORDER BY sort  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_supplier` [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: where D:\wwwroot\liuc\Application\Admin\Controller\PsiController.class.php 第 2119 行.
+SQL: SELECT `id`,`company` FROM `app_supplier`  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_stock` [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_record` [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) as num FROM `app_record` INNER JOIN app_stock ON app_record.code = app_stock.code  WHERE ( app_record.supplier LIKE ('%%') AND app_record.category LIKE ('%%') AND app_record.type  =  2 AND app_record.warehouse  =  1 ) GROUP BY app_record.code  [ RunTime:0.015625s ]
+SQL: SELECT *,SUM(app_record.num) as num,SUM(app_record.num)*app_record.price as total FROM `app_record` INNER JOIN app_stock ON app_record.code = app_stock.code  WHERE ( app_record.supplier LIKE ('%%') AND app_record.category LIKE ('%%') AND app_record.type  =  2 AND app_record.warehouse  =  1 ) GROUP BY app_record.code ORDER BY app_record.id asc LIMIT 0,30   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 41 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 49 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 48 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 41 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 53 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 54 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 55 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 41 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 50 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 52 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 53 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 42 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 53 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 54 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 42 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 52 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 41 ) LIMIT 1   [ RunTime:0.015625s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 55 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 46 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 57 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 49 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 48 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 42 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 51 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 52 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 58 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 41 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 48 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 40 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 50 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 51 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 52 ) LIMIT 1   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: type D:\wwwroot\liuc\Runtime\Cache\Admin\1fbb68d183e3507f5c62616751ab5e5f.php 第 128 行.
+SQL: SHOW COLUMNS FROM `app_supplier` [ RunTime:0.000000s ]
+SQL: SELECT `company` FROM `app_supplier` WHERE ( `id` = 5 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `company` FROM `app_supplier` WHERE ( `id` = 6 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `company` FROM `app_supplier` WHERE ( `id` = 4 ) LIMIT 1   [ RunTime:0.015625s ]
+SQL: SELECT `company` FROM `app_supplier` WHERE ( `id` = 5 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `company` FROM `app_supplier` WHERE ( `id` = 5 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `company` FROM `app_supplier` WHERE ( `id` = 5 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `company` FROM `app_supplier` WHERE ( `id` = 4 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `company` FROM `app_supplier` WHERE ( `id` = 6 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `company` FROM `app_supplier` WHERE ( `id` = 5 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `company` FROM `app_supplier` WHERE ( `id` = 7 ) LIMIT 1   [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.046875s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.046875s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-11-02T17:08:38+08:00 ] 218.91.152.220 /index.php?s=/Admin/Psi/data_1.html&time-start=2015-11-08&time-end=2015-11-13&ask=1
+SQL: SHOW COLUMNS FROM `app_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `app_menu` WHERE ( `pid` = 0 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT `id` FROM `app_menu` WHERE ( url like '%Psi/data_1' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_menu` [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title` FROM `app_menu` WHERE ( id=201 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title` FROM `app_menu` WHERE ( id=199 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT DISTINCT  `group` FROM `app_menu` WHERE ( pid = 199 )  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`url` FROM `app_menu` WHERE ( `pid` = 199 ) AND ( `hide` = 0 )  [ RunTime:0.015625s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `app_menu` WHERE ( `group` = '分析管理' ) AND ( `pid` = 199 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `app_menu` WHERE ( `group` = '数据管理' ) AND ( `pid` = 199 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_category` [ RunTime:0.000000s ]
+SQL: SELECT `id`,`name`,`title`,`pid`,`sort`,`list_row`,`meta_title`,`keywords`,`description`,`template_index`,`template_lists`,`template_detail`,`template_edit`,`model`,`type`,`link_id`,`allow_publish`,`display`,`reply`,`check`,`reply_model`,`extend`,`create_time`,`update_time`,`status`,`icon` FROM `app_category` WHERE ( `id` = 39 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `id`,`title`,`pid` FROM `app_category` WHERE ( `status` > -1 ) ORDER BY sort  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_supplier` [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: where D:\wwwroot\liuc\Application\Admin\Controller\PsiController.class.php 第 2119 行.
+SQL: SELECT `id`,`company` FROM `app_supplier`  [ RunTime:0.015625s ]
+SQL: SHOW COLUMNS FROM `app_stock` [ RunTime:0.000000s ]
+NOTIC: [8] Array to string conversion D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 123 行.
+SQL: SHOW COLUMNS FROM `app_record` [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) as num FROM `app_record` INNER JOIN app_stock ON app_record.code = app_stock.code  WHERE ( app_record.supplier LIKE ('%%') AND app_record.category LIKE ('%%') AND app_record.code like ("%%") AND app_record.date between 1446912000 AND 1447344000 AND app_record.type  =  2 AND app_record.warehouse  =  1 ) GROUP BY app_record.code  [ RunTime:0.000000s ]
+SQL: SELECT *,SUM(app_record.num) as num,SUM(app_record.num)*app_record.price as total FROM `app_record` INNER JOIN app_stock ON app_record.code = app_stock.code  WHERE ( app_record.supplier LIKE ('%%') AND app_record.category LIKE ('%%') AND app_record.code like ("%%") AND app_record.date between 1446912000 AND 1447344000 AND app_record.type  =  2 AND app_record.warehouse  =  1 ) GROUP BY app_record.code ORDER BY app_record.id asc LIMIT 0,30   [ RunTime:0.000000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 155 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: type D:\wwwroot\liuc\Runtime\Cache\Admin\1fbb68d183e3507f5c62616751ab5e5f.php 第 128 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.031250s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.031250s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-11-02T17:08:40+08:00 ] 218.91.152.220 /index.php?s=/Admin/Psi/data_2.html
+SQL: SHOW COLUMNS FROM `app_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `app_menu` WHERE ( `pid` = 0 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT `id` FROM `app_menu` WHERE ( url like '%Psi/data_2' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_menu` [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title` FROM `app_menu` WHERE ( id=202 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title` FROM `app_menu` WHERE ( id=199 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT DISTINCT  `group` FROM `app_menu` WHERE ( pid = 199 )  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`url` FROM `app_menu` WHERE ( `pid` = 199 ) AND ( `hide` = 0 )  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `app_menu` WHERE ( `group` = '分析管理' ) AND ( `pid` = 199 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `app_menu` WHERE ( `group` = '数据管理' ) AND ( `pid` = 199 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_category` [ RunTime:0.000000s ]
+SQL: SELECT `id`,`name`,`title`,`pid`,`sort`,`list_row`,`meta_title`,`keywords`,`description`,`template_index`,`template_lists`,`template_detail`,`template_edit`,`model`,`type`,`link_id`,`allow_publish`,`display`,`reply`,`check`,`reply_model`,`extend`,`create_time`,`update_time`,`status`,`icon` FROM `app_category` WHERE ( `id` = 39 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `id`,`title`,`pid` FROM `app_category` WHERE ( `status` > -1 ) ORDER BY sort  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_supplier` [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: where D:\wwwroot\liuc\Application\Admin\Controller\PsiController.class.php 第 2227 行.
+SQL: SELECT `id`,`company` FROM `app_supplier`  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_record` [ RunTime:0.015625s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `app_record` WHERE ( `supplier` LIKE '\'%%\'' ) AND ( `category` LIKE '\'%%\'' ) AND ( `type` = 5 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `id`,`name`,`code`,`type`,`from_id`,`warehouse`,`supplier`,`userid`,`price`,`num`,`date`,`category`,`custom`,`joiner` FROM `app_record` WHERE ( `supplier` LIKE '\'%%\'' ) AND ( `category` LIKE '\'%%\'' ) AND ( `type` = 5 ) ORDER BY id desc LIMIT 0,30   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_stock` [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_record` [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) as num FROM `app_record` INNER JOIN app_ucenter_member ON app_record.warehouse = app_ucenter_member.id  WHERE ( app_record.supplier LIKE ('%%') AND app_record.category LIKE ('%%') AND app_record.type  =  5 ) GROUP BY app_record.warehouse  [ RunTime:0.000000s ]
+SQL: SELECT *,SUM(app_record.num) as num,SUM(app_record.num)*app_record.price as total FROM `app_record` INNER JOIN app_ucenter_member ON app_record.warehouse = app_ucenter_member.id  WHERE ( app_record.supplier LIKE ('%%') AND app_record.category LIKE ('%%') AND app_record.type  =  5 ) GROUP BY app_record.warehouse ORDER BY app_record.id asc LIMIT 0,30   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 41 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: standard D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 157 行.
+NOTIC: [2] Invalid argument supplied for foreach() D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 158 行.
+NOTIC: [2] implode(): Invalid arguments passed D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 159 行.
+SQL: SHOW COLUMNS FROM `app_member` [ RunTime:0.000000s ]
+SQL: SELECT `nickname` FROM `app_member` WHERE ( `uid` = 3 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 40 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: standard D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 157 行.
+NOTIC: [2] Invalid argument supplied for foreach() D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 158 行.
+NOTIC: [2] implode(): Invalid arguments passed D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 159 行.
+SQL: SELECT `nickname` FROM `app_member` WHERE ( `uid` = 2 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 40 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: standard D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 157 行.
+NOTIC: [2] Invalid argument supplied for foreach() D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 158 行.
+NOTIC: [2] implode(): Invalid arguments passed D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 159 行.
+SQL: SELECT `nickname` FROM `app_member` WHERE ( `uid` = 6 ) LIMIT 1   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: type D:\wwwroot\liuc\Runtime\Cache\Admin\0da92d0480c1e864d9bee3d49dd943d8.php 第 128 行.
+NOTIC: [8] Undefined index: OE D:\wwwroot\liuc\Runtime\Cache\Admin\0da92d0480c1e864d9bee3d49dd943d8.php 第 178 行.
+NOTIC: [8] Undefined index: store_no D:\wwwroot\liuc\Runtime\Cache\Admin\0da92d0480c1e864d9bee3d49dd943d8.php 第 181 行.
+SQL: SHOW COLUMNS FROM `app_supplier` [ RunTime:0.015625s ]
+SQL: SELECT `company` FROM `app_supplier` WHERE ( `id` = 5 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: OE D:\wwwroot\liuc\Runtime\Cache\Admin\0da92d0480c1e864d9bee3d49dd943d8.php 第 178 行.
+NOTIC: [8] Undefined index: store_no D:\wwwroot\liuc\Runtime\Cache\Admin\0da92d0480c1e864d9bee3d49dd943d8.php 第 181 行.
+SQL: SELECT `company` FROM `app_supplier` WHERE ( `id` = 7 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: OE D:\wwwroot\liuc\Runtime\Cache\Admin\0da92d0480c1e864d9bee3d49dd943d8.php 第 178 行.
+NOTIC: [8] Undefined index: store_no D:\wwwroot\liuc\Runtime\Cache\Admin\0da92d0480c1e864d9bee3d49dd943d8.php 第 181 行.
+SQL: SELECT `company` FROM `app_supplier` WHERE ( `id` = 7 ) LIMIT 1   [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.046875s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.046875s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-11-02T17:08:42+08:00 ] 218.91.152.220 /index.php?s=/Admin/Psi/data_1.html
+SQL: SHOW COLUMNS FROM `app_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `app_menu` WHERE ( `pid` = 0 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT `id` FROM `app_menu` WHERE ( url like '%Psi/data_1' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_menu` [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title` FROM `app_menu` WHERE ( id=201 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title` FROM `app_menu` WHERE ( id=199 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT DISTINCT  `group` FROM `app_menu` WHERE ( pid = 199 )  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`url` FROM `app_menu` WHERE ( `pid` = 199 ) AND ( `hide` = 0 )  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `app_menu` WHERE ( `group` = '分析管理' ) AND ( `pid` = 199 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `app_menu` WHERE ( `group` = '数据管理' ) AND ( `pid` = 199 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_category` [ RunTime:0.000000s ]
+SQL: SELECT `id`,`name`,`title`,`pid`,`sort`,`list_row`,`meta_title`,`keywords`,`description`,`template_index`,`template_lists`,`template_detail`,`template_edit`,`model`,`type`,`link_id`,`allow_publish`,`display`,`reply`,`check`,`reply_model`,`extend`,`create_time`,`update_time`,`status`,`icon` FROM `app_category` WHERE ( `id` = 39 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `id`,`title`,`pid` FROM `app_category` WHERE ( `status` > -1 ) ORDER BY sort  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_supplier` [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: where D:\wwwroot\liuc\Application\Admin\Controller\PsiController.class.php 第 2119 行.
+SQL: SELECT `id`,`company` FROM `app_supplier`  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_stock` [ RunTime:0.015625s ]
+SQL: SHOW COLUMNS FROM `app_record` [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) as num FROM `app_record` INNER JOIN app_stock ON app_record.code = app_stock.code  WHERE ( app_record.supplier LIKE ('%%') AND app_record.category LIKE ('%%') AND app_record.type  =  2 AND app_record.warehouse  =  1 ) GROUP BY app_record.code  [ RunTime:0.000000s ]
+SQL: SELECT *,SUM(app_record.num) as num,SUM(app_record.num)*app_record.price as total FROM `app_record` INNER JOIN app_stock ON app_record.code = app_stock.code  WHERE ( app_record.supplier LIKE ('%%') AND app_record.category LIKE ('%%') AND app_record.type  =  2 AND app_record.warehouse  =  1 ) GROUP BY app_record.code ORDER BY app_record.id asc LIMIT 0,30   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 41 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 49 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 48 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 41 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 53 ) LIMIT 1   [ RunTime:0.015625s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 54 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 55 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 41 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 50 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 52 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 53 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 42 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 53 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 54 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 42 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 52 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 41 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 55 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 46 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 57 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 49 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 48 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 42 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 51 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 52 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 58 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 41 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 48 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 40 ) LIMIT 1   [ RunTime:0.015625s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 50 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 51 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 52 ) LIMIT 1   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: type D:\wwwroot\liuc\Runtime\Cache\Admin\1fbb68d183e3507f5c62616751ab5e5f.php 第 128 行.
+SQL: SHOW COLUMNS FROM `app_supplier` [ RunTime:0.000000s ]
+SQL: SELECT `company` FROM `app_supplier` WHERE ( `id` = 5 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `company` FROM `app_supplier` WHERE ( `id` = 6 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `company` FROM `app_supplier` WHERE ( `id` = 4 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `company` FROM `app_supplier` WHERE ( `id` = 5 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `company` FROM `app_supplier` WHERE ( `id` = 5 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `company` FROM `app_supplier` WHERE ( `id` = 5 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `company` FROM `app_supplier` WHERE ( `id` = 4 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `company` FROM `app_supplier` WHERE ( `id` = 6 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `company` FROM `app_supplier` WHERE ( `id` = 5 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `company` FROM `app_supplier` WHERE ( `id` = 7 ) LIMIT 1   [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.031250s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.031250s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-11-02T17:08:50+08:00 ] 218.91.152.220 /index.php?s=/Admin/Psi/charts_4.html
+SQL: SHOW COLUMNS FROM `app_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `app_menu` WHERE ( `pid` = 0 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT `id` FROM `app_menu` WHERE ( url like '%Psi/charts_4' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_menu` [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title` FROM `app_menu` WHERE ( id=198 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title` FROM `app_menu` WHERE ( id=199 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT DISTINCT  `group` FROM `app_menu` WHERE ( pid = 199 )  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`url` FROM `app_menu` WHERE ( `pid` = 199 ) AND ( `hide` = 0 )  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `app_menu` WHERE ( `group` = '分析管理' ) AND ( `pid` = 199 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.015625s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `app_menu` WHERE ( `group` = '数据管理' ) AND ( `pid` = 199 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_category` [ RunTime:0.000000s ]
+SQL: SELECT `id`,`name`,`title`,`pid`,`sort`,`list_row`,`meta_title`,`keywords`,`description`,`template_index`,`template_lists`,`template_detail`,`template_edit`,`model`,`type`,`link_id`,`allow_publish`,`display`,`reply`,`check`,`reply_model`,`extend`,`create_time`,`update_time`,`status`,`icon` FROM `app_category` WHERE ( `id` = 39 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `id`,`title`,`pid` FROM `app_category` WHERE ( `status` > -1 ) ORDER BY sort  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_supplier` [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: where D:\wwwroot\liuc\Application\Admin\Controller\PsiController.class.php 第 1976 行.
+SQL: SELECT `id`,`company` FROM `app_supplier`  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_record` [ RunTime:0.015625s ]
+SQL: SELECT `supplier`,SUM(`num`) AS num FROM `app_record` WHERE (  (`date` BETWEEN 1420041600 AND 1451577600 ) ) AND ( `type` = 2 ) GROUP BY supplier ORDER BY num desc LIMIT 10   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_supplier` [ RunTime:0.000000s ]
+SQL: SELECT `company` FROM `app_supplier` WHERE ( `id` = 5 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `company` FROM `app_supplier` WHERE ( `id` = 4 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `company` FROM `app_supplier` WHERE ( `id` = 6 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `company` FROM `app_supplier` WHERE ( `id` = 7 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined offset: 4 D:\wwwroot\liuc\Application\Admin\Controller\PsiController.class.php 第 2100 行.
+NOTIC: [8] Undefined offset: 4 D:\wwwroot\liuc\Application\Admin\Controller\PsiController.class.php 第 2101 行.
+NOTIC: [8] Undefined offset: 5 D:\wwwroot\liuc\Application\Admin\Controller\PsiController.class.php 第 2100 行.
+NOTIC: [8] Undefined offset: 5 D:\wwwroot\liuc\Application\Admin\Controller\PsiController.class.php 第 2101 行.
+NOTIC: [8] Undefined offset: 6 D:\wwwroot\liuc\Application\Admin\Controller\PsiController.class.php 第 2100 行.
+NOTIC: [8] Undefined offset: 6 D:\wwwroot\liuc\Application\Admin\Controller\PsiController.class.php 第 2101 行.
+NOTIC: [8] Undefined offset: 7 D:\wwwroot\liuc\Application\Admin\Controller\PsiController.class.php 第 2100 行.
+NOTIC: [8] Undefined offset: 7 D:\wwwroot\liuc\Application\Admin\Controller\PsiController.class.php 第 2101 行.
+NOTIC: [8] Undefined offset: 8 D:\wwwroot\liuc\Application\Admin\Controller\PsiController.class.php 第 2100 行.
+NOTIC: [8] Undefined offset: 8 D:\wwwroot\liuc\Application\Admin\Controller\PsiController.class.php 第 2101 行.
+NOTIC: [8] Undefined offset: 9 D:\wwwroot\liuc\Application\Admin\Controller\PsiController.class.php 第 2100 行.
+NOTIC: [8] Undefined offset: 9 D:\wwwroot\liuc\Application\Admin\Controller\PsiController.class.php 第 2101 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.046875s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.046875s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-11-02T17:08:51+08:00 ] 218.91.152.220 /index.php?s=/Admin/Psi/charts_3.html
+SQL: SHOW COLUMNS FROM `app_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `app_menu` WHERE ( `pid` = 0 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT `id` FROM `app_menu` WHERE ( url like '%Psi/charts_3' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_menu` [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title` FROM `app_menu` WHERE ( id=197 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title` FROM `app_menu` WHERE ( id=199 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT DISTINCT  `group` FROM `app_menu` WHERE ( pid = 199 )  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`url` FROM `app_menu` WHERE ( `pid` = 199 ) AND ( `hide` = 0 )  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `app_menu` WHERE ( `group` = '分析管理' ) AND ( `pid` = 199 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `app_menu` WHERE ( `group` = '数据管理' ) AND ( `pid` = 199 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_category` [ RunTime:0.000000s ]
+SQL: SELECT `id`,`name`,`title`,`pid`,`sort`,`list_row`,`meta_title`,`keywords`,`description`,`template_index`,`template_lists`,`template_detail`,`template_edit`,`model`,`type`,`link_id`,`allow_publish`,`display`,`reply`,`check`,`reply_model`,`extend`,`create_time`,`update_time`,`status`,`icon` FROM `app_category` WHERE ( `id` = 39 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `id`,`title`,`pid` FROM `app_category` WHERE ( `status` > -1 ) ORDER BY sort  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_supplier` [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: where D:\wwwroot\liuc\Application\Admin\Controller\PsiController.class.php 第 1959 行.
+SQL: SELECT `id`,`company` FROM `app_supplier`  [ RunTime:0.015625s ]
+SQL: SHOW COLUMNS FROM `app_record` [ RunTime:0.000000s ]
+SQL: SELECT date_format(FROM_UNIXTIME(`date`),'%c') as month,SUM(`num`*`price`) AS num FROM `app_record` WHERE (  (`date` BETWEEN 1420041600 AND 1451577600 ) ) AND ( `type` = 2 ) GROUP BY month  [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.046875s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.046875s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-11-02T17:08:54+08:00 ] 218.91.152.220 /index.php?s=/Admin/Psi/inventory.html
+SQL: SHOW COLUMNS FROM `app_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `app_menu` WHERE ( `pid` = 0 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT `id` FROM `app_menu` WHERE ( url like '%Psi/inventory' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_menu` [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title` FROM `app_menu` WHERE ( id=122 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT DISTINCT  `group` FROM `app_menu` WHERE ( pid = 122 )  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`url` FROM `app_menu` WHERE ( `pid` = 122 ) AND ( `hide` = 0 )  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `app_menu` WHERE ( `group` = '入库管理' ) AND ( `pid` = 122 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.015625s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `app_menu` WHERE ( `group` = '库存管理' ) AND ( `pid` = 122 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_category` [ RunTime:0.000000s ]
+SQL: SELECT `id`,`name`,`title`,`pid`,`sort`,`list_row`,`meta_title`,`keywords`,`description`,`template_index`,`template_lists`,`template_detail`,`template_edit`,`model`,`type`,`link_id`,`allow_publish`,`display`,`reply`,`check`,`reply_model`,`extend`,`create_time`,`update_time`,`status`,`icon` FROM `app_category` WHERE ( `id` = 39 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `id`,`title`,`pid` FROM `app_category` WHERE ( `status` > -1 ) ORDER BY sort  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_supplier` [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: where D:\wwwroot\liuc\Application\Admin\Controller\PsiController.class.php 第 711 行.
+SQL: SELECT `id`,`company` FROM `app_supplier`  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_member` [ RunTime:0.015625s ]
+SQL: SHOW COLUMNS FROM `app_auth_group` [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_member` [ RunTime:0.000000s ]
+SQL: SELECT m.uid,u.username,m.last_login_time,m.last_login_ip,m.status FROM app_member m INNER JOIN app_auth_group_access a ON m.uid=a.uid INNER JOIN app_ucenter_member u ON m.uid=u.id  WHERE ( a.group_id = '2' )  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_ucenter_member` [ RunTime:0.000000s ]
+SQL: SELECT `id`,`username`,`truename`,`company` FROM `app_ucenter_member` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `id`,`username`,`truename`,`company` FROM `app_ucenter_member` WHERE ( `id` = 3 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `id`,`username`,`truename`,`company` FROM `app_ucenter_member` WHERE ( `id` = 4 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `id`,`username`,`truename`,`company` FROM `app_ucenter_member` WHERE ( `id` = 6 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_stock` [ RunTime:0.000000s ]
+SQL: SELECT `id` FROM `app_stock` WHERE ( `code` LIKE '%%' ) AND ( `category` LIKE '%%' ) AND ( `supplier` LIKE '%%' )  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_warehouse` [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_auth_group_access` [ RunTime:0.000000s ]
+SQL: SELECT `uid`,`group_id`,`title`,`description`,`rules` FROM app_auth_group_access a INNER JOIN app_auth_group g on a.group_id=g.id  WHERE ( a.uid='1' and g.status='1' )  [ RunTime:0.000000s ]
+NOTIC: [8] Undefined offset: 0 D:\wwwroot\liuc\Application\Admin\Model\WarehouseModel.class.php 第 179 行.
+NOTIC: [8] Undefined index: sp D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 138 行.
+SQL: SHOW COLUMNS FROM `app_warehouse` [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) as num FROM `app_warehouse` INNER JOIN app_stock ON app_warehouse.sid = app_stock.id  WHERE ( app_warehouse.sid in (12,16,17,18,19,20,21,23,24,25) AND app_warehouse.warehouse like ("%%") ) GROUP BY app_stock.id  [ RunTime:0.000000s ]
+SQL: SELECT * FROM `app_warehouse` INNER JOIN app_stock ON app_warehouse.sid = app_stock.id  WHERE ( app_warehouse.sid in (12,16,17,18,19,20,21,23,24,25) AND app_warehouse.warehouse like ("%%") ) GROUP BY app_stock.id ORDER BY app_warehouse.warehouse,app_stock.category asc,app_stock.name asc LIMIT 0,30   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 40 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 50 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 51 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 52 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 42 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 51 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 52 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 58 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 41 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 48 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `nickname` FROM `app_member` WHERE ( `uid` = 3 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 41 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 50 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 52 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 53 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `nickname` FROM `app_member` WHERE ( `uid` = 3 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 41 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 55 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `nickname` FROM `app_member` WHERE ( `uid` = 3 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 41 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 53 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 54 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 55 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `nickname` FROM `app_member` WHERE ( `uid` = 3 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 41 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 49 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 48 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `nickname` FROM `app_member` WHERE ( `uid` = 3 ) LIMIT 1   [ RunTime:0.015625s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 42 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 52 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `nickname` FROM `app_member` WHERE ( `uid` = 3 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 42 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 53 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 54 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `nickname` FROM `app_member` WHERE ( `uid` = 3 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 46 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 57 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 49 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 48 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `nickname` FROM `app_member` WHERE ( `uid` = 3 ) LIMIT 1   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.031250s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.031250s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-11-02T17:08:58+08:00 ] 218.91.152.220 /index.php?s=/Admin/Psi/apply.html
+SQL: SHOW COLUMNS FROM `app_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `app_menu` WHERE ( `pid` = 0 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT `id` FROM `app_menu` WHERE ( url like '%Psi/apply' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_menu` [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title` FROM `app_menu` WHERE ( id=151 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title` FROM `app_menu` WHERE ( id=148 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT DISTINCT  `group` FROM `app_menu` WHERE ( pid = 148 )  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`url` FROM `app_menu` WHERE ( `pid` = 148 ) AND ( `hide` = 0 )  [ RunTime:0.015625s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `app_menu` WHERE ( `group` = '采购管理' ) AND ( `pid` = 148 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `app_menu` WHERE ( `group` = '账务管理' ) AND ( `pid` = 148 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_supplier` [ RunTime:0.000000s ]
+SQL: SELECT `id`,`company` FROM `app_supplier`  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_stock` [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: map D:\wwwroot\liuc\Application\Admin\Controller\PsiController.class.php 第 48 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `app_stock` ORDER BY id desc LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `id`,`code`,`name`,`category`,`supplier`,`standard`,`OE`,`store_no` FROM `app_stock` ORDER BY id desc LIMIT 0,20   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_category` [ RunTime:0.015625s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 40 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `company` FROM `app_supplier` WHERE ( id="7" ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 50 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 51 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 52 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_warehouse` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `app_warehouse` WHERE ( sid=25 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 42 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `company` FROM `app_supplier` WHERE ( id="6" ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 51 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 52 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 58 ) LIMIT 1   [ RunTime:0.015625s ]
+SQL: SELECT * FROM `app_warehouse` WHERE ( sid=24 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 41 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `company` FROM `app_supplier` WHERE ( id="5" ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 48 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `app_warehouse` WHERE ( sid=23 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 42 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `company` FROM `app_supplier` WHERE ( id="5" ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 53 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 54 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `app_warehouse` WHERE ( sid=21 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 42 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `company` FROM `app_supplier` WHERE ( id="5" ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 52 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `app_warehouse` WHERE ( sid=20 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 41 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `company` FROM `app_supplier` WHERE ( id="5" ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 49 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 48 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `app_warehouse` WHERE ( sid=19 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 41 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `company` FROM `app_supplier` WHERE ( id="6" ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 53 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 54 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 55 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `app_warehouse` WHERE ( sid=18 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 41 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `company` FROM `app_supplier` WHERE ( id="5" ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 55 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `app_warehouse` WHERE ( sid=17 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 41 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `company` FROM `app_supplier` WHERE ( id="4" ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 50 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 52 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 53 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `app_warehouse` WHERE ( sid=16 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 46 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `company` FROM `app_supplier` WHERE ( id="4" ) LIMIT 1   [ RunTime:0.015625s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 57 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 49 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 48 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `app_warehouse` WHERE ( sid=12 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: num_order D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 75 行.
+NOTIC: [8] Undefined variable: num_order D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `app_record` [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_record` [ RunTime:0.000000s ]
+SQL: SELECT SUM(`num`) AS count FROM `app_record` WHERE (  (`date` BETWEEN 1446307200 AND 1448899200 ) ) AND ( `type` = 2 ) AND ( `code` = 'AMD-DPJ-XXG-L89' ) GROUP BY code  [ RunTime:0.000000s ]
+SQL: SELECT SUM(`num`) AS count FROM `app_record` WHERE (  (`date` BETWEEN 1446307200 AND 1448899200 ) ) AND ( `type` = 2 ) AND ( `code` = 'AMD-DPJ-XXG-L07' ) GROUP BY code  [ RunTime:0.000000s ]
+SQL: SELECT SUM(`num`) AS count FROM `app_record` WHERE (  (`date` BETWEEN 1446307200 AND 1448899200 ) ) AND ( `type` = 2 ) AND ( `code` = 'AMD-DPJ-XXG-L01' ) GROUP BY code  [ RunTime:0.000000s ]
+SQL: SELECT SUM(`num`) AS count FROM `app_record` WHERE (  (`date` BETWEEN 1446307200 AND 1448899200 ) ) AND ( `type` = 2 ) AND ( `code` = 'AMD-DPJ-HQW-L10' ) GROUP BY code  [ RunTime:0.000000s ]
+SQL: SELECT SUM(`num`) AS count FROM `app_record` WHERE (  (`date` BETWEEN 1446307200 AND 1448899200 ) ) AND ( `type` = 2 ) AND ( `code` = 'AMD-DPJ-HQN-007' ) GROUP BY code  [ RunTime:0.015625s ]
+SQL: SELECT SUM(`num`) AS count FROM `app_record` WHERE (  (`date` BETWEEN 1446307200 AND 1448899200 ) ) AND ( `type` = 2 ) AND ( `code` = 'AMD-DPJ-HQN-001' ) GROUP BY code  [ RunTime:0.000000s ]
+SQL: SELECT SUM(`num`) AS count FROM `app_record` WHERE (  (`date` BETWEEN 1446307200 AND 1448899200 ) ) AND ( `type` = 2 ) AND ( `code` = 'AMD-DPJ-JZQ-R13' ) GROUP BY code  [ RunTime:0.000000s ]
+SQL: SELECT SUM(`num`) AS count FROM `app_record` WHERE (  (`date` BETWEEN 1446307200 AND 1448899200 ) ) AND ( `type` = 2 ) AND ( `code` = 'AMD-DPJ-JZQ-L13' ) GROUP BY code  [ RunTime:0.000000s ]
+SQL: SELECT SUM(`num`) AS count FROM `app_record` WHERE (  (`date` BETWEEN 1446307200 AND 1448899200 ) ) AND ( `type` = 2 ) AND ( `code` = 'AMD-DPJ-JZQ-L01' ) GROUP BY code  [ RunTime:0.000000s ]
+SQL: SELECT SUM(`num`) AS count FROM `app_record` WHERE (  (`date` BETWEEN 1446307200 AND 1448899200 ) ) AND ( `type` = 2 ) AND ( `code` = 'AMD-DPJ-JZH-L22' ) GROUP BY code  [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.015625s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.015625s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.031250s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.031250s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-11-02T17:09:17+08:00 ] 218.91.152.220 /index.php?s=/Admin/Psi/supplier.html
+SQL: SHOW COLUMNS FROM `app_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `app_menu` WHERE ( `pid` = 0 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT `id` FROM `app_menu` WHERE ( url like '%Psi/supplier' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_menu` [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title` FROM `app_menu` WHERE ( id=133 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title` FROM `app_menu` WHERE ( id=140 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT DISTINCT  `group` FROM `app_menu` WHERE ( pid = 140 )  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`url` FROM `app_menu` WHERE ( `pid` = 140 ) AND ( `hide` = 0 )  [ RunTime:0.015625s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `app_menu` WHERE ( `group` = '供应商管理' ) AND ( `pid` = 140 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_supplier` [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: where D:\wwwroot\liuc\Application\Admin\Controller\PsiController.class.php 第 1828 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `app_supplier` ORDER BY id DESC LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `app_supplier` ORDER BY id DESC LIMIT 0,15   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: type D:\wwwroot\liuc\Application\Admin\Controller\PsiController.class.php 第 1833 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.046875s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.046875s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-11-02T17:09:18+08:00 ] 218.91.152.220 /index.php?s=/Admin/Psi/charts_1.html
+SQL: SHOW COLUMNS FROM `app_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `app_menu` WHERE ( `pid` = 0 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT `id` FROM `app_menu` WHERE ( url like '%Psi/charts_1' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_menu` [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title` FROM `app_menu` WHERE ( id=195 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title` FROM `app_menu` WHERE ( id=199 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT DISTINCT  `group` FROM `app_menu` WHERE ( pid = 199 )  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`url` FROM `app_menu` WHERE ( `pid` = 199 ) AND ( `hide` = 0 )  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `app_menu` WHERE ( `group` = '分析管理' ) AND ( `pid` = 199 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `app_menu` WHERE ( `group` = '数据管理' ) AND ( `pid` = 199 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.015625s ]
+SQL: SHOW COLUMNS FROM `app_category` [ RunTime:0.000000s ]
+SQL: SELECT `id`,`name`,`title`,`pid`,`sort`,`list_row`,`meta_title`,`keywords`,`description`,`template_index`,`template_lists`,`template_detail`,`template_edit`,`model`,`type`,`link_id`,`allow_publish`,`display`,`reply`,`check`,`reply_model`,`extend`,`create_time`,`update_time`,`status`,`icon` FROM `app_category` WHERE ( `id` = 39 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `id`,`title`,`pid` FROM `app_category` WHERE ( `status` > -1 ) ORDER BY sort  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_supplier` [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: where D:\wwwroot\liuc\Application\Admin\Controller\PsiController.class.php 第 1923 行.
+SQL: SELECT `id`,`company` FROM `app_supplier`  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_record` [ RunTime:0.015625s ]
+SQL: SELECT date_format(FROM_UNIXTIME(`date`),'%c') as month,SUM(`num`) AS num FROM `app_record` WHERE (  (`date` BETWEEN 1420041600 AND 1451577600 ) ) AND ( `type` = 2 ) GROUP BY month  [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.015625s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015625s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-11-02T17:09:19+08:00 ] 218.91.152.220 /index.php?s=/Admin/Psi/data_2.html
+SQL: SHOW COLUMNS FROM `app_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `app_menu` WHERE ( `pid` = 0 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT `id` FROM `app_menu` WHERE ( url like '%Psi/data_2' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_menu` [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title` FROM `app_menu` WHERE ( id=202 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title` FROM `app_menu` WHERE ( id=199 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT DISTINCT  `group` FROM `app_menu` WHERE ( pid = 199 )  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`url` FROM `app_menu` WHERE ( `pid` = 199 ) AND ( `hide` = 0 )  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `app_menu` WHERE ( `group` = '分析管理' ) AND ( `pid` = 199 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `app_menu` WHERE ( `group` = '数据管理' ) AND ( `pid` = 199 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.015625s ]
+SQL: SHOW COLUMNS FROM `app_category` [ RunTime:0.000000s ]
+SQL: SELECT `id`,`name`,`title`,`pid`,`sort`,`list_row`,`meta_title`,`keywords`,`description`,`template_index`,`template_lists`,`template_detail`,`template_edit`,`model`,`type`,`link_id`,`allow_publish`,`display`,`reply`,`check`,`reply_model`,`extend`,`create_time`,`update_time`,`status`,`icon` FROM `app_category` WHERE ( `id` = 39 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `id`,`title`,`pid` FROM `app_category` WHERE ( `status` > -1 ) ORDER BY sort  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_supplier` [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: where D:\wwwroot\liuc\Application\Admin\Controller\PsiController.class.php 第 2227 行.
+SQL: SELECT `id`,`company` FROM `app_supplier`  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_record` [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `app_record` WHERE ( `supplier` LIKE '\'%%\'' ) AND ( `category` LIKE '\'%%\'' ) AND ( `type` = 5 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `id`,`name`,`code`,`type`,`from_id`,`warehouse`,`supplier`,`userid`,`price`,`num`,`date`,`category`,`custom`,`joiner` FROM `app_record` WHERE ( `supplier` LIKE '\'%%\'' ) AND ( `category` LIKE '\'%%\'' ) AND ( `type` = 5 ) ORDER BY id desc LIMIT 0,30   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_stock` [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_record` [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) as num FROM `app_record` INNER JOIN app_ucenter_member ON app_record.warehouse = app_ucenter_member.id  WHERE ( app_record.supplier LIKE ('%%') AND app_record.category LIKE ('%%') AND app_record.type  =  5 ) GROUP BY app_record.warehouse  [ RunTime:0.000000s ]
+SQL: SELECT *,SUM(app_record.num) as num,SUM(app_record.num)*app_record.price as total FROM `app_record` INNER JOIN app_ucenter_member ON app_record.warehouse = app_ucenter_member.id  WHERE ( app_record.supplier LIKE ('%%') AND app_record.category LIKE ('%%') AND app_record.type  =  5 ) GROUP BY app_record.warehouse ORDER BY app_record.id asc LIMIT 0,30   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 41 ) LIMIT 1   [ RunTime:0.015625s ]
+NOTIC: [8] Undefined index: standard D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 157 行.
+NOTIC: [2] Invalid argument supplied for foreach() D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 158 行.
+NOTIC: [2] implode(): Invalid arguments passed D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 159 行.
+SQL: SHOW COLUMNS FROM `app_member` [ RunTime:0.000000s ]
+SQL: SELECT `nickname` FROM `app_member` WHERE ( `uid` = 3 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 40 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: standard D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 157 行.
+NOTIC: [2] Invalid argument supplied for foreach() D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 158 行.
+NOTIC: [2] implode(): Invalid arguments passed D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 159 行.
+SQL: SELECT `nickname` FROM `app_member` WHERE ( `uid` = 2 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 40 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: standard D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 157 行.
+NOTIC: [2] Invalid argument supplied for foreach() D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 158 行.
+NOTIC: [2] implode(): Invalid arguments passed D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 159 行.
+SQL: SELECT `nickname` FROM `app_member` WHERE ( `uid` = 6 ) LIMIT 1   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: type D:\wwwroot\liuc\Runtime\Cache\Admin\0da92d0480c1e864d9bee3d49dd943d8.php 第 128 行.
+NOTIC: [8] Undefined index: OE D:\wwwroot\liuc\Runtime\Cache\Admin\0da92d0480c1e864d9bee3d49dd943d8.php 第 178 行.
+NOTIC: [8] Undefined index: store_no D:\wwwroot\liuc\Runtime\Cache\Admin\0da92d0480c1e864d9bee3d49dd943d8.php 第 181 行.
+SQL: SHOW COLUMNS FROM `app_supplier` [ RunTime:0.000000s ]
+SQL: SELECT `company` FROM `app_supplier` WHERE ( `id` = 5 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: OE D:\wwwroot\liuc\Runtime\Cache\Admin\0da92d0480c1e864d9bee3d49dd943d8.php 第 178 行.
+NOTIC: [8] Undefined index: store_no D:\wwwroot\liuc\Runtime\Cache\Admin\0da92d0480c1e864d9bee3d49dd943d8.php 第 181 行.
+SQL: SELECT `company` FROM `app_supplier` WHERE ( `id` = 7 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: OE D:\wwwroot\liuc\Runtime\Cache\Admin\0da92d0480c1e864d9bee3d49dd943d8.php 第 178 行.
+NOTIC: [8] Undefined index: store_no D:\wwwroot\liuc\Runtime\Cache\Admin\0da92d0480c1e864d9bee3d49dd943d8.php 第 181 行.
+SQL: SELECT `company` FROM `app_supplier` WHERE ( `id` = 7 ) LIMIT 1   [ RunTime:0.015625s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.046875s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.046875s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-11-02T17:15:11+08:00 ] 218.91.152.220 /index.php?s=/Admin/Psi/data_2.html
+SQL: SHOW COLUMNS FROM `app_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `app_menu` WHERE ( `pid` = 0 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT `id` FROM `app_menu` WHERE ( url like '%Psi/data_2' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_menu` [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title` FROM `app_menu` WHERE ( id=202 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title` FROM `app_menu` WHERE ( id=199 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT DISTINCT  `group` FROM `app_menu` WHERE ( pid = 199 )  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`url` FROM `app_menu` WHERE ( `pid` = 199 ) AND ( `hide` = 0 )  [ RunTime:0.015625s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `app_menu` WHERE ( `group` = '分析管理' ) AND ( `pid` = 199 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `app_menu` WHERE ( `group` = '数据管理' ) AND ( `pid` = 199 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_category` [ RunTime:0.000000s ]
+SQL: SELECT `id`,`name`,`title`,`pid`,`sort`,`list_row`,`meta_title`,`keywords`,`description`,`template_index`,`template_lists`,`template_detail`,`template_edit`,`model`,`type`,`link_id`,`allow_publish`,`display`,`reply`,`check`,`reply_model`,`extend`,`create_time`,`update_time`,`status`,`icon` FROM `app_category` WHERE ( `id` = 39 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `id`,`title`,`pid` FROM `app_category` WHERE ( `status` > -1 ) ORDER BY sort  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_supplier` [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: where D:\wwwroot\liuc\Application\Admin\Controller\PsiController.class.php 第 2227 行.
+SQL: SELECT `id`,`company` FROM `app_supplier`  [ RunTime:0.015625s ]
+SQL: SHOW COLUMNS FROM `app_stock` [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_record` [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) as num FROM `app_record` INNER JOIN app_ucenter_member ON app_record.warehouse = app_ucenter_member.id  WHERE ( app_record.supplier LIKE ('%%') AND app_record.category LIKE ('%%') AND app_record.type  =  5 ) GROUP BY app_record.warehouse  [ RunTime:0.000000s ]
+SQL: SELECT *,SUM(app_record.num) as num,SUM(app_record.num)*app_record.price as total FROM `app_record` INNER JOIN app_ucenter_member ON app_record.warehouse = app_ucenter_member.id  WHERE ( app_record.supplier LIKE ('%%') AND app_record.category LIKE ('%%') AND app_record.type  =  5 ) GROUP BY app_record.warehouse ORDER BY app_record.id asc LIMIT 0,30   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 41 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: standard D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 157 行.
+NOTIC: [2] Invalid argument supplied for foreach() D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 158 行.
+NOTIC: [2] implode(): Invalid arguments passed D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 159 行.
+SQL: SHOW COLUMNS FROM `app_member` [ RunTime:0.000000s ]
+SQL: SELECT `nickname` FROM `app_member` WHERE ( `uid` = 3 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 40 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: standard D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 157 行.
+NOTIC: [2] Invalid argument supplied for foreach() D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 158 行.
+NOTIC: [2] implode(): Invalid arguments passed D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 159 行.
+SQL: SELECT `nickname` FROM `app_member` WHERE ( `uid` = 2 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 40 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: standard D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 157 行.
+NOTIC: [2] Invalid argument supplied for foreach() D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 158 行.
+NOTIC: [2] implode(): Invalid arguments passed D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 159 行.
+SQL: SELECT `nickname` FROM `app_member` WHERE ( `uid` = 6 ) LIMIT 1   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: type D:\wwwroot\liuc\Runtime\Cache\Admin\0da92d0480c1e864d9bee3d49dd943d8.php 第 128 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.031250s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.031250s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-11-02T17:15:41+08:00 ] 218.91.152.220 /index.php?s=/Admin/Psi/data_2.html
+SQL: SHOW COLUMNS FROM `app_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `app_menu` WHERE ( `pid` = 0 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT `id` FROM `app_menu` WHERE ( url like '%Psi/data_2' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_menu` [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title` FROM `app_menu` WHERE ( id=202 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title` FROM `app_menu` WHERE ( id=199 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT DISTINCT  `group` FROM `app_menu` WHERE ( pid = 199 )  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`url` FROM `app_menu` WHERE ( `pid` = 199 ) AND ( `hide` = 0 )  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `app_menu` WHERE ( `group` = '分析管理' ) AND ( `pid` = 199 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `app_menu` WHERE ( `group` = '数据管理' ) AND ( `pid` = 199 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_category` [ RunTime:0.000000s ]
+SQL: SELECT `id`,`name`,`title`,`pid`,`sort`,`list_row`,`meta_title`,`keywords`,`description`,`template_index`,`template_lists`,`template_detail`,`template_edit`,`model`,`type`,`link_id`,`allow_publish`,`display`,`reply`,`check`,`reply_model`,`extend`,`create_time`,`update_time`,`status`,`icon` FROM `app_category` WHERE ( `id` = 39 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `id`,`title`,`pid` FROM `app_category` WHERE ( `status` > -1 ) ORDER BY sort  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_supplier` [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: where D:\wwwroot\liuc\Application\Admin\Controller\PsiController.class.php 第 2227 行.
+SQL: SELECT `id`,`company` FROM `app_supplier`  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_stock` [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_record` [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) as num FROM `app_record` INNER JOIN app_ucenter_member ON app_record.warehouse = app_ucenter_member.id  WHERE ( app_record.supplier LIKE ('%%') AND app_record.category LIKE ('%%') AND app_record.type  =  5 ) GROUP BY app_record.warehouse  [ RunTime:0.000000s ]
+SQL: SELECT *,SUM(app_record.num) as num,SUM(app_record.num)*app_record.price as total FROM `app_record` INNER JOIN app_ucenter_member ON app_record.warehouse = app_ucenter_member.id  WHERE ( app_record.supplier LIKE ('%%') AND app_record.category LIKE ('%%') AND app_record.type  =  5 ) GROUP BY app_record.warehouse ORDER BY app_record.id asc LIMIT 0,30   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 41 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: standard D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 157 行.
+NOTIC: [2] Invalid argument supplied for foreach() D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 158 行.
+NOTIC: [2] implode(): Invalid arguments passed D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 159 行.
+SQL: SHOW COLUMNS FROM `app_member` [ RunTime:0.015625s ]
+SQL: SELECT `nickname` FROM `app_member` WHERE ( `uid` = 3 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 40 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: standard D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 157 行.
+NOTIC: [2] Invalid argument supplied for foreach() D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 158 行.
+NOTIC: [2] implode(): Invalid arguments passed D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 159 行.
+SQL: SELECT `nickname` FROM `app_member` WHERE ( `uid` = 2 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 40 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: standard D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 157 行.
+NOTIC: [2] Invalid argument supplied for foreach() D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 158 行.
+NOTIC: [2] implode(): Invalid arguments passed D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 159 行.
+SQL: SELECT `nickname` FROM `app_member` WHERE ( `uid` = 6 ) LIMIT 1   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: type D:\wwwroot\liuc\Runtime\Cache\Admin\0da92d0480c1e864d9bee3d49dd943d8.php 第 128 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.031250s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.031250s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-11-02T17:16:22+08:00 ] 218.91.152.220 /index.php?s=/Admin/Psi/data_2.html
+SQL: SHOW COLUMNS FROM `app_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `app_menu` WHERE ( `pid` = 0 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT `id` FROM `app_menu` WHERE ( url like '%Psi/data_2' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_menu` [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title` FROM `app_menu` WHERE ( id=202 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title` FROM `app_menu` WHERE ( id=199 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT DISTINCT  `group` FROM `app_menu` WHERE ( pid = 199 )  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`url` FROM `app_menu` WHERE ( `pid` = 199 ) AND ( `hide` = 0 )  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `app_menu` WHERE ( `group` = '分析管理' ) AND ( `pid` = 199 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `app_menu` WHERE ( `group` = '数据管理' ) AND ( `pid` = 199 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_category` [ RunTime:0.000000s ]
+SQL: SELECT `id`,`name`,`title`,`pid`,`sort`,`list_row`,`meta_title`,`keywords`,`description`,`template_index`,`template_lists`,`template_detail`,`template_edit`,`model`,`type`,`link_id`,`allow_publish`,`display`,`reply`,`check`,`reply_model`,`extend`,`create_time`,`update_time`,`status`,`icon` FROM `app_category` WHERE ( `id` = 39 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `id`,`title`,`pid` FROM `app_category` WHERE ( `status` > -1 ) ORDER BY sort  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_supplier` [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: where D:\wwwroot\liuc\Application\Admin\Controller\PsiController.class.php 第 2227 行.
+SQL: SELECT `id`,`company` FROM `app_supplier`  [ RunTime:0.015625s ]
+SQL: SHOW COLUMNS FROM `app_stock` [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_record` [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) as num FROM `app_record` INNER JOIN app_ucenter_member ON app_record.warehouse = app_ucenter_member.id  WHERE ( app_record.supplier LIKE ('%%') AND app_record.category LIKE ('%%') AND app_record.type  =  5 ) GROUP BY app_record.warehouse  [ RunTime:0.000000s ]
+SQL: SELECT *,SUM(app_record.num) as num,SUM(app_record.num)*app_record.price as total FROM `app_record` INNER JOIN app_ucenter_member ON app_record.warehouse = app_ucenter_member.id  WHERE ( app_record.supplier LIKE ('%%') AND app_record.category LIKE ('%%') AND app_record.type  =  5 ) GROUP BY app_record.warehouse ORDER BY app_record.id asc LIMIT 0,30   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 41 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: standard D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 157 行.
+NOTIC: [2] Invalid argument supplied for foreach() D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 158 行.
+NOTIC: [2] implode(): Invalid arguments passed D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 159 行.
+SQL: SHOW COLUMNS FROM `app_member` [ RunTime:0.000000s ]
+SQL: SELECT `nickname` FROM `app_member` WHERE ( `uid` = 3 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 40 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: standard D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 157 行.
+NOTIC: [2] Invalid argument supplied for foreach() D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 158 行.
+NOTIC: [2] implode(): Invalid arguments passed D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 159 行.
+SQL: SELECT `nickname` FROM `app_member` WHERE ( `uid` = 2 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 40 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: standard D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 157 行.
+NOTIC: [2] Invalid argument supplied for foreach() D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 158 行.
+NOTIC: [2] implode(): Invalid arguments passed D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 159 行.
+SQL: SELECT `nickname` FROM `app_member` WHERE ( `uid` = 6 ) LIMIT 1   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: type D:\wwwroot\liuc\Runtime\Cache\Admin\0da92d0480c1e864d9bee3d49dd943d8.php 第 128 行.
+NOTIC: [8] Undefined index: id1 D:\wwwroot\liuc\Runtime\Cache\Admin\0da92d0480c1e864d9bee3d49dd943d8.php 第 174 行.
+NOTIC: [8] Undefined index: id1 D:\wwwroot\liuc\Runtime\Cache\Admin\0da92d0480c1e864d9bee3d49dd943d8.php 第 174 行.
+NOTIC: [8] Undefined index: id1 D:\wwwroot\liuc\Runtime\Cache\Admin\0da92d0480c1e864d9bee3d49dd943d8.php 第 174 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.031250s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.031250s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-11-02T17:16:24+08:00 ] 218.91.152.220 /index.php?s=/Admin/Psi/data_2.html
+SQL: SHOW COLUMNS FROM `app_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `app_menu` WHERE ( `pid` = 0 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT `id` FROM `app_menu` WHERE ( url like '%Psi/data_2' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_menu` [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title` FROM `app_menu` WHERE ( id=202 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title` FROM `app_menu` WHERE ( id=199 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT DISTINCT  `group` FROM `app_menu` WHERE ( pid = 199 )  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`url` FROM `app_menu` WHERE ( `pid` = 199 ) AND ( `hide` = 0 )  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `app_menu` WHERE ( `group` = '分析管理' ) AND ( `pid` = 199 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `app_menu` WHERE ( `group` = '数据管理' ) AND ( `pid` = 199 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_category` [ RunTime:0.000000s ]
+SQL: SELECT `id`,`name`,`title`,`pid`,`sort`,`list_row`,`meta_title`,`keywords`,`description`,`template_index`,`template_lists`,`template_detail`,`template_edit`,`model`,`type`,`link_id`,`allow_publish`,`display`,`reply`,`check`,`reply_model`,`extend`,`create_time`,`update_time`,`status`,`icon` FROM `app_category` WHERE ( `id` = 39 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `id`,`title`,`pid` FROM `app_category` WHERE ( `status` > -1 ) ORDER BY sort  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_supplier` [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: where D:\wwwroot\liuc\Application\Admin\Controller\PsiController.class.php 第 2227 行.
+SQL: SELECT `id`,`company` FROM `app_supplier`  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_stock` [ RunTime:0.015625s ]
+SQL: SHOW COLUMNS FROM `app_record` [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) as num FROM `app_record` INNER JOIN app_ucenter_member ON app_record.warehouse = app_ucenter_member.id  WHERE ( app_record.supplier LIKE ('%%') AND app_record.category LIKE ('%%') AND app_record.type  =  5 ) GROUP BY app_record.warehouse  [ RunTime:0.000000s ]
+SQL: SELECT *,SUM(app_record.num) as num,SUM(app_record.num)*app_record.price as total FROM `app_record` INNER JOIN app_ucenter_member ON app_record.warehouse = app_ucenter_member.id  WHERE ( app_record.supplier LIKE ('%%') AND app_record.category LIKE ('%%') AND app_record.type  =  5 ) GROUP BY app_record.warehouse ORDER BY app_record.id asc LIMIT 0,30   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 41 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: standard D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 157 行.
+NOTIC: [2] Invalid argument supplied for foreach() D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 158 行.
+NOTIC: [2] implode(): Invalid arguments passed D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 159 行.
+SQL: SHOW COLUMNS FROM `app_member` [ RunTime:0.000000s ]
+SQL: SELECT `nickname` FROM `app_member` WHERE ( `uid` = 3 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 40 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: standard D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 157 行.
+NOTIC: [2] Invalid argument supplied for foreach() D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 158 行.
+NOTIC: [2] implode(): Invalid arguments passed D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 159 行.
+SQL: SELECT `nickname` FROM `app_member` WHERE ( `uid` = 2 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 40 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: standard D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 157 行.
+NOTIC: [2] Invalid argument supplied for foreach() D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 158 行.
+NOTIC: [2] implode(): Invalid arguments passed D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 159 行.
+SQL: SELECT `nickname` FROM `app_member` WHERE ( `uid` = 6 ) LIMIT 1   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: type D:\wwwroot\liuc\Runtime\Cache\Admin\0da92d0480c1e864d9bee3d49dd943d8.php 第 128 行.
+NOTIC: [8] Undefined index: id1 D:\wwwroot\liuc\Runtime\Cache\Admin\0da92d0480c1e864d9bee3d49dd943d8.php 第 174 行.
+NOTIC: [8] Undefined index: id1 D:\wwwroot\liuc\Runtime\Cache\Admin\0da92d0480c1e864d9bee3d49dd943d8.php 第 174 行.
+NOTIC: [8] Undefined index: id1 D:\wwwroot\liuc\Runtime\Cache\Admin\0da92d0480c1e864d9bee3d49dd943d8.php 第 174 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.031250s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.031250s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-11-02T17:16:44+08:00 ] 218.91.152.220 /index.php?s=/Admin/Psi/data_2.html
+SQL: SHOW COLUMNS FROM `app_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `app_menu` WHERE ( `pid` = 0 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT `id` FROM `app_menu` WHERE ( url like '%Psi/data_2' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_menu` [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title` FROM `app_menu` WHERE ( id=202 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title` FROM `app_menu` WHERE ( id=199 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT DISTINCT  `group` FROM `app_menu` WHERE ( pid = 199 )  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`url` FROM `app_menu` WHERE ( `pid` = 199 ) AND ( `hide` = 0 )  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `app_menu` WHERE ( `group` = '分析管理' ) AND ( `pid` = 199 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `app_menu` WHERE ( `group` = '数据管理' ) AND ( `pid` = 199 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_category` [ RunTime:0.000000s ]
+SQL: SELECT `id`,`name`,`title`,`pid`,`sort`,`list_row`,`meta_title`,`keywords`,`description`,`template_index`,`template_lists`,`template_detail`,`template_edit`,`model`,`type`,`link_id`,`allow_publish`,`display`,`reply`,`check`,`reply_model`,`extend`,`create_time`,`update_time`,`status`,`icon` FROM `app_category` WHERE ( `id` = 39 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `id`,`title`,`pid` FROM `app_category` WHERE ( `status` > -1 ) ORDER BY sort  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_supplier` [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: where D:\wwwroot\liuc\Application\Admin\Controller\PsiController.class.php 第 2227 行.
+SQL: SELECT `id`,`company` FROM `app_supplier`  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_stock` [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_record` [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) as num FROM `app_record` INNER JOIN app_ucenter_member ON app_record.warehouse = app_ucenter_member.id  WHERE ( app_record.supplier LIKE ('%%') AND app_record.category LIKE ('%%') AND app_record.type  =  5 ) GROUP BY app_record.warehouse  [ RunTime:0.000000s ]
+SQL: SELECT *,SUM(app_record.num) as num,SUM(app_record.num)*app_record.price as total FROM `app_record` INNER JOIN app_ucenter_member ON app_record.warehouse = app_ucenter_member.id  WHERE ( app_record.supplier LIKE ('%%') AND app_record.category LIKE ('%%') AND app_record.type  =  5 ) GROUP BY app_record.warehouse ORDER BY app_record.id asc LIMIT 0,30   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 41 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: standard D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 157 行.
+NOTIC: [2] Invalid argument supplied for foreach() D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 158 行.
+NOTIC: [2] implode(): Invalid arguments passed D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 159 行.
+SQL: SHOW COLUMNS FROM `app_member` [ RunTime:0.015625s ]
+SQL: SELECT `nickname` FROM `app_member` WHERE ( `uid` = 3 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 40 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: standard D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 157 行.
+NOTIC: [2] Invalid argument supplied for foreach() D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 158 行.
+NOTIC: [2] implode(): Invalid arguments passed D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 159 行.
+SQL: SELECT `nickname` FROM `app_member` WHERE ( `uid` = 2 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 40 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: standard D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 157 行.
+NOTIC: [2] Invalid argument supplied for foreach() D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 158 行.
+NOTIC: [2] implode(): Invalid arguments passed D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 159 行.
+SQL: SELECT `nickname` FROM `app_member` WHERE ( `uid` = 6 ) LIMIT 1   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: type D:\wwwroot\liuc\Runtime\Cache\Admin\0da92d0480c1e864d9bee3d49dd943d8.php 第 128 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.031250s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.031250s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-11-02T17:17:45+08:00 ] 218.91.152.220 /index.php?s=/Admin/Psi/data_2.html
+SQL: SHOW COLUMNS FROM `app_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `app_menu` WHERE ( `pid` = 0 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT `id` FROM `app_menu` WHERE ( url like '%Psi/data_2' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_menu` [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title` FROM `app_menu` WHERE ( id=202 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title` FROM `app_menu` WHERE ( id=199 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT DISTINCT  `group` FROM `app_menu` WHERE ( pid = 199 )  [ RunTime:0.015625s ]
+SQL: SELECT `id`,`url` FROM `app_menu` WHERE ( `pid` = 199 ) AND ( `hide` = 0 )  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `app_menu` WHERE ( `group` = '分析管理' ) AND ( `pid` = 199 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `app_menu` WHERE ( `group` = '数据管理' ) AND ( `pid` = 199 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_category` [ RunTime:0.000000s ]
+SQL: SELECT `id`,`name`,`title`,`pid`,`sort`,`list_row`,`meta_title`,`keywords`,`description`,`template_index`,`template_lists`,`template_detail`,`template_edit`,`model`,`type`,`link_id`,`allow_publish`,`display`,`reply`,`check`,`reply_model`,`extend`,`create_time`,`update_time`,`status`,`icon` FROM `app_category` WHERE ( `id` = 39 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `id`,`title`,`pid` FROM `app_category` WHERE ( `status` > -1 ) ORDER BY sort  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_supplier` [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: where D:\wwwroot\liuc\Application\Admin\Controller\PsiController.class.php 第 2227 行.
+SQL: SELECT `id`,`company` FROM `app_supplier`  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_stock` [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_record` [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) as num FROM `app_record` INNER JOIN app_ucenter_member ON app_record.warehouse = app_ucenter_member.id  WHERE ( app_record.supplier LIKE ('%%') AND app_record.category LIKE ('%%') AND app_record.type  =  5 ) GROUP BY app_record.warehouse  [ RunTime:0.000000s ]
+SQL: SELECT *,SUM(app_record.num) as num,SUM(app_record.num)*app_record.price as total FROM `app_record` INNER JOIN app_ucenter_member ON app_record.warehouse = app_ucenter_member.id  WHERE ( app_record.supplier LIKE ('%%') AND app_record.category LIKE ('%%') AND app_record.type  =  5 ) GROUP BY app_record.warehouse ORDER BY app_record.id asc LIMIT 0,30   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 41 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: standard D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 157 行.
+NOTIC: [2] Invalid argument supplied for foreach() D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 158 行.
+NOTIC: [2] implode(): Invalid arguments passed D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 159 行.
+SQL: SHOW COLUMNS FROM `app_member` [ RunTime:0.000000s ]
+SQL: SELECT `nickname` FROM `app_member` WHERE ( `uid` = 3 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 40 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: standard D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 157 行.
+NOTIC: [2] Invalid argument supplied for foreach() D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 158 行.
+NOTIC: [2] implode(): Invalid arguments passed D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 159 行.
+SQL: SELECT `nickname` FROM `app_member` WHERE ( `uid` = 2 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 40 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: standard D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 157 行.
+NOTIC: [2] Invalid argument supplied for foreach() D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 158 行.
+NOTIC: [2] implode(): Invalid arguments passed D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 159 行.
+SQL: SELECT `nickname` FROM `app_member` WHERE ( `uid` = 6 ) LIMIT 1   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: type D:\wwwroot\liuc\Runtime\Cache\Admin\0da92d0480c1e864d9bee3d49dd943d8.php 第 128 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.031250s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.031250s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-11-02T17:17:46+08:00 ] 218.91.152.220 /index.php?s=/Admin/Psi/data_2.html
+SQL: SHOW COLUMNS FROM `app_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `app_menu` WHERE ( `pid` = 0 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT `id` FROM `app_menu` WHERE ( url like '%Psi/data_2' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_menu` [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title` FROM `app_menu` WHERE ( id=202 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title` FROM `app_menu` WHERE ( id=199 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT DISTINCT  `group` FROM `app_menu` WHERE ( pid = 199 )  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`url` FROM `app_menu` WHERE ( `pid` = 199 ) AND ( `hide` = 0 )  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `app_menu` WHERE ( `group` = '分析管理' ) AND ( `pid` = 199 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `app_menu` WHERE ( `group` = '数据管理' ) AND ( `pid` = 199 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_category` [ RunTime:0.000000s ]
+SQL: SELECT `id`,`name`,`title`,`pid`,`sort`,`list_row`,`meta_title`,`keywords`,`description`,`template_index`,`template_lists`,`template_detail`,`template_edit`,`model`,`type`,`link_id`,`allow_publish`,`display`,`reply`,`check`,`reply_model`,`extend`,`create_time`,`update_time`,`status`,`icon` FROM `app_category` WHERE ( `id` = 39 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `id`,`title`,`pid` FROM `app_category` WHERE ( `status` > -1 ) ORDER BY sort  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_supplier` [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: where D:\wwwroot\liuc\Application\Admin\Controller\PsiController.class.php 第 2227 行.
+SQL: SELECT `id`,`company` FROM `app_supplier`  [ RunTime:0.015625s ]
+SQL: SHOW COLUMNS FROM `app_stock` [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_record` [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) as num FROM `app_record` INNER JOIN app_ucenter_member ON app_record.warehouse = app_ucenter_member.id  WHERE ( app_record.supplier LIKE ('%%') AND app_record.category LIKE ('%%') AND app_record.type  =  5 ) GROUP BY app_record.warehouse  [ RunTime:0.000000s ]
+SQL: SELECT *,SUM(app_record.num) as num,SUM(app_record.num)*app_record.price as total FROM `app_record` INNER JOIN app_ucenter_member ON app_record.warehouse = app_ucenter_member.id  WHERE ( app_record.supplier LIKE ('%%') AND app_record.category LIKE ('%%') AND app_record.type  =  5 ) GROUP BY app_record.warehouse ORDER BY app_record.id asc LIMIT 0,30   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 41 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: standard D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 157 行.
+NOTIC: [2] Invalid argument supplied for foreach() D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 158 行.
+NOTIC: [2] implode(): Invalid arguments passed D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 159 行.
+SQL: SHOW COLUMNS FROM `app_member` [ RunTime:0.000000s ]
+SQL: SELECT `nickname` FROM `app_member` WHERE ( `uid` = 3 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 40 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: standard D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 157 行.
+NOTIC: [2] Invalid argument supplied for foreach() D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 158 行.
+NOTIC: [2] implode(): Invalid arguments passed D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 159 行.
+SQL: SELECT `nickname` FROM `app_member` WHERE ( `uid` = 2 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 40 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: standard D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 157 行.
+NOTIC: [2] Invalid argument supplied for foreach() D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 158 行.
+NOTIC: [2] implode(): Invalid arguments passed D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 159 行.
+SQL: SELECT `nickname` FROM `app_member` WHERE ( `uid` = 6 ) LIMIT 1   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: type D:\wwwroot\liuc\Runtime\Cache\Admin\0da92d0480c1e864d9bee3d49dd943d8.php 第 128 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.031250s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.031250s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-11-02T17:17:48+08:00 ] 218.91.152.220 /index.php?s=/Admin/Psi/data_2.html
+SQL: SHOW COLUMNS FROM `app_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `app_menu` WHERE ( `pid` = 0 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT `id` FROM `app_menu` WHERE ( url like '%Psi/data_2' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_menu` [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title` FROM `app_menu` WHERE ( id=202 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title` FROM `app_menu` WHERE ( id=199 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT DISTINCT  `group` FROM `app_menu` WHERE ( pid = 199 )  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`url` FROM `app_menu` WHERE ( `pid` = 199 ) AND ( `hide` = 0 )  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `app_menu` WHERE ( `group` = '分析管理' ) AND ( `pid` = 199 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `app_menu` WHERE ( `group` = '数据管理' ) AND ( `pid` = 199 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_category` [ RunTime:0.000000s ]
+SQL: SELECT `id`,`name`,`title`,`pid`,`sort`,`list_row`,`meta_title`,`keywords`,`description`,`template_index`,`template_lists`,`template_detail`,`template_edit`,`model`,`type`,`link_id`,`allow_publish`,`display`,`reply`,`check`,`reply_model`,`extend`,`create_time`,`update_time`,`status`,`icon` FROM `app_category` WHERE ( `id` = 39 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `id`,`title`,`pid` FROM `app_category` WHERE ( `status` > -1 ) ORDER BY sort  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_supplier` [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: where D:\wwwroot\liuc\Application\Admin\Controller\PsiController.class.php 第 2227 行.
+SQL: SELECT `id`,`company` FROM `app_supplier`  [ RunTime:0.015625s ]
+SQL: SHOW COLUMNS FROM `app_stock` [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_record` [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) as num FROM `app_record` INNER JOIN app_ucenter_member ON app_record.warehouse = app_ucenter_member.id  WHERE ( app_record.supplier LIKE ('%%') AND app_record.category LIKE ('%%') AND app_record.type  =  5 ) GROUP BY app_record.warehouse  [ RunTime:0.000000s ]
+SQL: SELECT *,SUM(app_record.num) as num,SUM(app_record.num)*app_record.price as total FROM `app_record` INNER JOIN app_ucenter_member ON app_record.warehouse = app_ucenter_member.id  WHERE ( app_record.supplier LIKE ('%%') AND app_record.category LIKE ('%%') AND app_record.type  =  5 ) GROUP BY app_record.warehouse ORDER BY app_record.id asc LIMIT 0,30   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 41 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: standard D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 157 行.
+NOTIC: [2] Invalid argument supplied for foreach() D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 158 行.
+NOTIC: [2] implode(): Invalid arguments passed D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 159 行.
+SQL: SHOW COLUMNS FROM `app_member` [ RunTime:0.015625s ]
+SQL: SELECT `nickname` FROM `app_member` WHERE ( `uid` = 3 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 40 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: standard D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 157 行.
+NOTIC: [2] Invalid argument supplied for foreach() D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 158 行.
+NOTIC: [2] implode(): Invalid arguments passed D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 159 行.
+SQL: SELECT `nickname` FROM `app_member` WHERE ( `uid` = 2 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 40 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: standard D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 157 行.
+NOTIC: [2] Invalid argument supplied for foreach() D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 158 行.
+NOTIC: [2] implode(): Invalid arguments passed D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 159 行.
+SQL: SELECT `nickname` FROM `app_member` WHERE ( `uid` = 6 ) LIMIT 1   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: type D:\wwwroot\liuc\Runtime\Cache\Admin\0da92d0480c1e864d9bee3d49dd943d8.php 第 128 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.031250s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.031250s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-11-02T17:18:18+08:00 ] 218.91.152.220 /index.php?s=/Admin/Psi/data_2.html
+SQL: SHOW COLUMNS FROM `app_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `app_menu` WHERE ( `pid` = 0 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT `id` FROM `app_menu` WHERE ( url like '%Psi/data_2' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_menu` [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title` FROM `app_menu` WHERE ( id=202 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title` FROM `app_menu` WHERE ( id=199 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT DISTINCT  `group` FROM `app_menu` WHERE ( pid = 199 )  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`url` FROM `app_menu` WHERE ( `pid` = 199 ) AND ( `hide` = 0 )  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `app_menu` WHERE ( `group` = '分析管理' ) AND ( `pid` = 199 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `app_menu` WHERE ( `group` = '数据管理' ) AND ( `pid` = 199 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_category` [ RunTime:0.000000s ]
+SQL: SELECT `id`,`name`,`title`,`pid`,`sort`,`list_row`,`meta_title`,`keywords`,`description`,`template_index`,`template_lists`,`template_detail`,`template_edit`,`model`,`type`,`link_id`,`allow_publish`,`display`,`reply`,`check`,`reply_model`,`extend`,`create_time`,`update_time`,`status`,`icon` FROM `app_category` WHERE ( `id` = 39 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `id`,`title`,`pid` FROM `app_category` WHERE ( `status` > -1 ) ORDER BY sort  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_supplier` [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: where D:\wwwroot\liuc\Application\Admin\Controller\PsiController.class.php 第 2227 行.
+SQL: SELECT `id`,`company` FROM `app_supplier`  [ RunTime:0.015625s ]
+SQL: SHOW COLUMNS FROM `app_stock` [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_record` [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) as num FROM `app_record` INNER JOIN app_ucenter_member ON app_record.warehouse = app_ucenter_member.id  WHERE ( app_record.supplier LIKE ('%%') AND app_record.category LIKE ('%%') AND app_record.type  =  5 ) GROUP BY app_record.warehouse  [ RunTime:0.000000s ]
+SQL: SELECT *,SUM(app_record.num) as num,SUM(app_record.num)*app_record.price as total FROM `app_record` INNER JOIN app_ucenter_member ON app_record.warehouse = app_ucenter_member.id  WHERE ( app_record.supplier LIKE ('%%') AND app_record.category LIKE ('%%') AND app_record.type  =  5 ) GROUP BY app_record.warehouse ORDER BY app_record.id asc LIMIT 0,30   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 41 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: standard D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 157 行.
+NOTIC: [2] Invalid argument supplied for foreach() D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 158 行.
+NOTIC: [2] implode(): Invalid arguments passed D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 159 行.
+SQL: SHOW COLUMNS FROM `app_member` [ RunTime:0.015625s ]
+SQL: SELECT `nickname` FROM `app_member` WHERE ( `uid` = 3 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 40 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: standard D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 157 行.
+NOTIC: [2] Invalid argument supplied for foreach() D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 158 行.
+NOTIC: [2] implode(): Invalid arguments passed D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 159 行.
+SQL: SELECT `nickname` FROM `app_member` WHERE ( `uid` = 2 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 40 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: standard D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 157 行.
+NOTIC: [2] Invalid argument supplied for foreach() D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 158 行.
+NOTIC: [2] implode(): Invalid arguments passed D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 159 行.
+SQL: SELECT `nickname` FROM `app_member` WHERE ( `uid` = 6 ) LIMIT 1   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: type D:\wwwroot\liuc\Runtime\Cache\Admin\0da92d0480c1e864d9bee3d49dd943d8.php 第 128 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.031250s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.031250s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-11-02T17:18:20+08:00 ] 218.91.152.220 /index.php?s=/Admin/Psi/data_2.html
+SQL: SHOW COLUMNS FROM `app_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `app_menu` WHERE ( `pid` = 0 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT `id` FROM `app_menu` WHERE ( url like '%Psi/data_2' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_menu` [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title` FROM `app_menu` WHERE ( id=202 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title` FROM `app_menu` WHERE ( id=199 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT DISTINCT  `group` FROM `app_menu` WHERE ( pid = 199 )  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`url` FROM `app_menu` WHERE ( `pid` = 199 ) AND ( `hide` = 0 )  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `app_menu` WHERE ( `group` = '分析管理' ) AND ( `pid` = 199 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `app_menu` WHERE ( `group` = '数据管理' ) AND ( `pid` = 199 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_category` [ RunTime:0.000000s ]
+SQL: SELECT `id`,`name`,`title`,`pid`,`sort`,`list_row`,`meta_title`,`keywords`,`description`,`template_index`,`template_lists`,`template_detail`,`template_edit`,`model`,`type`,`link_id`,`allow_publish`,`display`,`reply`,`check`,`reply_model`,`extend`,`create_time`,`update_time`,`status`,`icon` FROM `app_category` WHERE ( `id` = 39 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `id`,`title`,`pid` FROM `app_category` WHERE ( `status` > -1 ) ORDER BY sort  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_supplier` [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: where D:\wwwroot\liuc\Application\Admin\Controller\PsiController.class.php 第 2227 行.
+SQL: SELECT `id`,`company` FROM `app_supplier`  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_stock` [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_record` [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) as num FROM `app_record` INNER JOIN app_ucenter_member ON app_record.warehouse = app_ucenter_member.id  WHERE ( app_record.supplier LIKE ('%%') AND app_record.category LIKE ('%%') AND app_record.type  =  5 ) GROUP BY app_record.warehouse  [ RunTime:0.000000s ]
+SQL: SELECT *,SUM(app_record.num) as num,SUM(app_record.num)*app_record.price as total FROM `app_record` INNER JOIN app_ucenter_member ON app_record.warehouse = app_ucenter_member.id  WHERE ( app_record.supplier LIKE ('%%') AND app_record.category LIKE ('%%') AND app_record.type  =  5 ) GROUP BY app_record.warehouse ORDER BY app_record.id asc LIMIT 0,30   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 41 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: standard D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 157 行.
+NOTIC: [2] Invalid argument supplied for foreach() D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 158 行.
+NOTIC: [2] implode(): Invalid arguments passed D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 159 行.
+SQL: SHOW COLUMNS FROM `app_member` [ RunTime:0.000000s ]
+SQL: SELECT `nickname` FROM `app_member` WHERE ( `uid` = 3 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 40 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: standard D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 157 行.
+NOTIC: [2] Invalid argument supplied for foreach() D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 158 行.
+NOTIC: [2] implode(): Invalid arguments passed D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 159 行.
+SQL: SELECT `nickname` FROM `app_member` WHERE ( `uid` = 2 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 40 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: standard D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 157 行.
+NOTIC: [2] Invalid argument supplied for foreach() D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 158 行.
+NOTIC: [2] implode(): Invalid arguments passed D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 159 行.
+SQL: SELECT `nickname` FROM `app_member` WHERE ( `uid` = 6 ) LIMIT 1   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: type D:\wwwroot\liuc\Runtime\Cache\Admin\0da92d0480c1e864d9bee3d49dd943d8.php 第 128 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.031250s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.031250s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-11-02T17:18:38+08:00 ] 218.91.152.220 /index.php?s=/Admin/Psi/data_2.html
+SQL: SHOW COLUMNS FROM `app_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `app_menu` WHERE ( `pid` = 0 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT `id` FROM `app_menu` WHERE ( url like '%Psi/data_2' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_menu` [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title` FROM `app_menu` WHERE ( id=202 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title` FROM `app_menu` WHERE ( id=199 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT DISTINCT  `group` FROM `app_menu` WHERE ( pid = 199 )  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`url` FROM `app_menu` WHERE ( `pid` = 199 ) AND ( `hide` = 0 )  [ RunTime:0.015625s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `app_menu` WHERE ( `group` = '分析管理' ) AND ( `pid` = 199 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `app_menu` WHERE ( `group` = '数据管理' ) AND ( `pid` = 199 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_category` [ RunTime:0.000000s ]
+SQL: SELECT `id`,`name`,`title`,`pid`,`sort`,`list_row`,`meta_title`,`keywords`,`description`,`template_index`,`template_lists`,`template_detail`,`template_edit`,`model`,`type`,`link_id`,`allow_publish`,`display`,`reply`,`check`,`reply_model`,`extend`,`create_time`,`update_time`,`status`,`icon` FROM `app_category` WHERE ( `id` = 39 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `id`,`title`,`pid` FROM `app_category` WHERE ( `status` > -1 ) ORDER BY sort  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_supplier` [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: where D:\wwwroot\liuc\Application\Admin\Controller\PsiController.class.php 第 2227 行.
+SQL: SELECT `id`,`company` FROM `app_supplier`  [ RunTime:0.015625s ]
+SQL: SHOW COLUMNS FROM `app_stock` [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_record` [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) as num FROM `app_record` INNER JOIN app_ucenter_member ON app_record.warehouse = app_ucenter_member.id  WHERE ( app_record.supplier LIKE ('%%') AND app_record.category LIKE ('%%') AND app_record.type  =  5 ) GROUP BY app_record.warehouse  [ RunTime:0.000000s ]
+SQL: SELECT *,SUM(app_record.num) as num,SUM(app_record.num)*app_record.price as total FROM `app_record` INNER JOIN app_ucenter_member ON app_record.warehouse = app_ucenter_member.id  WHERE ( app_record.supplier LIKE ('%%') AND app_record.category LIKE ('%%') AND app_record.type  =  5 ) GROUP BY app_record.warehouse ORDER BY app_record.id asc LIMIT 0,30   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 41 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: standard D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 157 行.
+NOTIC: [2] Invalid argument supplied for foreach() D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 158 行.
+NOTIC: [2] implode(): Invalid arguments passed D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 159 行.
+SQL: SHOW COLUMNS FROM `app_member` [ RunTime:0.000000s ]
+SQL: SELECT `nickname` FROM `app_member` WHERE ( `uid` = 3 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 40 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: standard D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 157 行.
+NOTIC: [2] Invalid argument supplied for foreach() D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 158 行.
+NOTIC: [2] implode(): Invalid arguments passed D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 159 行.
+SQL: SELECT `nickname` FROM `app_member` WHERE ( `uid` = 2 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 40 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: standard D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 157 行.
+NOTIC: [2] Invalid argument supplied for foreach() D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 158 行.
+NOTIC: [2] implode(): Invalid arguments passed D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 159 行.
+SQL: SELECT `nickname` FROM `app_member` WHERE ( `uid` = 6 ) LIMIT 1   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: type D:\wwwroot\liuc\Runtime\Cache\Admin\0da92d0480c1e864d9bee3d49dd943d8.php 第 128 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.031250s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.031250s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-11-02T17:18:50+08:00 ] 218.91.152.220 /index.php?s=/Admin/Psi/data_2.html&category=41
+SQL: SHOW COLUMNS FROM `app_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `app_menu` WHERE ( `pid` = 0 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT `id` FROM `app_menu` WHERE ( url like '%Psi/data_2' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_menu` [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title` FROM `app_menu` WHERE ( id=202 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title` FROM `app_menu` WHERE ( id=199 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT DISTINCT  `group` FROM `app_menu` WHERE ( pid = 199 )  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`url` FROM `app_menu` WHERE ( `pid` = 199 ) AND ( `hide` = 0 )  [ RunTime:0.015625s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `app_menu` WHERE ( `group` = '分析管理' ) AND ( `pid` = 199 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `app_menu` WHERE ( `group` = '数据管理' ) AND ( `pid` = 199 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_category` [ RunTime:0.000000s ]
+SQL: SELECT `id`,`name`,`title`,`pid`,`sort`,`list_row`,`meta_title`,`keywords`,`description`,`template_index`,`template_lists`,`template_detail`,`template_edit`,`model`,`type`,`link_id`,`allow_publish`,`display`,`reply`,`check`,`reply_model`,`extend`,`create_time`,`update_time`,`status`,`icon` FROM `app_category` WHERE ( `id` = 39 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `id`,`title`,`pid` FROM `app_category` WHERE ( `status` > -1 ) ORDER BY sort  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_supplier` [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: where D:\wwwroot\liuc\Application\Admin\Controller\PsiController.class.php 第 2227 行.
+SQL: SELECT `id`,`company` FROM `app_supplier`  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_stock` [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_record` [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) as num FROM `app_record` INNER JOIN app_ucenter_member ON app_record.warehouse = app_ucenter_member.id  WHERE ( app_record.supplier LIKE ('%%') AND app_record.category  =  41 AND app_record.type  =  5 ) GROUP BY app_record.warehouse  [ RunTime:0.000000s ]
+SQL: SELECT *,SUM(app_record.num) as num,SUM(app_record.num)*app_record.price as total FROM `app_record` INNER JOIN app_ucenter_member ON app_record.warehouse = app_ucenter_member.id  WHERE ( app_record.supplier LIKE ('%%') AND app_record.category  =  41 AND app_record.type  =  5 ) GROUP BY app_record.warehouse ORDER BY app_record.id asc LIMIT 0,30   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 41 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: standard D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 157 行.
+NOTIC: [2] Invalid argument supplied for foreach() D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 158 行.
+NOTIC: [2] implode(): Invalid arguments passed D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 159 行.
+SQL: SHOW COLUMNS FROM `app_member` [ RunTime:0.015625s ]
+SQL: SELECT `nickname` FROM `app_member` WHERE ( `uid` = 3 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 41 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: standard D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 157 行.
+NOTIC: [2] Invalid argument supplied for foreach() D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 158 行.
+NOTIC: [2] implode(): Invalid arguments passed D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 159 行.
+SQL: SELECT `nickname` FROM `app_member` WHERE ( `uid` = 2 ) LIMIT 1   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: type D:\wwwroot\liuc\Runtime\Cache\Admin\0da92d0480c1e864d9bee3d49dd943d8.php 第 128 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.031250s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.031250s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-11-02T17:18:52+08:00 ] 218.91.152.220 /index.php?s=/Admin/Psi/data_2.html&category=40
+SQL: SHOW COLUMNS FROM `app_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `app_menu` WHERE ( `pid` = 0 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT `id` FROM `app_menu` WHERE ( url like '%Psi/data_2' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_menu` [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title` FROM `app_menu` WHERE ( id=202 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title` FROM `app_menu` WHERE ( id=199 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT DISTINCT  `group` FROM `app_menu` WHERE ( pid = 199 )  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`url` FROM `app_menu` WHERE ( `pid` = 199 ) AND ( `hide` = 0 )  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `app_menu` WHERE ( `group` = '分析管理' ) AND ( `pid` = 199 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `app_menu` WHERE ( `group` = '数据管理' ) AND ( `pid` = 199 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_category` [ RunTime:0.000000s ]
+SQL: SELECT `id`,`name`,`title`,`pid`,`sort`,`list_row`,`meta_title`,`keywords`,`description`,`template_index`,`template_lists`,`template_detail`,`template_edit`,`model`,`type`,`link_id`,`allow_publish`,`display`,`reply`,`check`,`reply_model`,`extend`,`create_time`,`update_time`,`status`,`icon` FROM `app_category` WHERE ( `id` = 39 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `id`,`title`,`pid` FROM `app_category` WHERE ( `status` > -1 ) ORDER BY sort  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_supplier` [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: where D:\wwwroot\liuc\Application\Admin\Controller\PsiController.class.php 第 2227 行.
+SQL: SELECT `id`,`company` FROM `app_supplier`  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_stock` [ RunTime:0.015625s ]
+SQL: SHOW COLUMNS FROM `app_record` [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) as num FROM `app_record` INNER JOIN app_ucenter_member ON app_record.warehouse = app_ucenter_member.id  WHERE ( app_record.supplier LIKE ('%%') AND app_record.category  =  40 AND app_record.type  =  5 ) GROUP BY app_record.warehouse  [ RunTime:0.000000s ]
+SQL: SELECT *,SUM(app_record.num) as num,SUM(app_record.num)*app_record.price as total FROM `app_record` INNER JOIN app_ucenter_member ON app_record.warehouse = app_ucenter_member.id  WHERE ( app_record.supplier LIKE ('%%') AND app_record.category  =  40 AND app_record.type  =  5 ) GROUP BY app_record.warehouse ORDER BY app_record.id asc LIMIT 0,30   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 40 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: standard D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 157 行.
+NOTIC: [2] Invalid argument supplied for foreach() D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 158 行.
+NOTIC: [2] implode(): Invalid arguments passed D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 159 行.
+SQL: SHOW COLUMNS FROM `app_member` [ RunTime:0.000000s ]
+SQL: SELECT `nickname` FROM `app_member` WHERE ( `uid` = 2 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 40 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: standard D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 157 行.
+NOTIC: [2] Invalid argument supplied for foreach() D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 158 行.
+NOTIC: [2] implode(): Invalid arguments passed D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 159 行.
+SQL: SELECT `nickname` FROM `app_member` WHERE ( `uid` = 6 ) LIMIT 1   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: type D:\wwwroot\liuc\Runtime\Cache\Admin\0da92d0480c1e864d9bee3d49dd943d8.php 第 128 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.031250s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.031250s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-11-02T17:18:53+08:00 ] 218.91.152.220 /index.php?s=/Admin/Psi/data_2.html&category=
+SQL: SHOW COLUMNS FROM `app_menu` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `app_menu` WHERE ( `pid` = 0 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT `id` FROM `app_menu` WHERE ( url like '%Psi/data_2' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_menu` [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title` FROM `app_menu` WHERE ( id=202 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title` FROM `app_menu` WHERE ( id=199 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT DISTINCT  `group` FROM `app_menu` WHERE ( pid = 199 )  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`url` FROM `app_menu` WHERE ( `pid` = 199 ) AND ( `hide` = 0 )  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `app_menu` WHERE ( `group` = '分析管理' ) AND ( `pid` = 199 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `app_menu` WHERE ( `group` = '数据管理' ) AND ( `pid` = 199 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_category` [ RunTime:0.000000s ]
+SQL: SELECT `id`,`name`,`title`,`pid`,`sort`,`list_row`,`meta_title`,`keywords`,`description`,`template_index`,`template_lists`,`template_detail`,`template_edit`,`model`,`type`,`link_id`,`allow_publish`,`display`,`reply`,`check`,`reply_model`,`extend`,`create_time`,`update_time`,`status`,`icon` FROM `app_category` WHERE ( `id` = 39 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `id`,`title`,`pid` FROM `app_category` WHERE ( `status` > -1 ) ORDER BY sort  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_supplier` [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: where D:\wwwroot\liuc\Application\Admin\Controller\PsiController.class.php 第 2227 行.
+SQL: SELECT `id`,`company` FROM `app_supplier`  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_stock` [ RunTime:0.015625s ]
+SQL: SHOW COLUMNS FROM `app_record` [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) as num FROM `app_record` INNER JOIN app_ucenter_member ON app_record.warehouse = app_ucenter_member.id  WHERE ( app_record.supplier LIKE ('%%') AND app_record.category LIKE ('%%') AND app_record.type  =  5 ) GROUP BY app_record.warehouse  [ RunTime:0.000000s ]
+SQL: SELECT *,SUM(app_record.num) as num,SUM(app_record.num)*app_record.price as total FROM `app_record` INNER JOIN app_ucenter_member ON app_record.warehouse = app_ucenter_member.id  WHERE ( app_record.supplier LIKE ('%%') AND app_record.category LIKE ('%%') AND app_record.type  =  5 ) GROUP BY app_record.warehouse ORDER BY app_record.id asc LIMIT 0,30   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 41 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: standard D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 157 行.
+NOTIC: [2] Invalid argument supplied for foreach() D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 158 行.
+NOTIC: [2] implode(): Invalid arguments passed D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 159 行.
+SQL: SHOW COLUMNS FROM `app_member` [ RunTime:0.000000s ]
+SQL: SELECT `nickname` FROM `app_member` WHERE ( `uid` = 3 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 40 ) LIMIT 1   [ RunTime:0.015625s ]
+NOTIC: [8] Undefined index: standard D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 157 行.
+NOTIC: [2] Invalid argument supplied for foreach() D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 158 行.
+NOTIC: [2] implode(): Invalid arguments passed D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 159 行.
+SQL: SELECT `nickname` FROM `app_member` WHERE ( `uid` = 2 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `title` FROM `app_category` WHERE ( `id` = 40 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: standard D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 157 行.
+NOTIC: [2] Invalid argument supplied for foreach() D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 158 行.
+NOTIC: [2] implode(): Invalid arguments passed D:\wwwroot\liuc\Application\Admin\Model\StockModel.class.php 第 159 行.
+SQL: SELECT `nickname` FROM `app_member` WHERE ( `uid` = 6 ) LIMIT 1   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: type D:\wwwroot\liuc\Runtime\Cache\Admin\0da92d0480c1e864d9bee3d49dd943d8.php 第 128 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.031250s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.031250s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+

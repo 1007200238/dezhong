@@ -1,0 +1,1 @@
+<?php if (!defined('THINK_PATH')) exit(); header("Location: http://221.224.50.234:9504/index.php?s=/Admin/Public/login.html");?>

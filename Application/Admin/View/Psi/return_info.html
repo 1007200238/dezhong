@@ -1,0 +1,246 @@
+<extend name="Public/base" />
+
+<block name="body">
+
+<style>
+	.columns-mod { width:460px; }
+	.columns-mod th { width:auto; }
+	.sys-info th, .sys-info td { padding:6px 0; line-height:18px; height:18px;}
+	.fb .fl { margin-left:30px; margin-top:20px;  }
+	.cf span, .fl span { font-weight:bold; }
+</style>
+
+	<!-- 标题栏 -->
+	<div class="main-title"> <h2>退货单详情</h2></div>
+	<div class="cf">
+		<div class="fl">
+			<a class="btn" href="{:U('Psi/return_info')}&id={:I('get.id')}&print=1" target="_blank" >打印单据</a>
+			<span>退货单编号：</span>
+            {$_list.no}&nbsp;&nbsp;&nbsp;
+            <span>关联单编号：</span>
+			{$_list.from_no}&nbsp;&nbsp;&nbsp;
+        </div>
+        <div class="fr">
+            <span>退货日期：</span>
+            {$_list.date|date='Y-m-d',###}&nbsp;&nbsp;&nbsp;
+            <span>操作时间：</span>
+            {$_list.time|date='Y-m-d',###}&nbsp;&nbsp;&nbsp;
+            <span>操作员：</span>
+            {$_list.user|get_username}&nbsp;&nbsp;&nbsp;
+        </div>
+    </div>
+	    <!-- 数据列表 -->
+    <div class="data-table table-striped">
+		<table class="">
+	    <thead>
+	        <tr>
+	        	<th class="row-selected row-selected"><input class="check-all" type="checkbox"/></th>
+				<th class="">Id</th>
+				<th class="">产品编码</th>
+				<th class="">产品名称</th>
+				<th class="">OE号</th>
+				<th class="">适用车型</th>
+				<th class="">单位</th>
+				<th class="">单价</th>
+				<th class="">单价(非税)</th>
+				<th class="">退货数</th>
+				<th class="">合计</th>
+			</tr>
+	    </thead>
+	    <tbody>
+			<notempty name="_list">
+			<volist name="_list.info" id="vo" key="i">
+				<notempty name="vo.code">
+				<tr>
+					<td><input class="ids" type="checkbox" name="id[]" value="{$vo.id}" /></td>
+					<td>{$vo.id}</td>
+		            <td><a href="{:U('Psi/stock_info')}&id={$vo.id}">{$vo.code}</a></td>
+		            <td>{$vo.name}</td>
+					<td>{$vo.OE}</td>
+					<td>{$vo.standard}</td>
+					<td>{$vo.unit}</td>
+					<td>{$vo.price}</td>
+					<td>{$vo.price_off}</td>
+					<td>{$vo.num}</td>
+					<td>{$vo['num']*$vo['price']}</td>
+				</tr>
+				</notempty>
+				<?php $sum += $vo['num']; ?>
+				<?php $total += ($vo['num']*$vo['price']); ?>
+			</volist>
+			<tr>
+				<td colspan="7" style="text-align:center; font-weight:bold;"> 合  计 </td>
+				<td> —— </td>
+				<td> —— </td>
+				<td><span style="font-weight:bold;">{$sum}</span></td>
+				<td><span style="font-weight:bold;">{$total}</span></td>
+			</tr>
+			<tr>
+				<td colspan="3" style="text-align:center; font-weight:bold;"> 单据备注 </td>
+				<td colspan="8">{$_list.note}<empty name="_list.note">暂无</empty></td>
+			</tr>
+			<else/>
+			<td colspan="9" class="text-center"> aOh! 暂时还没有内容! </td>
+			</notempty>
+		</tbody>
+	    </table>
+		</div>
+	    <div class="page">
+	        {$_page}
+	    </div>
+	    <?php if ($_list['from'] == 2) { ?>	
+		<div class="data-table table-striped" style="width:500px;">
+			<table class="">
+			    <thead>
+			        <tr>
+			        	<th>Id</th>
+						<th width="">包装品名称</th>
+						<th width="">成本价格</th>
+						<th width="">库存量</th>
+						<th width="">出货数</th>
+					</tr>
+			    </thead>
+			    <tbody>
+					<volist name="_list.exinfo" id="vo" key="i">
+						<tr>
+							<td>{$vo.id}</td>
+				            <td>{$vo.name}</td>
+				            <td>{$vo.price}</td>
+							<td>{$vo.num}</td>
+							<td>{$vo.num_in}</td>
+						</tr>
+					</volist>
+					<tr>
+						<td colspan="5" style="color:red">其他固定包装品各出库：{$sum}</td>
+					</tr>
+				</tbody>
+		    </table>
+		</div>
+		<?php } ?>
+
+	    <div class="fl" style="float:right !important;">
+			<span>开票：</span>
+			{$_list.info1}<empty name="_list.info1">暂无</empty>&nbsp;&nbsp;&nbsp;
+			<span>审核：</span>
+			{$_list.info2}<empty name="_list.info2">暂无</empty>&nbsp;&nbsp;&nbsp;
+			<span>退货类型：</span>
+			{$_list.from|get_status_type=###,"returned"}
+			
+	    </div> 
+	    <div style="clear:both"></div> 
+
+		<div class="fb">
+			<div class="fl">
+				<div class="columns-mod">
+					<?php if ($_list['from'] != 2) { ?>
+				        <div class="hd cf">
+				            <h5>供方</h5>
+				            <div class="title-opt"></div>
+				        </div>
+	       				<div class="bd" style="height:auto;"><div class="sys-info">
+	            			<table><tbody>
+				                <tr>
+				                    <th>单位名称（章）</th>
+				                    <td>{$_list.pinfo.company}</td>
+				                </tr>
+				                <tr>
+				                    <th>单位地址</th>
+				                    <td>{$_list.pinfo.address}</td>
+				                </tr>
+				                <tr>
+				                    <th>法定代表人</th>
+				                    <td>{$_list.pinfo.name}</td>
+				                </tr>
+				                <tr>
+				                    <th>委托代理人</th>
+				                    <td>{$_list.pinfo.consigner}</td>
+				                </tr>
+				                <tr>
+				                    <th>电话</th>
+				                    <td>{$_list.pinfo.mobile}</td>
+				                </tr>
+				                <tr>
+				                    <th>传真</th>
+				                    <td>{$_list.pinfo.fax}</td>
+				                </tr>
+	            			</tbody></table>
+	        			</div></div>
+        			<?php } else { ?>
+						<div class="hd cf">
+				            <h5>加盟商（客户）</h5>
+				            <div class="title-opt"></div>
+				        </div>
+	       				<div class="bd" style="height:auto;"><div class="sys-info">
+	            			<table><tbody>
+				                <tr>
+				                    <th>单位名称</th>
+				                    <td>{$_list.pinfo.company}</td>
+				                </tr>
+				                <tr>
+				                    <th>收货地址</th>
+				                    <td>{$_list.pinfo.address}</td>
+				                </tr>
+				                <tr>
+				                    <th>联系人</th>
+				                    <td>{$_list.pinfo.truename}</td>
+				                </tr>
+				                <tr>
+				                    <th>电话</th>
+				                    <td>{$_list.pinfo.mobile}</td>
+				                </tr>
+	            			</tbody></table>
+	        			</div></div>
+        			<?php } ?>
+    			</div>				
+			</div>
+			<div class="fl">
+				<div class="columns-mod">
+			        <div class="hd cf">
+			            <h5>我方</h5>
+			            <div class="title-opt"></div>
+			        </div>
+       				<div class="bd" style="height:auto;"><div class="sys-info">
+            			<table><tbody>
+			                <tr>
+			                    <th>单位名称（章）</th>
+			                    <td><?php echo C('COMPANY_NAME') ?></td>
+			                </tr>
+			                <tr>
+			                    <th>单位地址</th>
+			                    <td><?php echo C('COMPANY_ADDRESS') ?></td>
+			                </tr>
+			                <tr>
+			                    <th>法定代表人</th>
+			                    <td><?php echo C('COMPANY_PERSON') ?></td>
+			                </tr>
+			                <tr>
+			                    <th>委托代理人</th>
+			                    <td><?php echo C('COMPANY_CONSIGNER') ?></td>
+			                </tr>
+			                <tr>
+			                    <th>公司电话</th>
+			                    <td><?php echo C('COMPANY_PHONE') ?></td>
+			                </tr>
+			                <tr>
+			                    <th>公司传真</th>
+			                    <td><?php echo C('COMPANY_FAX') ?></td>
+			                </tr>	
+            			</tbody></table>
+        			</div></div>
+    			</div>	
+			</div>
+			<div style="clear:both"></div>
+		</div>
+</block>
+
+
+<block name="script">
+	<script type="text/javascript">
+	    //导航高亮
+	    highlight_subnav('{:U('Psi/return_list')}');
+	</script>
+</block>
+
+
+
+

@@ -1,0 +1,63 @@
+<extend name="Public/base"/>
+
+<block name="body">
+    <style>
+        .tips { margin:15px 0 15px 0; }
+    </style>
+
+    <div class="main-title">
+        <h2>添加包装品</h2>
+    </div>
+    <form action="{:U()}" method="post" class="form-horizontal">
+        <div class="form-item">
+            <label class="item-label">包装品名称<span class="check-tips"></span></label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="name" value="">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">是否固定<span class="check-tips">（请选择包装品类型）</span></label>
+            <div class="controls">
+                <select name="type">
+            		<option value="">选择分类</option>
+					<option value="1">固定属性</option>
+                    <option value="2">非固定属性</option>
+            	</select>
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">初始库存<span class="check-tips"></span></label>
+            <div class="controls">
+                <input type="text" class="text input" name="num" value="0">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">成本价<span class="check-tips"></span></label>
+            <div class="controls">
+                <input type="text" class="text input" name="price" value="0">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">包装品备注<span class="check-tips">（100字以内，选填）</span></label>
+            <div class="controls">
+                <textarea name="note" class="textarea" cols="54" rows="6"></textarea>
+            </div>
+        </div>
+
+        <div class="tips">
+            <span style="color:red">友情提示：选择固定属性的包装品将附带在每件出库产品里，例50份出库出品，则包含50份该包装品。非固定则数目在出库时自行填写（外箱）。</span>
+        </div> 
+
+        <div class="form-item">
+            <button class="btn submit-btn ajax-post" id="submit" type="submit" target-form="form-horizontal">确 定</button>
+            <button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
+        </div>
+    </form>
+</block>
+
+<block name="script">
+    <script type="text/javascript">
+        //导航高亮
+        highlight_subnav('{:U('Psi/exstock_add')}');
+    </script>
+</block>

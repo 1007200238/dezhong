@@ -1,0 +1,71 @@
+<extend name="Public/base"/>
+
+<block name="body">
+    <div class="main-title">
+        <h2>编辑用户</h2>
+    </div>
+    <form action="{:U()}" method="post" class="form-horizontal">
+        <div class="form-item">
+            <label class="item-label">用户名<span class="check-tips">（用户名会作为默认的昵称）</span></label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="username" value="{$_list.username}" disabled='disabled' style="background-color:#DFDDDD">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">密码<span class="check-tips">（不修改请留空）</span></label>
+            <div class="controls">
+                <input type="password" class="text input-large" name="password" value="">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">确认密码</label>
+            <div class="controls">
+                <input type="password" class="text input-large" name="repassword" value="">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">邮箱<span class="check-tips">（用户邮箱，用于找回密码等安全操作）</span></label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="email" value="{$_list.email}">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">真实姓名<span class="check-tips">（用于订单收货、单据等信息）</span></label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="truename" value="{$_list.truename}">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">公司单位<span class="check-tips"></span></label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="company" value="{$_list.company}">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">联系电话<span class="check-tips"></span></label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="mobile" value="{$_list.mobile}">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">收货地址<span class="check-tips"></span></label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="address" value="{$_list.address}">
+            </div>
+        </div>
+        <input type="hidden" name="id" value="{$_list.id}" />
+
+        <div class="form-item">
+            <button class="btn submit-btn ajax-post" id="submit" type="submit" target-form="form-horizontal">确 定</button>
+            <button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
+        </div>
+    </form>
+
+</block>
+
+<block name="script">
+    <script type="text/javascript">
+        //导航高亮
+        highlight_subnav('{:U('User/index')}');
+    </script>
+</block>

@@ -1,0 +1,95 @@
+<extend name="Public/base" />
+
+<block name="body">
+<style>
+	.columns-mod { width:460px; }
+	.columns-mod th { width:auto; }
+	.sys-info th, .sys-info td { padding:6px 0; line-height:18px; height:18px;}
+	.fb .fl { margin-left:30px; }
+
+</style>
+
+	<!-- 标题栏 -->
+	<div class="main-title"> <h2>入库单详情</h2></div>
+	<div class="cf">
+		<div class="fl">
+			<a class="btn" href="{:U('Psi/in_info')}&id={:I('get.id')}&print=1" target="_blank" >打印单据</a>
+			<span style="font-weight:bold;">入库单编号：</span>
+            {$_list.no}&nbsp;&nbsp;&nbsp;
+            <span style="font-weight:bold;">合同单编号：</span>
+			{$_list.from_no}&nbsp;&nbsp;&nbsp;
+        </div>
+        <div class="fr">
+            <span style="font-weight:bold;">入库日期：</span>
+            {$_list.date|date='Y-m-d H:i',###}&nbsp;&nbsp;&nbsp;
+        </div>
+    </div>
+	    <!-- 数据列表 -->
+    <div class="data-table table-striped">
+		<table class="">
+	    <thead>
+	        <tr>
+	        	<th class="row-selected row-selected"><input class="check-all" type="checkbox"/></th>
+				<th class="">Id</th>
+				<th class="">产品编码</th>
+				<th class="">产品名称</th>
+				<th class="">OE号</th>
+				<th class="">适用车型</th>
+				<th class="">单位</th>
+				<th class="">本期入库数</th>
+			</tr>
+	    </thead>
+	    <tbody>
+			<notempty name="_list">
+			<volist name="_list.info" id="vo" key="i">
+				<notempty name="vo.code">
+				<tr>
+					<td><input class="ids" type="checkbox" name="id[]" value="{$vo.id}" /></td>
+					<td>{$vo.id}</td>
+		            <td>{$vo.code}</td>
+		            <td><a href="{:U('Psi/stock_info')}&id={$vo.id}">{$vo.name}</a></td>
+					<td>{$vo.OE}</td>
+					<td>{$vo.standard}</td>
+					<td>{$vo.unit}</td>
+					<td>{$vo.num}</td>
+				</tr>
+				</notempty>
+				<?php $sum += $vo['num']; ?>
+			</volist>
+			<tr>
+				<td colspan="6" style="text-align:center; font-weight:bold;"> 合  计 </td>
+				<td> —— </td>
+				<td>{$sum}</td>
+			</tr>
+			<tr>
+				<td colspan="2" style="text-align:center; font-weight:bold;"> 单据备注 </td>
+				<td colspan="6">{$_list.note}<empty name="_list.note">暂无</empty></td>
+			</tr>
+			<else/>
+			<td colspan="9" class="text-center"> aOh! 暂时还没有内容! </td>
+			</notempty>
+		</tbody>
+	    </table>
+		</div>
+	    <div class="page">
+	        {$_page}
+	    </div>
+	    <div class="fl" style="float:right !important;">
+	    	<span style="font-weight:bold">操作员：</span>
+			{$_list.user|get_username}&nbsp;&nbsp;&nbsp;
+			<span style="font-weight:bold">供应商：</span>
+			{$_list.supplier.company}
+	    </div>
+</block>
+
+
+<block name="script">
+	<script type="text/javascript">
+	    //导航高亮
+	    highlight_subnav('{:U('Psi/in_list')}');
+	</script>
+</block>
+
+
+
+

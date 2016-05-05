@@ -1,0 +1,140 @@
+<extend name="Public/base" />
+
+<block name="body">
+	<!-- 标题栏 -->
+	<div class="main-title">
+		<h2>确认订单</h2>
+	</div>
+	<div class="cf">
+		<div class="fl">
+			筛选时间：
+			<select name="year" id="years" class="change">
+				<option value="0">请选年份</option>
+				<volist name="_sel.year" id="vo" key="i">
+					<option value="{$key}" {$vo}>{$key}</option>
+				</volist>
+			</select> 年
+			<select name="month" id="month" class="change">
+				<option value="0">请选月份</option>
+				<volist name="_sel.month" id="vo" key="i">
+					<option value="{$i}" {$vo}>{$i}</option>
+				</volist>
+			</select> 月
+			&nbsp;&nbsp;&nbsp;产品分类： 
+			<select name="category" id="cat" class="change">
+				<option value="">请选择分类</option>
+				<volist name="_sel.category._" id="vo">
+					<option value="{$vo.id}" <?php if(I('category')==$vo['id']){ ?> selected <?php } ?> >{$vo.title}</option>
+				</volist>
+			</select>
+        </div>
+    </div>
+    <!-- 数据列表 -->
+    <div class="data-table table-striped">
+		<div id="column_1" style="min-width: 500px; height: 600px; max-width:90%; margin:50px auto"></div>
+	</div>
+
+</block>
+
+<block name="script">
+	<script src="__STATIC__/thinkbox/jquery.thinkbox.js"></script>
+	<script src="__STATIC__/highcharts/highcharts.js"></script>
+	<script src="__STATIC__/highcharts/modules/exporting.js"></script>
+
+<script type="text/javascript">
+$(function () {
+    var chart;
+    $(document).ready(function () {
+
+		$('#years,#month,#cat,#sup').change(function(){
+			$.post(	'<?php echo U("Psi/returnCharts"); ?>',
+				{   year:$('#years').val(),
+					month:$('#month').val(),
+					cat:$('#cat').val(),
+					obj:"charts_4",
+				},
+			function(datas){
+				var column_1 = $('#column_1').highcharts();
+				//将传回来的data数据转成json数据格式
+				datas = eval('(' + datas+ ')');
+				column_1.series[0].setData(datas);
+				var years = $('#years').val();
+				if (years!="0") { 
+					column_1.setTitle({text:"<b>"+years+"年产品供应商供货排行柱状图</b>"}); 
+				}else{
+					column_1.setTitle({text:"<b>本年产品供应商供货排行柱状图</b>"});
+				}	
+	   		});				
+		});
+
+		$('#column_1').highcharts({
+	        chart: {
+	            type: 'column'
+	        },
+            title: {
+                text: ' <b><?php echo date("Y",strtotime("-1 month")); ?>年产品供应商供货排行柱状图</b> '
+            },
+            subtitle: {
+                text: '（产品分布，筛选时间、产品分类）',
+                style: { fontSize: '15px' },
+            },
+            xAxis: {
+	            	gridLineWidth: 1,
+					lineColor: '#000',
+					tickColor: '#000',
+                type: 'category',
+                labels: {
+                    rotation: -45,
+                    align: 'right',
+                    style: {
+                        fontSize: '13px',
+                        fontFamily: 'Verdana, sans-serif'
+                    }
+                }
+            },
+            yAxis: {
+			        minorTickInterval: 'auto',
+					lineColor: '#000',
+					lineWidth: 1,
+					tickWidth: 1,
+					tickColor: '#000',
+                min: 0,
+                title: {
+                    text: '供货量'
+                }
+            },
+            legend: {
+                enabled: false
+            },
+            tooltip: {
+                pointFormat: '此月份供货量: <b>{point.y:.1f} </b>',
+            },
+            series: [{
+                name: '项目统计',
+                data: {$data},
+                dataLabels: {
+                    enabled: true,
+                    rotation: -90,
+                    color: '#FFFFFF',
+                    align: 'right',
+                    x: 4,
+                    y: 10,
+                    style: {
+                        fontSize: '13px',
+                        fontFamily: 'Verdana, sans-serif',
+                        textShadow: '0 0 3px black'
+                    }
+                }
+            }]
+		});
+	});
+});
+</script>
+
+
+
+	<script type="text/javascript">
+    //导航高亮
+    highlight_subnav('{:U('User/index')}');
+	</script>
+</block>

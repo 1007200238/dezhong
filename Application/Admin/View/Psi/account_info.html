@@ -1,0 +1,63 @@
+<extend name="Public/base"/>
+
+<block name="body">
+    <div class="main-title">
+        <h2>财务明细</h2>
+    </div>
+    <form action="{:U()}" method="post" class="form-horizontal">
+        <div class="form-item">
+            <label class="item-label">供应商名称<span class="check-tips"></span></label>
+            <div class="controls">{$info.supplier_id|get_company}</div>
+        </div>        
+        <div class="form-item">
+            <label class="item-label">明细日期<span class="check-tips">（15字以内）</span></label>
+            <div class="controls">{$info.date||date="Y-m-d",###}</div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">摘要<span class="check-tips">（50字以内）</span></label>
+            <div class="controls">{$info.intro}</div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">借方<span class="check-tips">付款</span></label>
+            <div class="controls">{$info.debit}</div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">贷方<span class="check-tips">收货</span></label>
+            <div class="controls">{$info.credit}</div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">余额<span class="check-tips"></span></label>
+            <div class="controls">{$info.balance}</div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">备注<span class="check-tips">（50字以内）</span></label>
+            <div class="controls">{$info.note}</div>
+        </div>
+        <div class="form-item">
+            <button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
+        </div>
+    </form>
+</block>
+
+<block name="script">
+    <link href="__STATIC__/datetimepicker/css/datetimepicker.css" rel="stylesheet" type="text/css">
+    <php>if(C('COLOR_STYLE')=='blue_color') echo '<link href="__STATIC__/datetimepicker/css/datetimepicker_blue.css" rel="stylesheet" type="text/css">';</php>
+    <link href="__STATIC__/datetimepicker/css/dropdown.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="__STATIC__/datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="__STATIC__/datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+    <script type="text/javascript">
+    $(function(){
+        $('.time').datetimepicker({
+            format: 'yyyy-mm-dd',
+            language:"zh-CN",
+            minView:2,
+            autoclose:true
+        });
+        showTab();
+    });
+    </script>
+    <script type="text/javascript">
+        //导航高亮
+        highlight_subnav('{:U('Psi/account')}');
+    </script>
+</block>

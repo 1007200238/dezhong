@@ -1,0 +1,70 @@
+<extend name="Public/base" />
+
+<block name="body">
+	<!-- 标题栏 -->
+	<div class="main-title">
+		<h2>操作记录</h2>
+	</div>
+	<div class="cf">
+		<div class="search-form">
+			<div class="sleft">
+			</div>
+		</div>
+		<div class="search-form fr cf" style="float:left">
+			<div class="sleft">
+				<input type="text" name="code" class="search-input" value="{:I('code')}" placeholder="请输入查询产品的编号代码">
+				<a class="sch-btn" href="javascript:;" id="search" url="{:U('record')}"><i class="btn-search"></i></a>
+			</div>
+		</div>
+    </div>
+    <!-- 数据列表 -->
+    <div class="data-table table-striped">
+	<table class="">
+    <thead>
+        <tr>
+		<th class="row-selected row-selected"><input class="check-all" type="checkbox"/></th>
+		<volist name="_th" id="vo">
+			<th class="">{$vo}</th>
+		</volist>	
+		</tr>
+    </thead>
+    <tbody>
+		<notempty name="_list">
+		<volist name="_list" id="vo">
+		<tr>
+            <td><input class="ids" type="checkbox" name="id[]" value="{$vo.id}" /></td>
+            <td>{$vo.id}</td>
+			<td>{$vo.code} </td>
+			<td><a href="{:U('Psi/stock_info')}&id={$vo.sid}">{$vo.name}</a></td>
+			<td>{$vo.type|get_status_type=###,"record"}</td>
+			<td>{$vo.num}</td>
+			<td>{$vo.date|date="Y-m-d H:i:s",###}</td>
+			<?php if ($mode == 'admin'): ?>
+				<td>{$vo.warehouse}</td>
+				<td>{$vo.supplier}</td>
+				<td>{$vo.price}</td>
+			<?php endif ?>		
+		</tr>
+		</volist>
+		<else/>
+			<td colspan="9" class="text-center"> aOh! 暂时还没有内容! </td>
+		</notempty>
+	</tbody>
+    </table>
+	</div>
+    <div class="page">
+        {$_page}
+    </div>
+    <div class="fb">
+		<span style="color:#999">友情提示：这里展示的是所有商品出入库单条记录。</span>
+	</div> 
+</block>
+
+<block name="script">
+	<script src="__STATIC__/thinkbox/jquery.thinkbox.js"></script>
+
+	<script type="text/javascript">
+    //导航高亮
+    highlight_subnav('{:U('Psi/exstock_record')}');
+	</script>
+</block>
